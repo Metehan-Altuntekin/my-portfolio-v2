@@ -1,3 +1,60 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-@import 'tailwindcss/utilities'
+@import 'tailwindcss/utilities';
+
+@layer base {
+	:root {
+		/* Font rendering corrections */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-smooth: never;
+
+		--page-padding: 100px;
+	}
+
+	* {
+		@apply box-border;
+		color: theme(colors.base.content);
+		object-fit: cover;
+		object-position: center;
+	}
+
+	/* for some reason, Tailwind is adding border-style: solid to everything and it's showing border on the edges of the site. Remove that with this code.*/
+	*,
+	::before,
+	::after {
+		border-style: none;
+	}
+
+	/* Prevent false padding on right of the screen */
+	html {
+		width: 100%;
+		overflow-x: hidden;
+		position: relative;
+		background-color: theme(colors.base.200);
+	}
+
+	body {
+		@apply min-h-screen border;
+		background: radial-gradient(theme(colors.base.100), theme(colors.base.200));
+	}
+
+	section {
+		padding: var(--page-padding);
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p {
+		text-shadow: 0px 0px 32px rgb(0, 0, 0, 25%);
+	}
+
+	.text-xl {
+		line-height: 28px;
+	}
+}
+
