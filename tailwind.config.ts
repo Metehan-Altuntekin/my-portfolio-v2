@@ -22,11 +22,12 @@ export default {
 				accent: '#F9F871'
 			},
 			borderRadius: {
-				sm: '20px',
-				md: '24px',
-				lg: '28px',
-				xl: '32px',
-				'2xl': '40px'
+				xs: '24px',
+				sm: '28px',
+				md: '32px',
+				lg: '36px',
+				xl: '40px',
+				'2xl': '44px'
 			}
 		}
 	},
