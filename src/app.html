@@ -5,13 +5,17 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap"
-			rel="stylesheet"
-		/>
-
+		<style>
+			@font-face {
+				font-family: 'Commissioner';
+				src:
+					url('./fonts/Commissioner/Commissioner-VariableFont_FLAR,VOLM,slnt,wght.woff2')
+						format('woff2 supports variations'),
+					url('./fonts/Commissioner/Commissioner-VariableFont_FLAR,VOLM,slnt,wght.woff2')
+						format('woff2-variations');
+				font-weight: 100 1000;
+			}
+		</style>
 		<title>Metehan Altuntekin | Think, research, design, build.</title>
 
 		%sveltekit.head%
