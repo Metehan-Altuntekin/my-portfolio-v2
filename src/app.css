@@ -15,13 +15,6 @@
 		font-smooth: never;
 	}
 
-	/* for some reason, Tailwind is adding border-style: solid to everything and it's showing border on the edges of the site. Remove that with this code.*/
-	*,
-	::before,
-	::after {
-		border-style: none;
-	}
-
 	/* Prevent false padding on right of the screen */
 	html {
 		width: 100%;
@@ -31,7 +24,7 @@
 	}
 
 	body {
-		@apply min-h-screen border;
+		@apply min-h-screen;
 		background: radial-gradient(theme(colors.base.100), theme(colors.base.200));
 	}
 
