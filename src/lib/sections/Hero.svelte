@@ -64,7 +64,7 @@
 	<!--  CTAs -->
 	<div
 		class="flex gap-5 | col-start-1 col-end-13 row-start-10 row-end-13
-					"
+					sm:self-end"
 	>
 		{#each ctas as c (c.title)}
 			<a class="card card-clickable w-64 gap-1 p-3 lg:gap-3 lg:p-6" href={c.url}>
