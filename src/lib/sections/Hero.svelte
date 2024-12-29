@@ -68,7 +68,7 @@
 	>
 		{#each ctas as c (c.title)}
 			<a class="card card-clickable w-64 gap-1 p-3 lg:gap-3 lg:p-6" href={c.url}>
-				<h2 class="text-xl lg:text-2xl font-bold">{c.title}</h2>
+				<h2 class="text-xl/7 lg:text-2xl font-bold">{c.title}</h2>
 				<p class="text-subtitle">{c.description}</p>
 			</a>
 		{/each}
@@ -86,7 +86,7 @@
 			class="card card-clickable flex-row items-center justify-center gap-3 px-5 py-3 xl:gap-6 xl:px-9 xl:py-5"
 		>
 			<Icon icon="foundation:mail" class="text-2xl lg:text-3xl xl:text-5xl" />
-			<span class="text-xl lg:text-2xl xl:text-3xl font-bold">dev@metehan.design</span>
+			<span class="text-xl/7 lg:text-2xl xl:text-3xl font-bold">dev@metehan.design</span>
 		</div>
 	</div>
 </section>
