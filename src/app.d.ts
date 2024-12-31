@@ -8,6 +8,21 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
+
+	type Skill = {
+		name: string;
+		iconId: string;
+	};
+
+	type Project = {
+		name: string;
+		desc: string;
+		tags: string[];
+		skills: Skill[];
+
+		thumb: string;
+		visitUrl: string;
+	};
 }
 
 export {};
