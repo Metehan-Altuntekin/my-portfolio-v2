@@ -80,7 +80,7 @@
 		lg:col-start-8 lg:col-end-13 lg:row-start-10 lg:row-end-13 lg:justify-self-end lg:self-end
 	"
 	>
-		<span class="chip">Interested in working with me?</span>
+		<span class="chip backdrop-blur-xl">Interested in working with me?</span>
 
 		<div
 			class="card card-clickable flex-row items-center justify-center gap-3 px-5 py-3 xl:gap-6 xl:px-9 xl:py-5"
