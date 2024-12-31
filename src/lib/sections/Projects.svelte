@@ -12,6 +12,7 @@
 		<p>Projects I have worked on with clients or on my own</p>
 	</div>
 
+	<!-- TODO probably sliding container for mobile -->
 	<!-- Projects Container -->
 	<flex
 		class="grid auto-rows-fr items-center justify-center content-center w-full
@@ -35,14 +36,13 @@
 
 					<div class="chip rounded-3xs flex gap-2">
 						{#each p.skills as s}
-							<Icon icon="" class="h-5 w-5 text-trans" />
-
 							<!-- TODO name tooltip -->
 							<Icon icon={s.iconId} class="h-5 w-5 text-trans" />
 						{/each}
 					</div>
 				</div>
 
+				<!-- TODO revise the hover cover -->
 				<a
 					href={p.visitUrl}
 					class="mt-2 relative
