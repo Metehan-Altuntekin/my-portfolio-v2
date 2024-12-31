@@ -6,6 +6,10 @@
 	const yArray = Array.from(Array(yLineCount).keys());
 </script>
 
+<!-- @component This component renders a background grid decoration that looks like the lines on a blueprint. -->
+
+<!-- TODO make it either fixed or align properly for sections. Experiment. -->
+
 <div class="bg-grid absolute left-0 top-0 z-0 h-full w-screen overflow-hidden border">
 	<div class="absolute inset-0 flex gap-[94px] before:border-none after:border-none">
 		{#each xArray as x, i (i)}
