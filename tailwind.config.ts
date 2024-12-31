@@ -25,6 +25,8 @@ export default {
 			},
 
 			borderRadius: {
+				'3xs': '12px',
+				'2xs': '16px',
 				xs: '20px',
 				sm: '28px',
 				md: '32px',
