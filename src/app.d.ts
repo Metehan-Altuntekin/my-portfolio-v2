@@ -23,6 +23,12 @@ declare global {
 		thumb: string;
 		visitUrl: string;
 	};
+
+	type Skill = {
+		name: string;
+		areas: string[];
+		tools: Tool[];
+	};
 }
 
 export {};
