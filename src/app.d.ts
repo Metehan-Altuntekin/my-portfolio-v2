@@ -29,6 +29,12 @@ declare global {
 		areas: string[];
 		tools: Tool[];
 	};
+
+	type Social = {
+		name: string;
+		url: string;
+		iconId: string;
+	};
 }
 
 export {};
