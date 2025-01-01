@@ -10,11 +10,13 @@
 
 <GridBg />
 
-<Header />
+<div class="w-full z-10 relative">
+	<Header />
 
-<Hero />
-<Projects />
-<Skills />
-<Contact />
+	<Hero />
+	<Projects />
+	<Skills />
+	<Contact />
 
-<Footer />
+	<Footer />
+</div>
