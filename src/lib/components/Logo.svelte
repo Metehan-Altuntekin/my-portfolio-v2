@@ -1,4 +1,4 @@
-<span class="logo text-xl sm:text-2xl md:text-3xl lg:text-4xl text-shadow">Metehan Altuntekin</span>
+<span class="logo text-xl sm:text-2xl md:text-3xl text-shadow">Metehan Altuntekin</span>
 
 <!-- TODO logo too big on scroll. Make it smaller as the screen scrolls, in the header. -->
 
