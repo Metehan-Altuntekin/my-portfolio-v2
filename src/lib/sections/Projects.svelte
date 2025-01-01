@@ -9,7 +9,7 @@
 	<!-- Heading -->
 	<div class="w-full flex flex-col items-center mb-10 md:mb-12 lg:mb-16">
 		<h1 class="text-3xl md:text-4xl lg:text-5xl text-center mb-[0.5em] font-bold">My Projects</h1>
-		<p>Projects I have worked on with clients or on my own</p>
+		<p class="text-center">Projects I have worked on with clients or on my own</p>
 	</div>
 
 	<!-- TODO probably sliding container for mobile -->
@@ -46,12 +46,20 @@
 				<a
 					href={p.visitUrl}
 					class="mt-2 relative
-					after:flex after:opacity-0 hover:after:opacity-100 after:transition-all
-					after:inset-0 after:bg-black/50 after:z-10 after:absolute after:rounded-2xs after:content-['Visit']
-					after:items-center after:justify-center after:text-2xl after:font-semibold"
+					"
 					title="Visit {p.name}"
 				>
 					<img src={p.thumb} class="aspect-video rounded-2xs" alt="Preview of {p.name} project" />
+					<div
+						class="flex opacity-0 hover:opacity-100 transition-all
+									inset-0 bg-white/10 z-10 absolute rounded-2xs content-['']
+									items-center justify-center text-2xl font-semibold backdrop-blur-sm"
+					>
+						<span class="chip bg-black/50 text-xl text-base-content">
+							Visit Site
+							<Icon icon="material-symbols:arrow-outward-rounded" class="text-3xl ml-2 inline" />
+						</span>
+					</div>
 				</a>
 			</div>
 		{/each}
