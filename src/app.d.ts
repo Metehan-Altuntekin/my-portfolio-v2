@@ -9,7 +9,7 @@ declare global {
 		// interface Platform {}
 	}
 
-	type Skill = {
+	type Tool = {
 		name: string;
 		iconId: string;
 	};
@@ -18,7 +18,7 @@ declare global {
 		name: string;
 		desc: string;
 		tags: string[];
-		skills: Skill[];
+		tools: Tool[];
 
 		thumb: string;
 		visitUrl: string;

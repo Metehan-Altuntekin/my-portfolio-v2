@@ -1,6 +1,6 @@
 import allsetThumb from '$lib/content/thumbs/allset-thumb.webp';
 
-const skills = {
+export const tools = {
 	ts: {
 		name: 'TypeScript',
 		iconId: 'skill-icons:typescript'
@@ -47,7 +47,7 @@ const projects: Project[] = [
 	{
 		name: 'Allset.chat',
 		desc: 'Allset.chat is a project I made the design and the frontend development of the landing site of.',
-		skills: [skills.ts, skills.figma, skills.svelte, skills.tailwind, skills.daisyui],
+		tools: [tools.ts, tools.figma, tools.svelte, tools.tailwind, tools.daisyui],
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://allset.chat',
 		thumb: allsetThumb
@@ -55,7 +55,7 @@ const projects: Project[] = [
 	{
 		name: 'Allset.chat',
 		desc: 'Allset.chat is a project I made the design and the frontend development of the landing site of.',
-		skills: [skills.ts],
+		tools: [tools.ts],
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://allset.chat',
 		thumb: allsetThumb
@@ -63,7 +63,7 @@ const projects: Project[] = [
 	{
 		name: 'Allset.chat',
 		desc: 'Allset.chat is a project I made the design and the frontend development of the landing site of.',
-		skills: [skills.ts],
+		tools: [tools.ts],
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://allset.chat',
 		thumb: allsetThumb
@@ -71,7 +71,7 @@ const projects: Project[] = [
 	{
 		name: 'Allset.chat',
 		desc: 'Allset.chat is a project I made the design and the frontend development of the landing site of.',
-		skills: [skills.ts],
+		tools: [tools.ts],
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://allset.chat',
 		thumb: allsetThumb
@@ -79,7 +79,7 @@ const projects: Project[] = [
 	{
 		name: 'Allset.chat',
 		desc: 'Allset.chat is a project I made the design and the frontend development of the landing site of.',
-		skills: [skills.ts],
+		tools: [tools.ts],
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://allset.chat',
 		thumb: allsetThumb
@@ -87,7 +87,7 @@ const projects: Project[] = [
 	{
 		name: 'Allset.chat',
 		desc: 'Allset.chat is a project I made the design and the frontend development of the landing site of.',
-		skills: [skills.ts],
+		tools: [tools.ts],
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://allset.chat',
 		thumb: allsetThumb

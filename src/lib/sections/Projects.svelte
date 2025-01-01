@@ -35,9 +35,9 @@
 					</div>
 
 					<div class="chip rounded-3xs flex gap-2">
-						{#each p.skills as s}
+						{#each p.tools as t}
 							<!-- TODO name tooltip -->
-							<Icon icon={s.iconId} class="h-5 w-5 text-trans" />
+							<Icon icon={t.iconId} class="h-5 w-5 text-trans" />
 						{/each}
 					</div>
 				</div>
