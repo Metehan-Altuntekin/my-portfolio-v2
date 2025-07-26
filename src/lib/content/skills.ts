@@ -32,7 +32,7 @@ const skills: Skill[] = [
 			tools.react,
 			tools.sass,
 			tools.mui,
-			tools.shadcn,
+			// tools.shadcn,
 			tools.nodejs
 		]
 	}
