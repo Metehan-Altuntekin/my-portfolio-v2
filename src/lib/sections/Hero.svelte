@@ -77,17 +77,17 @@
 	<!-- Email -->
 	<div
 		class="hidden flex-col items-center justify-center gap-2 lg:flex
-		lg:col-start-8 lg:col-end-13 lg:row-start-10 lg:row-end-13 lg:justify-self-end lg:self-end
-	"
+					lg:col-start-8 lg:col-end-13 lg:row-start-10 lg:row-end-13 lg:justify-self-end lg:self-end
+		"
 	>
-		<a href="#contact" class="chip backdrop-blur-xl">Interested in working with me?</a>
+		<a href="#contact" class="chip backdrop-blur-xl">Reach out</a>
 
 		<a
 			href="mailto:dev@metehan.design"
 			class="card card-clickable flex-row items-center justify-center gap-3 px-5 py-3 xl:gap-6 xl:px-9 xl:py-5"
 		>
-			<Icon icon="foundation:mail" class="text-2xl lg:text-3xl xl:text-5xl" />
-			<span class="text-xl/7 lg:text-2xl xl:text-3xl font-bold">dev@metehan.design</span>
+			<Icon icon="foundation:mail" class="text-2xl lg:text-3xl xl:text-4xl" />
+			<span class="text-xl/7 lg:text-xl xl:text-2xl font-bold">dev@metehan.design</span>
 		</a>
 	</div>
 </section>
