@@ -13,9 +13,9 @@ export default {
 		extend: {
 			colors: {
 				base: {
-					100: '#1279EF',
-					200: '#1365C2',
-					300: '#1057A7',
+					100: '#028ECE',
+					200: '#005792',
+					300: '#023F68',
 					content: '#FFFFFF',
 					'content-muted': '#BED1EA',
 					cardBase: 'rgba(0,0,0, 0.2)'
