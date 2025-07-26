@@ -15,7 +15,7 @@
 	</div>
 
 	<!-- Skills -->
-	<div class="flex flex-col lg:flex-row items-stretch gap-4">
+	<div class="flex flex-col lg:flex-row items-stretch gap-4 lg:gap-6">
 		{#each skills as s, i (i)}
 			<div
 				class="card gap-5 lg:gap-8 w-full max-w-[400px] xl:max-w-[500px] justify-between md:p-7 xl:p-9"
@@ -29,34 +29,13 @@
 					</ul>
 				</div>
 
-				<div>
-					<div class="w-full overflow-hidden mb-5">
-						<svg
-							width="504"
-							height="1"
-							viewBox="0 0 504 1"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<line
-								y1="0.5"
-								x2="504"
-								y2="0.5"
-								stroke="white"
-								stroke-opacity="0.3"
-								stroke-dasharray="8 8"
-							/>
-						</svg>
-					</div>
-
-					<div class="flex gap-2 flex-wrap">
-						{#each s.tools as t}
-							<!-- TODO name tooltip -->
-							<div class="rounded-2xs p-2 lg:p-3 lg:rounded-xs bg-base-cardBase">
+				<div class="flex gap-2 flex-wrap">
+					{#each s.tools as t}
+						<!-- TODO name tooltip -->
+						<!-- <div class="rounded-2xs p-2 lg:p-3 lg:rounded-xs bg-base-cardBase">
 								<Icon icon={t.iconId} class="h-6 w-6 | md:h-7 md:w-7 | xl:h-9 xl:w-9" />
-							</div>
-						{/each}
-					</div>
+							</div> -->
+					{/each}
 				</div>
 			</div>
 
@@ -64,7 +43,7 @@
 				<!-- <span class="text-5xl self-center">&#8674;</span> -->
 				<Icon
 					icon="material-symbols:arrow-cool-down"
-					class="text-3xl lg:text-5xl self-center lg:-rotate-90 opacity-70"
+					class="text-3xl lg:text-8xl self-center lg:-rotate-90 opacity-70"
 				/>
 			{/if}
 		{/each}

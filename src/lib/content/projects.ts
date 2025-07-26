@@ -15,7 +15,7 @@ export const tools = {
 		iconId: 'logos:figma'
 	},
 	svelte: {
-		name: 'Svelte',
+		name: 'Svelte/Kit',
 		iconId: 'logos:svelte-icon'
 	},
 	tailwind: {
@@ -34,10 +34,18 @@ export const tools = {
 		name: 'React',
 		iconId: 'logos:react'
 	},
-	shadcn: {
-		name: 'ShadCN',
-		iconId: 'simple-icons:shadcnui'
+	supabase: {
+		name: 'Supabase',
+		iconId: 'devicon:supabase'
 	},
+	nextJs: {
+		name: 'NextJS',
+		iconId: 'devicon:nextjs'
+	},
+	// shadcn: {
+	// 	name: 'ShadCN',
+	// 	iconId: 'simple-icons:shadcnui'
+	// },
 	mui: {
 		name: 'Material UI',
 		iconId: 'simple-icons:mui'
@@ -47,7 +55,7 @@ export const tools = {
 		iconId: 'logos:nodejs-icon'
 	},
 	affinityDesigner: {
-		name: 'Affinity Designer 2',
+		name: 'AD 2',
 		iconId: 'simple-icons:affinitydesigner'
 	}
 } as const;

@@ -6,6 +6,7 @@
 	import Hero from '$lib/sections/Hero.svelte';
 	import Projects from '$lib/sections/Projects.svelte';
 	import Skills from '$lib/sections/Skills.svelte';
+	import Toolbox from '$lib/sections/Toolbox.svelte';
 </script>
 
 <GridBg />
@@ -16,6 +17,8 @@
 	<Hero />
 	<Projects />
 	<Skills />
+	<Toolbox />
+
 	<Contact />
 
 	<Footer />
