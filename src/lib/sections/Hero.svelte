@@ -25,7 +25,7 @@
 
 <section
 	id="hero-section"
-	class="z-10 h-screen pt-16 md:pt-[var(--page-padding)] sm:portrait:h-min
+	class="z-10 h-screen pt-16 sm:portrait:h-min
 				grid grid-cols-12 grid-rows-12 gap-4 sm:gap-6 md:gap-x-10 lg:gap-10 xl:gap-x-20
 				items-center justify-center
 				"
