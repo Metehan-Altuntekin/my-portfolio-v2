@@ -88,7 +88,7 @@ const projects: Project[] = [
 	},
 	{
 		name: 'Ozkan Musavirlik',
-		desc: 'Ozkan Mali Musavirlik is a landing and blog site I designed and coded for my accountancy firm. ',
+		desc: 'Ozkan Mali Musavirlik is a landing and blog site I designed and coded for my accountant. ',
 		tools: [tools.ts, tools.svelte, tools.sass, tools.figma],
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://www.ozkanmusavirlik.com.tr',
