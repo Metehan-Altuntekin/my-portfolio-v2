@@ -8,7 +8,7 @@
 <section id="projects">
 	<!-- Heading -->
 	<div class="w-full flex flex-col items-center mb-10 md:mb-12 lg:mb-16">
-		<h1 class="text-3xl md:text-4xl lg:text-5xl text-center mb-[0.5em] font-bold">My Projects</h1>
+		<h1 class="text-3xl md:text-4xl lg:text-5xl text-center mb-[0.5em] font-bold">Projects</h1>
 		<p class="text-center">Projects I have worked on with clients or on my own</p>
 	</div>
 
@@ -23,37 +23,15 @@
 	>
 		<!-- Projects -->
 		{#each projects as p, i (i)}
-			<div class="card gap-1 md:gap-3">
-				<h2 class="text-2xl xl:text-3xl font-bold">{p.name}</h2>
-				<p class="text-subtitle">{p.desc}</p>
-
-				<div class="flex justify-between">
-					<div class="flex gap-1">
-						{#each p.tags as tag}
-							<span class="chip bg-opacity-0">{tag}</span>
-						{/each}
-					</div>
-
-					<div class="chip rounded-3xs flex gap-2">
-						{#each p.tools as t}
-							<!-- TODO name tooltip -->
-							<Icon icon={t.iconId} class="h-5 w-5 text-trans" />
-						{/each}
-					</div>
-				</div>
-
+			<div class="card p-0 overflow-hidden">
 				<!-- TODO revise the hover cover -->
-				<a
-					href={p.visitUrl}
-					class="mt-2 relative
-					"
-					title="Visit {p.name}"
-				>
-					<img src={p.thumb} class="aspect-video rounded-2xs" alt="Preview of {p.name} project" />
+				<a href={p.visitUrl} class="relative" title="Visit {p.name}">
+					<img src={p.thumb} class="aspect-video" alt="Preview of {p.name} project" />
+
 					<div
 						class="flex opacity-0 hover:opacity-100 transition-all
-									inset-0 bg-white/10 z-10 absolute rounded-2xs content-['']
-									items-center justify-center text-2xl font-semibold backdrop-blur-sm"
+								inset-0 bg-white/10 z-10 absolute rounded-2xs content-['']
+								items-center justify-center text-2xl font-semibold backdrop-blur-sm"
 					>
 						<span class="chip bg-black/50 text-xl text-base-content">
 							Visit Site
@@ -61,6 +39,29 @@
 						</span>
 					</div>
 				</a>
+
+				<div
+					class="flex flex-col p-3 gap-2
+								lg:p-5 md:gap-3"
+				>
+					<h2 class="text-xl md:text-2xl xl:text-3xl font-bold">{p.name}</h2>
+					<p class="text-base-content-muted text-xs sm:text-sm/4">{p.desc}</p>
+
+					<div class="flex justify-between">
+						<div class="flex gap-1">
+							{#each p.tags as tag}
+								<span class="chip bg-opacity-0">{tag}</span>
+							{/each}
+						</div>
+
+						<div class="chip rounded-3xs flex gap-2">
+							{#each p.tools as t}
+								<!-- TODO name tooltip -->
+								<Icon icon={t.iconId} class="h-5 w-5 text-trans" />
+							{/each}
+						</div>
+					</div>
+				</div>
 			</div>
 		{/each}
 	</flex>
