@@ -12,7 +12,7 @@ const skills: Skill[] = [
 			'Redesigns',
 			'Concept exploration'
 		],
-		tools: [tools.figma, tools.daisyui]
+		tools: [tools.figma, tools.daisyui, tools.affinityDesigner]
 	},
 	{
 		name: 'Development',

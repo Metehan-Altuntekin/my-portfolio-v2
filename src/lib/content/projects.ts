@@ -45,6 +45,10 @@ export const tools = {
 	nodejs: {
 		name: 'Node JS',
 		iconId: 'logos:nodejs-icon'
+	},
+	affinityDesigner: {
+		name: 'Affinity Designer 2',
+		iconId: 'simple-icons:affinitydesigner'
 	}
 } as const;
 
