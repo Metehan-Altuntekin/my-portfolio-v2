@@ -49,7 +49,7 @@
 	<div
 		class="col-start-1 col-end-12 row-start-6 row-end-10
 					sm:col-end-8 sm:row-start-1 sm:row-end-10
-					lg:row-end-12 lg:max-w-[40vw]"
+					lg:row-end-10 lg:max-w-[40vw]"
 	>
 		<h1 class="mb-[0.725em] text-[clamp(40px,5vw,88px)] font-bold leading-[1.14em]">
 			Think, research, design, build.
