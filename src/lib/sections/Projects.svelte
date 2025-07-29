@@ -15,7 +15,7 @@
 	<!-- TODO probably sliding container for mobile -->
 	<!-- Projects Container -->
 	<flex
-		class="grid auto-rows-fr items-center justify-center content-center w-full
+		class="grid auto-rows-fr items-stretch justify-center w-full
 					grid-cols-[repeat(auto-fill,minmax(320px,1fr))]
 					md:grid-cols-[repeat(auto-fill,minmax(360px,1fr))]
 					xl:grid-cols-[repeat(auto-fill,minmax(400px,1fr))]
