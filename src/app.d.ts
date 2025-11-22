@@ -21,7 +21,7 @@ declare global {
 		tools: Tool[];
 
 		thumb: string;
-		visitUrl: string;
+		visitUrl?: string;
 	};
 
 	type Skill = {

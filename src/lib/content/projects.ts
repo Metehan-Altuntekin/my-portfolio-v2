@@ -62,11 +62,18 @@ export const tools = {
 
 const projects: Project[] = [
 	{
+		name: 'Ozkan Musavirlik',
+		desc: 'Ozkan Mali Musavirlik is a landing and blog site I designed and coded for my accountant. ',
+		tools: [tools.ts, tools.svelte, tools.sass, tools.figma],
+		tags: ['Design', 'Frontend'],
+		visitUrl: 'https://www.ozkanmusavirlik.com.tr',
+		thumb: ozkanMusavirlikThumb
+	},
+	{
 		name: 'AllSet',
 		desc: 'allset.chat is a an AI receptionist that works through WhatsApp. I have designed the brand identity and the landing site.',
 		tools: [tools.ts, tools.figma, tools.svelte, tools.tailwind, tools.daisyui],
 		tags: ['Design', 'Frontend'],
-		visitUrl: 'https://allset.chat',
 		thumb: allsetThumb
 	},
 	{
@@ -86,14 +93,7 @@ const projects: Project[] = [
 			'https://www.figma.com/proto/Y3429sNI1L6LkuI8Jy8h4b/Booking-App?page-id=6332%3A16614&node-id=7112-19778&p=f&viewport=385%2C457%2C0.09&t=S0bQVVQMdWIHw9NU-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=7112%3A19778',
 		thumb: breezbookBookingThumb
 	},
-	{
-		name: 'Ozkan Musavirlik',
-		desc: 'Ozkan Mali Musavirlik is a landing and blog site I designed and coded for my accountant. ',
-		tools: [tools.ts, tools.svelte, tools.sass, tools.figma],
-		tags: ['Design', 'Frontend'],
-		visitUrl: 'https://www.ozkanmusavirlik.com.tr',
-		thumb: ozkanMusavirlikThumb
-	},
+
 	{
 		name: 'ToJson.dev',
 		desc: 'ToJson is a tool you can extract data from any kind of files like a PDF, image files etc. and integrate them with your other tools.',

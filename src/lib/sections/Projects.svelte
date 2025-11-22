@@ -28,16 +28,18 @@
 				<a href={p.visitUrl} class="relative" title="Visit {p.name}">
 					<img src={p.thumb} class="aspect-video" alt="Preview of {p.name} project" />
 
-					<div
-						class="flex opacity-0 hover:opacity-100 transition-all
+					{#if p.visitUrl}
+						<div
+							class="flex opacity-0 hover:opacity-100 transition-all
 								inset-0 bg-white/10 z-10 absolute rounded-2xs content-['']
 								items-center justify-center text-2xl font-semibold backdrop-blur-sm"
-					>
-						<span class="chip bg-black/50 text-xl text-base-content">
-							Visit Site
-							<Icon icon="material-symbols:arrow-outward-rounded" class="text-3xl ml-2 inline" />
-						</span>
-					</div>
+						>
+							<span class="chip bg-black/50 text-xl text-base-content">
+								Visit Site
+								<Icon icon="material-symbols:arrow-outward-rounded" class="text-3xl ml-2 inline" />
+							</span>
+						</div>
+					{/if}
 				</a>
 
 				<div
