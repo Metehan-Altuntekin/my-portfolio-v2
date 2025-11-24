@@ -52,7 +52,7 @@
 	}
 
 	section {
-		padding: clamp(32px, var(--page-padding), 10vh) var(--page-padding);
+		padding: clamp(56px, var(--page-padding), 10vh) var(--page-padding);
 	}
 
 	header,

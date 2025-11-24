@@ -3,15 +3,13 @@
 	import Icon from '@iconify/svelte';
 </script>
 
-<section id="contact" class="flex flex-col items-center justify-center">
+<section id="contact" class="flex flex-col items-center justify-center my-16 md:my-8">
 	<!-- Heading -->
 	<div class="w-full flex flex-col items-center mb-10 md:mb-16">
 		<h1 class="text-3xl md:text-4xl lg:text-5xl text-center mb-[0.5em] font-bold">
 			Let's Work Together
 		</h1>
-		<p class="text-center">
-			Have an exciting project or need help? Send me an email and we can arrange a meeting.
-		</p>
+		<p class="text-center">Always happy to learn about an interesting project.</p>
 	</div>
 
 	<!-- Email -->
@@ -21,11 +19,11 @@
 			class="card card-clickable flex-row items-center justify-center
             gap-3 px-8 py-5 rounded-sm"
 		>
-			<Icon icon="foundation:mail" class="text-3xl " />
+			<Icon icon="foundation:mail" class="text-2xl md:text-3xl " />
 			<span class="text-2xl font-bold">dev@metehan.design</span>
 		</a>
 
-		<span class="chip backdrop-blur-xl text-xs">Call me Mete</span>
+		<span class="chip backdrop-blur-xl text-xs">Send me an email</span>
 	</div>
 
 	<!-- Social -->
