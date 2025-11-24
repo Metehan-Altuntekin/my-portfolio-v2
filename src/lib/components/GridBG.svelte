@@ -37,8 +37,8 @@
 <style>
 	.bg-grid {
 		--line-thickness: 1.2px;
-		--solid-line-opacity: 7%;
-		--dashed-line-opacity: 5%;
+		--solid-line-opacity: 5%;
+		--dashed-line-opacity: 3%;
 		--line-shadow: 0px 0px 4px rgba(255, 255, 255, 0.45);
 
 		/* background: radial-gradient(#fff, rgba(255, 255, 255, 0.7) 40%, transparent 70%); */
