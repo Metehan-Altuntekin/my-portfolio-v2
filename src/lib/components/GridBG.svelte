@@ -1,24 +1,32 @@
 <script lang="ts">
-	const xLineCount = 12;
-	const yLineCount = 7;
+	const xLineCount = 50;
+	const yLineCount = 50;
 
 	const xArray = Array.from(Array(xLineCount).keys());
 	const yArray = Array.from(Array(yLineCount).keys());
+
+	let scrollY = $state(0);
+	let top = $derived(Math.round(scrollY * -0.15));
+
+	$inspect(top);
 </script>
 
 <!-- @component This component renders a background grid decoration that looks like the lines on a blueprint. -->
 
-<!-- TODO make it either fixed or align properly for sections. Experiment. -->
+<svelte:window bind:scrollY />
 
-<div class="bg-grid absolute left-0 top-0 z-0 h-full w-screen overflow-hidden border">
-	<div class="absolute inset-0 flex gap-[94px] before:border-none after:border-none">
+<div
+	class="bg-grid fixed left-0 z-0 h-[150vh] w-screen overflow-hidden border"
+	style="top: {top}px;"
+>
+	<div class="absolute inset-0 flex gap-[31px] before:border-none after:border-none">
 		{#each xArray as x, i (i)}
 			<div class="horizontal-line-solid"></div>
 			<div class="horizontal-line-dashed"></div>
 		{/each}
 	</div>
 
-	<div class="absolute inset-0 flex flex-col gap-[94px] before:border-none after:border-none">
+	<div class="absolute inset-0 flex flex-col gap-[31px] before:border-none after:border-none">
 		{#each yArray as y, i (i)}
 			<div class="vertical-line-solid"></div>
 			<div class="vertical-line-dashed"></div>
@@ -28,7 +36,11 @@
 
 <style>
 	.bg-grid {
-		--line-thickness: 2px;
+		--line-thickness: 1.2px;
+		--solid-line-opacity: 7%;
+		--dashed-line-opacity: 5%;
+		--line-shadow: 0px 0px 4px rgba(255, 255, 255, 0.45);
+
 		/* background: radial-gradient(#fff, rgba(255, 255, 255, 0.7) 40%, transparent 70%); */
 		mask-image: radial-gradient(
 			#fff,
@@ -45,8 +57,8 @@
 		height: 100%;
 		width: var(--line-thickness);
 		background-color: white;
-		opacity: 17.5%;
-		box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.25);
+		opacity: var(--solid-line-opacity);
+		box-shadow: var(--line-shadow);
 	}
 
 	.horizontal-line-dashed {
@@ -56,12 +68,15 @@
 		width: var(--line-thickness);
 		background: repeating-linear-gradient(
 			to bottom,
-			#fff,
-			#fff 16px,
-			transparent 16px,
-			transparent 32px
+			transparent 0px,
+			transparent 4px,
+			#fff 4px,
+			#fff 12px,
+			transparent 12px,
+			transparent 16px
 		);
-		opacity: 15%;
+		box-shadow: var(--line-shadow);
+		opacity: var(--dashed-line-opacity);
 	}
 
 	.vertical-line-solid {
@@ -70,8 +85,8 @@
 		height: var(--line-thickness);
 		width: 100%;
 		background-color: white;
-		opacity: 17.5%;
-		box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.25);
+		opacity: var(--solid-line-opacity);
+		box-shadow: var(--line-shadow);
 	}
 
 	.vertical-line-dashed {
@@ -81,11 +96,14 @@
 		width: 100%;
 		background: repeating-linear-gradient(
 			to right,
-			#fff,
-			#fff 16px,
-			transparent 16px,
-			transparent 32px
+			transparent 0px,
+			transparent 4px,
+			#fff 4px,
+			#fff 12px,
+			transparent 12px,
+			transparent 16px
 		);
-		opacity: 15%;
+		opacity: var(--dashed-line-opacity);
+		box-shadow: var(--line-shadow);
 	}
 </style>
