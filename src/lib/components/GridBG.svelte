@@ -6,7 +6,7 @@
 	const yArray = Array.from(Array(yLineCount).keys());
 
 	let scrollY = $state(0);
-	let top = $derived(Math.round(scrollY * -0.15));
+	let top = $derived(Math.round(scrollY * -0.06));
 
 	$inspect(top);
 </script>
