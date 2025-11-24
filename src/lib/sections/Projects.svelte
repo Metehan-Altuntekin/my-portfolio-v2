@@ -43,13 +43,13 @@
 				</a>
 
 				<div
-					class="flex flex-col p-3 gap-2
+					class="flex flex-col p-3 gap-2 content-between h-full
 								lg:p-5 md:gap-3"
 				>
 					<h2 class="text-xl md:text-2xl xl:text-3xl font-bold">{p.name}</h2>
 					<p class="text-base-content-muted text-xs sm:text-sm/4">{p.desc}</p>
 
-					<div class="flex justify-between">
+					<div class="flex justify-between mt-auto">
 						<div class="flex gap-1">
 							{#each p.tags as tag}
 								<span class="chip bg-opacity-0">{tag}</span>
