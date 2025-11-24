@@ -13,11 +13,11 @@ export default {
 		extend: {
 			colors: {
 				base: {
-					100: '#028ECE',
-					200: '#005792',
-					300: '#023F68',
+					100: '#1986B9',
+					200: '#16547E',
+					300: '#0F3C5A',
 					content: '#FFFFFF',
-					'content-muted': '#BED1EA',
+					'content-muted': '#D7E2F1',
 					cardBase: 'rgba(0,0,0, 0.2)'
 				},
 				secondary: '#FF6FB3',
