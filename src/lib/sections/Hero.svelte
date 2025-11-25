@@ -12,12 +12,12 @@
 	const ctas: Cta[] = [
 		{
 			title: 'Projects',
-			description: 'The websites and apps I designed and built.',
+			description: 'The websites and apps I worked on developing',
 			url: '#projects'
 		},
 		{
-			title: 'Skills',
-			description: 'Details about my design and coding skills.',
+			title: 'About',
+			description: 'Details about my skills and tools I use',
 			url: '#skills'
 		}
 	];
