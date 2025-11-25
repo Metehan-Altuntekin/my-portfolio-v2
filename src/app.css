@@ -30,6 +30,16 @@
   --breakpoint-4xl: 1920px;
 }
 
+@font-face {
+	font-family: 'Commissioner';
+	src:
+		url('/fonts/Commissioner/Commissioner-VariableFont_FLAR,VOLM,slnt,wght.woff2')
+			format('woff2 supports variations'),
+		url('/fonts/Commissioner/Commissioner-VariableFont_FLAR,VOLM,slnt,wght.woff2')
+			format('woff2-variations');
+	font-weight: 100 1000;
+}
+
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
