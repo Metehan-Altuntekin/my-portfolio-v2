@@ -1,20 +1,140 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
 
-@layer utilities {
-	.card-shadow {
-		box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.2);
-	}
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/container-queries';
 
-	.text-shadow {
-		text-shadow: 0px 0px 32px rgb(0, 0, 0, 15%);
-	}
+@theme {
+  --font-*: initial;
+  --font-sans: Commissioner, Helvetica, sans-serif;
 
-	.text-subtitle {
-		@apply text-sm/5;
-		color: theme(colors.base.content-muted);
-	}
+  --color-base-100: #1986b9;
+  --color-base-200: #16547e;
+  --color-base-300: #0f3c5a;
+  --color-base-content: #ffffff;
+  --color-base-content-muted: #d7e2f1;
+  --color-base-card-base: rgba(0, 0, 0, 0.2);
+
+  --color-secondary: #ff6fb3;
+  --color-accent: #f9f871;
+
+  --radius-3xs: 12px;
+  --radius-2xs: 16px;
+  --radius-xs: 20px;
+  --radius-sm: 28px;
+  --radius-md: 32px;
+  --radius-lg: 36px;
+  --radius-xl: 42px;
+  --radius-2xl: 48px;
+
+  --breakpoint-3xl: 1710px;
+  --breakpoint-4xl: 1920px;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility card-shadow {
+  box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.2);
+}
+
+@utility text-shadow {
+  text-shadow: 0px 0px 32px rgb(0, 0, 0, 15%);
+}
+
+@utility text-subtitle {
+  @apply text-sm/5;
+  color: var(--color-base-content-muted);
+}
+
+/* ---------------------------------------- */
+
+@utility card {
+  @apply card-shadow relative z-0 flex flex-col rounded-xs p-4 md:p-5 lg:rounded-md lg:p-6;
+  background: var(--color-base-card-base) padding-box;
+  backdrop-filter: blur(96px);
+  border: 1.5px solid transparent;
+
+  /* With help from: https://benfrain.com/how-to-create-rounded-gradient-borders-with-any-background-in-css/ */
+  &::before {
+    content: '';
+    position: absolute;
+    border-radius: inherit;
+    border: inherit;
+
+    /* to make the glow border outside the box, preventing shadowing by the bg color */
+    inset: -1.5px;
+
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 40%),
+        rgba(255, 255, 255, 10%) 50%,
+        rgba(255, 255, 255, 5%) 70%,
+        rgba(255, 255, 255, 15%)
+      )
+      border-box;
+
+    /* remove the padding box part off the before object */
+    mask:
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+}
+
+@utility card-clickable {
+  transition: all 0.3s;
+  cursor: pointer;
+  &:hover {
+    scale: 1.04;
+  }
+}
+
+@utility image-card {
+  --border-radius: var(--radius-sm);
+  @apply card-shadow relative z-0 flex flex-col;
+  border: 1.5px solid transparent;
+
+  overflow: hidden;
+  border-radius: var(--border-radius);
+
+  background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 100%),
+      rgba(255, 255, 255, 40%)
+    )
+    border-box;
+
+  & > * {
+    border-radius: calc(var(--border-radius) * 0.93);
+  }
+
+  @media only screen and (min-width: --theme(--breakpoint-md)) {
+    --border-radius: var(--radius-lg);
+  }
+}
+
+@utility chip {
+  background-color: rgb(0, 0, 0, 15%);
+  /* backdrop-filter: blur(128px); */
+  padding: 8px 12px;
+  border-radius: 20px;
+  color: var(--color-base-content-muted);
+  font-size: 14px;
 }
 
 /* ---------------------------------------- */
@@ -22,7 +142,7 @@
 @layer base {
 	* {
 		@apply box-border;
-		color: theme(colors.base.content);
+		color: var(--color-base-content);
 		object-fit: cover;
 		object-position: center;
 
@@ -37,12 +157,12 @@
 		width: 100%;
 		overflow-x: hidden;
 		position: relative;
-		background-color: theme(colors.base.200);
+		background-color: var(--color-base-200);
 	}
 
 	body {
 		@apply min-h-screen;
-		background: radial-gradient(theme(colors.base.100), theme(colors.base.200));
+		background: radial-gradient(var(--color-base-100), var(--color-base-200));
 	}
 
 	/* Responsive */
@@ -69,83 +189,5 @@
 	h6,
 	p {
 		@apply text-shadow;
-	}
-}
-
-/* ---------------------------------------- */
-
-@layer components {
-	.card {
-		@apply card-shadow relative z-0 flex flex-col rounded-xs p-4 md:p-5 lg:rounded-md lg:p-6;
-		background: theme(colors.base.cardBase) padding-box;
-		backdrop-filter: blur(96px);
-		border: 1.5px solid transparent;
-
-		/* With help from: https://benfrain.com/how-to-create-rounded-gradient-borders-with-any-background-in-css/ */
-		&::before {
-			content: '';
-			position: absolute;
-			border-radius: inherit;
-			border: inherit;
-
-			/* to make the glow border outside the box, preventing shadowing by the bg color */
-			inset: -1.5px;
-
-			background: linear-gradient(
-					to bottom right,
-					rgba(255, 255, 255, 40%),
-					rgba(255, 255, 255, 10%) 50%,
-					rgba(255, 255, 255, 5%) 70%,
-					rgba(255, 255, 255, 15%)
-				)
-				border-box;
-
-			/* remove the padding box part off the before object */
-			mask:
-				linear-gradient(#fff 0 0) padding-box,
-				linear-gradient(#fff 0 0);
-			mask-composite: exclude;
-		}
-	}
-
-	.card-clickable {
-		transition: all 0.3s;
-		cursor: pointer;
-	}
-	.card-clickable:hover {
-		scale: 1.04;
-	}
-
-	.image-card {
-		--border-radius: theme(borderRadius.sm);
-		@apply card-shadow relative z-0 flex flex-col;
-		border: 1.5px solid transparent;
-
-		overflow: hidden;
-		border-radius: var(--border-radius);
-
-		background: linear-gradient(
-				to bottom right,
-				rgba(255, 255, 255, 100%),
-				rgba(255, 255, 255, 40%)
-			)
-			border-box;
-
-		& > * {
-			border-radius: calc(var(--border-radius) * 0.93);
-		}
-
-		@media only screen and (min-width: theme(screens.md)) {
-			--border-radius: theme(borderRadius.lg);
-		}
-	}
-
-	.chip {
-		background-color: rgb(0, 0, 0, 15%);
-		/* backdrop-filter: blur(128px); */
-		padding: 8px 12px;
-		border-radius: 20px;
-		color: theme(colors.base.content-muted);
-		font-size: 14px;
 	}
 }

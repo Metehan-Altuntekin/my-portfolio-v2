@@ -34,7 +34,7 @@
 	<div
 		class="image-card aspect-[1.175] max-h-full
 					col-start-1 col-end-13 row-start-1 row-end-6 | place-self-start justify-self-end
-					sm:col-start-8 sm:col-end-13 sm:row-end-10 | sm:aspect-[3/4] sm:object-center | sm:portrait:place-self-center sm:justify-self-end
+					sm:col-start-8 sm:col-end-13 sm:row-end-10 | sm:aspect-3/4 sm:object-center | sm:portrait:place-self-center sm:justify-self-end
  					lg:row-end-11 xl:row-end-10 |
 					"
 	>

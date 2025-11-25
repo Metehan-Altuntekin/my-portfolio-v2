@@ -15,7 +15,7 @@
 		{#each Object.values(tools) as t}
 			<!-- TODO name tooltip -->
 			<div
-				class="rounded-2xs bg-base-cardBase backdrop-blur-2xl
+				class="rounded-2xs bg-base-card-base backdrop-blur-2xl
 							flex flex-col items-center justify-center gap-2 py-3 px-1
 							lg:py-4 lg:px-2 lg:gap-3 lg:rounded-xs
 							xl:py-5 xl:px-3 xl:gap-4"

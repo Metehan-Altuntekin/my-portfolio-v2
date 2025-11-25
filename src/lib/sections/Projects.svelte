@@ -32,7 +32,7 @@
 						<div
 							class="flex opacity-0 hover:opacity-100 transition-all
 								inset-0 bg-white/10 z-10 absolute rounded-2xs content-['']
-								items-center justify-center text-2xl font-semibold backdrop-blur-sm"
+								items-center justify-center text-2xl font-semibold backdrop-blur-xs"
 						>
 							<span class="chip bg-black/50 text-xl text-base-content">
 								Visit Site

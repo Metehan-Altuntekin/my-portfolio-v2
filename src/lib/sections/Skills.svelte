@@ -32,7 +32,7 @@
 				<div class="flex gap-2 flex-wrap">
 					{#each s.tools as t}
 						<!-- TODO name tooltip -->
-						<!-- <div class="rounded-2xs p-2 lg:p-3 lg:rounded-xs bg-base-cardBase">
+						<!-- <div class="rounded-2xs p-2 lg:p-3 lg:rounded-xs bg-base-card-base">
 								<Icon icon={t.iconId} class="h-6 w-6 | md:h-7 md:w-7 | xl:h-9 xl:w-9" />
 							</div> -->
 					{/each}
