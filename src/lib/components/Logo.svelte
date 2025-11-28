@@ -1,6 +1,4 @@
-<span class="logo text-xl sm:text-2xl xl:text-3xl text-shadow">Metehan Altuntekin</span>
-
-<!-- TODO logo too big on scroll. Make it smaller as the screen scrolls, in the header. -->
+<span class="logo text-lg md:text-xl 3xl:text2xl text-shadow">Metehan Altuntekin</span>
 
 <style>
 	.logo {
