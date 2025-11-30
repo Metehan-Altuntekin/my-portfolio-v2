@@ -13,5 +13,7 @@
 				transition-all duration-500
 				{scrolled && 'bg-base-content/5 backdrop-blur-lg'}	"
 >
-	<Logo />
+	<a href="/" title="Home">
+		<Logo />
+	</a>
 </header>
