@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="none">
+  <!-- Vertical lines -->
+  <path d="M0 0v96" stroke="#fff" stroke-width="1" stroke-opacity="0.019"/>
+  <path d="M19 0v96" stroke="#fff" stroke-width="1" stroke-opacity="0.0065"/>
+  <path d="M38 0v96" stroke="#fff" stroke-width="1" stroke-opacity="0.0065"/>
+  <path d="M57 0v96" stroke="#fff" stroke-width="1" stroke-opacity="0.0065"/>
+  <path d="M76 0v96" stroke="#fff" stroke-width="1" stroke-opacity="0.0065"/>
+
+  <!-- Horizontal lines -->
+  <path d="M0 0h96" stroke="#fff" stroke-width="1" stroke-opacity="0.019"/>
+  <path d="M0 19h96" stroke="#fff" stroke-width="1" stroke-opacity="0.0065"/>
+  <path d="M0 38h96" stroke="#fff" stroke-width="1" stroke-opacity="0.0065"/>
+  <path d="M0 57h96" stroke="#fff" stroke-width="1" stroke-opacity="0.0065"/>
+  <path d="M0 76h96" stroke="#fff" stroke-width="1" stroke-opacity="0.0065"/>
+</svg>
