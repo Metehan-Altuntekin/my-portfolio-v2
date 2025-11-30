@@ -34,9 +34,10 @@
 
 					{#if p.visitUrl}
 						<div
-							class="flex opacity-0 hover:opacity-100 transition-all
-								inset-0 bg-white/10 z-10 absolute rounded-2xs content-['']
-								items-center justify-center text-2xl font-semibold backdrop-blur-xs"
+							class="card-content rounded-b-none
+										flex items-center justify-center absolute inset-[1.5px] z-10
+										bg-white/10 backdrop-blur-xs text-2xl font-semibold
+										opacity-0 hover:opacity-100 transition-all"
 						>
 							<span class="chip bg-black/50 text-xl text-base-content">
 								Visit Site
@@ -47,7 +48,7 @@
 				</a>
 
 				<div
-					class="flex flex-col p-3 gap-2 content-between h-full
+					class="flex flex-col p-4 pt-3 gap-2 content-between h-full
 								lg:p-5 md:gap-3"
 				>
 					<h2 class="text-xl md:text-2xl xl:text-3xl font-bold">{p.name}</h2>
