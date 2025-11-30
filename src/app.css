@@ -17,6 +17,10 @@
 	--color-secondary: #ff6fb3;
 	--color-accent: #f9f871;
 
+	--color-blog-base-100: #121211;
+	--color-blog-base-content: #d0dde0;
+	--color-blog-base-content-muted: #83a1a5;
+
 	--radius-3xs: 12px;
 	--radius-2xs: 16px;
 	--radius-xs: 20px;
@@ -28,6 +32,82 @@
 
 	--breakpoint-3xl: 1710px;
 	--breakpoint-4xl: 1920px;
+}
+
+@utility prose-custom {
+	--tw-prose-body: var(--color-blog-base-content);
+	--tw-prose-headings: var(--color-blog-base-content);
+	--tw-prose-lead: var(--color-blog-base-content);
+	--tw-prose-links: var(--color-blog-base-content);
+	--tw-prose-bold: var(--color-blog-base-content);
+	--tw-prose-counters: var(--color-blog-base-content);
+	--tw-prose-bullets: var(--color-blog-base-content);
+	--tw-prose-hr: var(--color-blog-base-content);
+	--tw-prose-quotes: var(--color-blog-base-content);
+	--tw-prose-quote-borders: var(--color-blog-base-content);
+	--tw-prose-captions: var(--color-blog-base-content);
+	--tw-prose-code: var(--color-blog-base-content);
+	--tw-prose-pre-code: var(--color-blog-base-content);
+	--tw-prose-pre-bg: var(--color-blog-base-content);
+	--tw-prose-th-borders: var(--color-blog-base-content);
+	--tw-prose-td-borders: var(--color-blog-base-content);
+	--tw-prose-invert-body: var(--color-blog-base-content);
+	--tw-prose-invert-headings: var(--color-blog-base-content);
+	--tw-prose-invert-lead: var(--color-blog-base-content);
+	--tw-prose-invert-links: var(--color-blog-base-content);
+	--tw-prose-invert-bold: var(--color-blog-base-content);
+	--tw-prose-invert-counters: var(--color-blog-base-content);
+	--tw-prose-invert-bullets: var(--color-blog-base-content);
+	--tw-prose-invert-hr: var(--color-blog-base-content);
+	--tw-prose-invert-quotes: var(--color-blog-base-content);
+	--tw-prose-invert-quote-borders: var(--color-blog-base-content);
+	--tw-prose-invert-captions: var(--color-blog-base-content);
+	--tw-prose-invert-code: var(--color-blog-base-content);
+	--tw-prose-invert-pre-code: var(--color-blog-base-content);
+	--tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
+	--tw-prose-invert-th-borders: var(--color-blog-base-content);
+	--tw-prose-invert-td-borders: var(--color-blog-base-content);
+}
+
+.prose {
+	/* Apply the colors to actual elements */
+	& :where(p, li):not(:where([class~='not-prose'] *)) {
+		color: var(--tw-prose-body);
+	}
+
+	& :where(h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'] *)) {
+		color: var(--tw-prose-headings);
+		@apply font-bold;
+	}
+
+	& :where(a):not(:where([class~='not-prose'] *)) {
+		color: var(--tw-prose-links);
+	}
+
+	& :where(strong):not(:where([class~='not-prose'] *)) {
+		color: var(--tw-prose-bold);
+	}
+
+	& :where(code):not(:where([class~='not-prose'] *)) {
+		color: var(--tw-prose-code);
+	}
+
+	& :where(img):not(:where([class~='not-prose'] *)) {
+		margin-right: auto;
+		margin-left: auto;
+		max-width: 100%;
+	}
+}
+
+pre.shiki {
+	@apply rounded-xs;
+}
+
+pre.shiki code {
+	tab-size: 2;
+	-moz-tab-size: 2;
+	white-space: pre-wrap;
+	/* word-break: break-word; */
 }
 
 @font-face {

@@ -35,6 +35,16 @@ declare global {
 		url: string;
 		iconId: string;
 	};
+
+	interface Post {
+		title: string;
+		slug: string;
+		description: string;
+		image?: string;
+		pubDate: string;
+		categories: string[];
+		published: boolean;
+	}
 }
 
 export {};
