@@ -1,8 +1,6 @@
 <script lang="ts">
 	let scrollY = $state(0);
-	let top = $derived(Math.round(scrollY * -0.06));
-
-	$inspect(top);
+	let translateY = $derived(scrollY * -0.06);
 </script>
 
 <!-- @component This component renders a background grid decoration that looks like the lines on a blueprint. -->
@@ -11,7 +9,7 @@
 
 <div
 	class="bg-square-grid fixed left-0 h-[200vh] w-screen overflow-hidden"
-	style="top: {top}px;"
+	style="transform: translateY({translateY}px);"
 ></div>
 
 <style>
@@ -20,6 +18,10 @@
 		background: url('/grid-tile-hand-optimized.svg');
 		background-repeat: repeat;
 		background-size: var(--bg-size) var(--bg-size);
+
+		/* For parallax better performance */
+		will-change: transform;
+		backface-visibility: hidden;
 	}
 
 	/* Dividing screen width to integers so we won't have half cut patterns until larger screens */

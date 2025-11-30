@@ -6,9 +6,9 @@
 	const yArray = Array.from(Array(yLineCount).keys());
 
 	let scrollY = $state(0);
-	let top = $derived(Math.round(scrollY * -0.06));
+	let translateY = $derived(scrollY * -0.06);
 
-	$inspect(top);
+	$inspect(translateY);
 </script>
 
 <!-- @component This component renders a background grid decoration that looks like the lines on a blueprint. -->
@@ -16,8 +16,8 @@
 <svelte:window bind:scrollY />
 
 <div
-	class="bg-grid fixed left-0 z-0 h-[150vh] w-screen overflow-hidden border"
-	style="top: {top}px;"
+	class="bg-grid fixed left-0 top-0 z-0 h-[150vh] w-screen overflow-hidden border"
+	style="transform: translateY({translateY}px);"
 >
 	<div class="absolute inset-0 flex gap-[31px] before:border-none after:border-none">
 		{#each xArray as x, i (i)}
@@ -49,6 +49,10 @@
 			transparent 101%
 		);
 		mask-size: 100% 100%;
+
+		/* For parallax better performance */
+		will-change: transform;
+		backface-visibility: hidden;
 	}
 
 	.horizontal-line-solid {
