@@ -57,7 +57,8 @@ const config = {
 			handleMissingId: 'warn'
 		},
 		alias: {
-			content: 'src/content'
+			content: 'src/content',
+			'$app.css': './src/app.css'
 		}
 	},
 
