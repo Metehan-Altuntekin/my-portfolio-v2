@@ -26,7 +26,11 @@
 			<div class="card p-0 overflow-hidden">
 				<!-- TODO revise the hover cover -->
 				<a href={p.visitUrl} class="relative" title="Visit {p.name}">
-					<img src={p.thumb} class="aspect-video" alt="Preview of {p.name} project" />
+					<img
+						src={p.thumb}
+						class="card-content rounded-b-none aspect-video"
+						alt="Preview of {p.name} project"
+					/>
 
 					{#if p.visitUrl}
 						<div

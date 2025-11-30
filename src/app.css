@@ -154,20 +154,23 @@ pre.shiki code {
 /* ---------------------------------------- */
 
 @utility card {
-	@apply card-shadow relative z-0 flex flex-col rounded-xs p-4 md:p-5 lg:rounded-md lg:p-6;
+	--border-radius: var(--radius-sm);
+	@apply card-shadow relative z-0 flex flex-col p-4 md:p-5  lg:p-6;
 	background: var(--color-base-card-base) padding-box;
 	backdrop-filter: blur(96px);
-	border: 1.5px solid transparent;
+	border-radius: var(--border-radius);
+	/* border: 1.5px solid transparent; */
 
 	/* With help from: https://benfrain.com/how-to-create-rounded-gradient-borders-with-any-background-in-css/ */
 	&::before {
 		content: '';
 		position: absolute;
 		border-radius: inherit;
-		border: inherit;
+		/* border: inherit; */
+		border: 1.5px solid transparent;
 
 		/* to make the glow border outside the box, preventing shadowing by the bg color */
-		inset: -1.5px;
+		inset: 0px;
 
 		background: linear-gradient(
 				to bottom right,
@@ -184,6 +187,12 @@ pre.shiki code {
 			linear-gradient(#fff 0 0);
 		mask-composite: exclude;
 	}
+}
+
+@utility card-content {
+	border-radius: var(--border-radius);
+	border: inherit;
+	border: 1.5px solid transparent;
 }
 
 @utility card-clickable {

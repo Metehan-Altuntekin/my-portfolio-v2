@@ -11,14 +11,18 @@
 
 <section id="posts">
 	<h1 class="text-4xl font-bold mx-auto text-center mb-[2em]">Blog Posts</h1>
-	<article class="flex flex-wrap gap-5 justify-items-start">
+	<article class="flex flex-wrap gap-5 justify-center">
 		{#each data.posts as post (post.slug)}
 			<a
-				class="card card-clickable overflow-hidden flex-1 min-w-sm max-w-full"
+				class="card card-clickable overflow-hidden flex-1 min-w-xs max-w-sm p-0"
 				href="/blog/{post.slug}"
 			>
 				<figure>
-					<img class="w-full aspect-video object-cover" src={post.image} alt={post.title} />
+					<img
+						class="card-content w-full aspect-video object-cover rounded-b-none"
+						src={post.image}
+						alt={post.title}
+					/>
 				</figure>
 
 				<div class="card-body p-5">
