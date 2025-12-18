@@ -54,7 +54,8 @@ const config = {
 			strict: true
 		}),
 		prerender: {
-			handleMissingId: 'warn'
+			handleMissingId: 'warn',
+			handleUnseenRoutes: 'ignore'
 		},
 		alias: {
 			content: 'src/content',
