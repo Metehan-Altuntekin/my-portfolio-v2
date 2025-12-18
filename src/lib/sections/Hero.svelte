@@ -42,6 +42,7 @@
 			class="h-full w-full object-[0%_15%] lg:object-center"
 			src={heroPic}
 			alt="Mete on a pedestrian bridge over a highway in a sunny day. Car traffic, green trees and mountains on the background."
+			fetchpriority="high"
 		/>
 	</div>
 
