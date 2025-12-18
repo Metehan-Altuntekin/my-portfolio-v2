@@ -1,0 +1,9 @@
+# robots.txt for Metehan Altuntekin Portfolio
+
+# Allow all crawlers to access all content
+User-agent: *
+Allow: /
+
+# Sitemap location (you can add this later if you create a sitemap)
+# Sitemap: https://yourdomain.com/sitemap.xml
+
