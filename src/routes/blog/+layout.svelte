@@ -25,11 +25,9 @@
 <style scoped>
 	@import '$app.css' reference;
 
-	:global {
-		body,
-		html {
-			@apply bg-blog-base-100;
-			background-image: none;
-		}
+	:global(body),
+	:global(html) {
+		@apply bg-blog-base-100;
+		background-image: none;
 	}
 </style>
