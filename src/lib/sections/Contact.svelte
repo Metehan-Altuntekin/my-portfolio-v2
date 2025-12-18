@@ -29,7 +29,7 @@
 	<!-- Social -->
 	<div class="flex gap-5 md:gap-7 mt-12 md:mt-16">
 		{#each socials as s}
-			<a href={s.url} target="_blank" class="cursor-pointer">
+			<a href={s.url} target="_blank" class="cursor-pointer" title={s.name} aria-label={s.name}>
 				<Icon icon={s.iconId} class="text-base-content-muted h-10 w-10 md:h-12 md:w-12" />
 			</a>
 		{/each}
