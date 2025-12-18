@@ -7,7 +7,7 @@
 	<!-- Heading -->
 	<div class="w-full flex flex-col items-center mb-10 md:mb-12 lg:mb-16">
 		<h1 class="text-3xl md:text-4xl lg:text-5xl text-center mb-[0.5em] font-bold">
-			Things I Can Do
+			Services & Expertise
 		</h1>
 		<p class="text-center">
 			Here’s how I bring design and development together for seamless project execution

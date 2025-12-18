@@ -63,7 +63,7 @@ export const tools = {
 const projects: Project[] = [
 	{
 		name: 'Ozkan Musavirlik',
-		desc: 'Ozkan Mali Musavirlik is a landing and blog site I designed and coded for my accountant. ',
+		desc: 'A headless CMS and high-performance marketing platform for a financial consultancy firm. Built with SvelteKit & Sanity for 100/100 SEO scores. ',
 		tools: [tools.ts, tools.svelte, tools.sass, tools.figma],
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://www.ozkanmusavirlik.com.tr',
@@ -71,14 +71,14 @@ const projects: Project[] = [
 	},
 	{
 		name: 'AllSet',
-		desc: 'allset.chat is a an AI receptionist that works through WhatsApp. I have designed the brand identity and the landing site.',
+		desc: 'An AI-powered receptionist integrated with WhatsApp. Designed the brand identity and engineered the landing infrastructure.',
 		tools: [tools.ts, tools.figma, tools.svelte, tools.tailwind, tools.daisyui],
 		tags: ['Design', 'Frontend'],
 		thumb: allsetThumb
 	},
 	{
 		name: 'BreezBook',
-		desc: 'BreezBook is the early version of AllSet that focused on being a website solution.',
+		desc: 'The original booking engine architecture that evolved into AllSet. Focused on reducing friction for high-volume service scheduling.',
 		tools: [tools.ts, tools.svelte, tools.daisyui, tools.tailwind],
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://breezbook.com',
@@ -86,7 +86,7 @@ const projects: Project[] = [
 	},
 	{
 		name: 'BreezBook Booking App',
-		desc: "BreezBook mobile booking app design prototype made in Figma. Hasn't been coded but we are proud of it.",
+		desc: 'A mobile-first booking architecture designed in Figma. Focused on reducing user friction and increasing conversion rates for service businesses.',
 		tools: [tools.figma],
 		tags: ['Design'],
 		visitUrl:
@@ -96,7 +96,7 @@ const projects: Project[] = [
 
 	{
 		name: 'ToJson.dev',
-		desc: 'ToJson is a tool you can extract data from any kind of files like a PDF, image files etc. and integrate them with your other tools.',
+		desc: 'A developer utility for extracting structured JSON data from unstructured files (PDFs, Images). Designed to streamline automation workflows.',
 		tools: [tools.ts, tools.daisyui, tools.tailwind],
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://allset.chat',

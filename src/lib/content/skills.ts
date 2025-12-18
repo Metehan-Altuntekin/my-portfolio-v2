@@ -2,27 +2,26 @@ import { tools } from './projects';
 
 const skills: Skill[] = [
 	{
-		name: 'UI/UX Design',
+		name: 'Product Design',
 		areas: [
-			'User Journey',
-			'UX Map',
-			'Branding and style',
-			'Prototyping',
-			'Design Reviews',
-			'Redesigns',
-			'Concept exploration'
+			'UI/UX Design',
+			'Figma to Prototype',
+			'Design Systems',
+			'High-Fidelity UI',
+			'Branding',
+			'Mobile First Design'
 		],
 		tools: [tools.figma, tools.daisyui, tools.affinityDesigner]
 	},
 	{
 		name: 'Development',
 		areas: [
-			'Design implementation ',
-			'Responsive & Mobile Compatible Websites',
-			'SaaS applications',
+			'Svelte / NextJS ',
+			'Responsive Websites',
+			'SaaS Architecture',
 			'Web Components',
-			'Libraries, Solutions',
-			'Design during coding'
+			'System Architecture',
+			'API Integration'
 		],
 		tools: [
 			tools.ts,
