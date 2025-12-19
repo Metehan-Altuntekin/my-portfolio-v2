@@ -22,6 +22,8 @@ declare global {
 
 		thumb: string;
 		thumbSrcset?: string;
+		thumbWidth?: number;
+		thumbHeight?: number;
 		visitUrl?: string;
 	};
 

@@ -46,6 +46,8 @@
 			src={heroPic}
 			srcset={`${heroPic400} 289w, ${heroPic800} 577w, ${heroPic1200} 865w, ${heroPic} 1699w`}
 			sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 35vw"
+			width="1699"
+			height="2357"
 			alt="Mete on a pedestrian bridge over a highway in a sunny day. Car traffic, green trees and mountains on the background."
 			fetchpriority="high"
 		/>

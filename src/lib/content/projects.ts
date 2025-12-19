@@ -80,7 +80,9 @@ const projects: Project[] = [
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://www.ozkanmusavirlik.com.tr',
 		thumb: ozkanMusavirlikThumb,
-		thumbSrcset: `${ozkanMusavirlikThumb400} 400w, ${ozkanMusavirlikThumb800} 800w, ${ozkanMusavirlikThumb} 1200w`
+		thumbSrcset: `${ozkanMusavirlikThumb400} 400w, ${ozkanMusavirlikThumb800} 800w, ${ozkanMusavirlikThumb} 1200w`,
+		thumbWidth: 1200,
+		thumbHeight: 683
 	},
 	{
 		name: 'AllSet',
@@ -88,7 +90,9 @@ const projects: Project[] = [
 		tools: [tools.ts, tools.figma, tools.svelte, tools.tailwind, tools.daisyui],
 		tags: ['Design', 'Frontend'],
 		thumb: allsetThumb,
-		thumbSrcset: `${allsetThumb400} 400w, ${allsetThumb800} 800w, ${allsetThumb} 1200w`
+		thumbSrcset: `${allsetThumb400} 400w, ${allsetThumb800} 800w, ${allsetThumb} 1200w`,
+		thumbWidth: 1200,
+		thumbHeight: 683
 	},
 	{
 		name: 'BreezBook',
@@ -97,7 +101,9 @@ const projects: Project[] = [
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://breezbook.com',
 		thumb: breezbookThumb,
-		thumbSrcset: `${breezbookThumb400} 400w, ${breezbookThumb800} 800w, ${breezbookThumb} 1200w`
+		thumbSrcset: `${breezbookThumb400} 400w, ${breezbookThumb800} 800w, ${breezbookThumb} 1200w`,
+		thumbWidth: 1200,
+		thumbHeight: 683
 	},
 	{
 		name: 'BreezBook Booking App',
@@ -107,7 +113,9 @@ const projects: Project[] = [
 		visitUrl:
 			'https://www.figma.com/proto/Y3429sNI1L6LkuI8Jy8h4b/Booking-App?page-id=6332%3A16614&node-id=7112-19778&p=f&viewport=385%2C457%2C0.09&t=S0bQVVQMdWIHw9NU-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=7112%3A19778',
 		thumb: breezbookBookingThumb,
-		thumbSrcset: `${breezbookBookingThumb400} 400w, ${breezbookBookingThumb800} 800w, ${breezbookBookingThumb} 700w`
+		thumbSrcset: `${breezbookBookingThumb400} 400w, ${breezbookBookingThumb800} 800w, ${breezbookBookingThumb} 700w`,
+		thumbWidth: 700,
+		thumbHeight: 456
 	},
 
 	{
@@ -117,7 +125,9 @@ const projects: Project[] = [
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://allset.chat',
 		thumb: tojsonThumb,
-		thumbSrcset: `${tojsonThumb400} 400w, ${tojsonThumb800} 800w, ${tojsonThumb} 1200w`
+		thumbSrcset: `${tojsonThumb400} 400w, ${tojsonThumb800} 800w, ${tojsonThumb} 1200w`,
+		thumbWidth: 1200,
+		thumbHeight: 686
 	}
 	// {
 	// 	name: 'Kurdancioglu Ltd.',
