@@ -1,0 +1,32 @@
+# Fonts - long cache (1 year, immutable)
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Hashed assets from build (SvelteKit immutable chunks) - includes images, CSS, JS
+/_app/immutable/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Root-level images - explicit paths for common formats
+/grid-tile-raw.webp
+  Cache-Control: public, max-age=31536000, immutable
+/android-chrome-*.png
+  Cache-Control: public, max-age=31536000, immutable
+/apple-touch-icon.png
+  Cache-Control: public, max-age=31536000, immutable
+/favicon*.png
+  Cache-Control: public, max-age=31536000, immutable
+/favicon.ico
+  Cache-Control: public, max-age=31536000, immutable
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+# Manifest and robots - medium cache (1 day)
+/site.webmanifest
+  Cache-Control: public, max-age=86400
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+# HTML pages - shorter cache (1 hour) for content updates
+/*.html
+  Cache-Control: public, max-age=3600
+
