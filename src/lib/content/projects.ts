@@ -1,9 +1,27 @@
 import allsetThumb from '$lib/content/thumbs/allset.webp';
+import allsetThumb400 from '$lib/content/thumbs/allset-400px.webp';
+import allsetThumb800 from '$lib/content/thumbs/allset-800px.webp';
+import allsetThumb1200 from '$lib/content/thumbs/allset-1200px.webp';
 import breezbookThumb from '$lib/content/thumbs/breezbook.webp';
+import breezbookThumb400 from '$lib/content/thumbs/breezbook-400px.webp';
+import breezbookThumb800 from '$lib/content/thumbs/breezbook-800px.webp';
+import breezbookThumb1200 from '$lib/content/thumbs/breezbook-1200px.webp';
 import kurdanciogluThumb from '$lib/content/thumbs/kurdancioglu.webp';
+import kurdanciogluThumb400 from '$lib/content/thumbs/kurdancioglu-400px.webp';
+import kurdanciogluThumb800 from '$lib/content/thumbs/kurdancioglu-800px.webp';
+import kurdanciogluThumb1200 from '$lib/content/thumbs/kurdancioglu-1200px.webp';
 import ozkanMusavirlikThumb from '$lib/content/thumbs/ozkan-musavirlik.webp';
+import ozkanMusavirlikThumb400 from '$lib/content/thumbs/ozkan-musavirlik-400px.webp';
+import ozkanMusavirlikThumb800 from '$lib/content/thumbs/ozkan-musavirlik-800px.webp';
+import ozkanMusavirlikThumb1200 from '$lib/content/thumbs/ozkan-musavirlik-1200px.webp';
 import tojsonThumb from '$lib/content/thumbs/tojson.webp';
+import tojsonThumb400 from '$lib/content/thumbs/tojson-400px.webp';
+import tojsonThumb800 from '$lib/content/thumbs/tojson-800px.webp';
+import tojsonThumb1200 from '$lib/content/thumbs/tojson-1200px.webp';
 import breezbookBookingThumb from '$lib/content/thumbs/breezbook-booking.webp';
+import breezbookBookingThumb400 from '$lib/content/thumbs/breezbook-booking-400px.webp';
+import breezbookBookingThumb800 from '$lib/content/thumbs/breezbook-booking-800px.webp';
+import breezbookBookingThumb1200 from '$lib/content/thumbs/breezbook-booking-1200px.webp';
 
 export const tools = {
 	ts: {
@@ -67,14 +85,16 @@ const projects: Project[] = [
 		tools: [tools.ts, tools.svelte, tools.sass, tools.figma],
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://www.ozkanmusavirlik.com.tr',
-		thumb: ozkanMusavirlikThumb
+		thumb: ozkanMusavirlikThumb,
+		thumbSrcset: `${ozkanMusavirlikThumb400} 400w, ${ozkanMusavirlikThumb800} 800w, ${ozkanMusavirlikThumb1200} 1200w, ${ozkanMusavirlikThumb} 1200w`
 	},
 	{
 		name: 'AllSet',
 		desc: 'An AI-powered receptionist integrated with WhatsApp. Designed the brand identity and engineered the landing infrastructure.',
 		tools: [tools.ts, tools.figma, tools.svelte, tools.tailwind, tools.daisyui],
 		tags: ['Design', 'Frontend'],
-		thumb: allsetThumb
+		thumb: allsetThumb,
+		thumbSrcset: `${allsetThumb400} 400w, ${allsetThumb800} 800w, ${allsetThumb1200} 1200w, ${allsetThumb} 1200w`
 	},
 	{
 		name: 'BreezBook',
@@ -82,7 +102,8 @@ const projects: Project[] = [
 		tools: [tools.ts, tools.svelte, tools.daisyui, tools.tailwind],
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://breezbook.com',
-		thumb: breezbookThumb
+		thumb: breezbookThumb,
+		thumbSrcset: `${breezbookThumb400} 400w, ${breezbookThumb800} 800w, ${breezbookThumb1200} 1200w, ${breezbookThumb} 1200w`
 	},
 	{
 		name: 'BreezBook Booking App',
@@ -91,7 +112,8 @@ const projects: Project[] = [
 		tags: ['Design'],
 		visitUrl:
 			'https://www.figma.com/proto/Y3429sNI1L6LkuI8Jy8h4b/Booking-App?page-id=6332%3A16614&node-id=7112-19778&p=f&viewport=385%2C457%2C0.09&t=S0bQVVQMdWIHw9NU-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=7112%3A19778',
-		thumb: breezbookBookingThumb
+		thumb: breezbookBookingThumb,
+		thumbSrcset: `${breezbookBookingThumb400} 400w, ${breezbookBookingThumb800} 800w, ${breezbookBookingThumb1200} 1200w, ${breezbookBookingThumb} 700w`
 	},
 
 	{
@@ -100,7 +122,8 @@ const projects: Project[] = [
 		tools: [tools.ts, tools.daisyui, tools.tailwind],
 		tags: ['Design', 'Frontend'],
 		visitUrl: 'https://allset.chat',
-		thumb: tojsonThumb
+		thumb: tojsonThumb,
+		thumbSrcset: `${tojsonThumb400} 400w, ${tojsonThumb800} 800w, ${tojsonThumb1200} 1200w, ${tojsonThumb} 1200w`
 	}
 	// {
 	// 	name: 'Kurdancioglu Ltd.',

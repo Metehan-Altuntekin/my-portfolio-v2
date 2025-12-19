@@ -21,6 +21,7 @@ declare global {
 		tools: Tool[];
 
 		thumb: string;
+		thumbSrcset?: string;
 		visitUrl?: string;
 	};
 

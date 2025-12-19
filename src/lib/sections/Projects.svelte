@@ -28,6 +28,8 @@
 				<a href={p.visitUrl} class="relative" title="Visit {p.name}">
 					<img
 						src={p.thumb}
+						srcset={p.thumbSrcset}
+						sizes="(max-width: 768px) 400px, (max-width: 1280px) 800px, 1200px"
 						class="card-content rounded-b-none aspect-video"
 						alt="Preview of {p.name} project"
 					/>
