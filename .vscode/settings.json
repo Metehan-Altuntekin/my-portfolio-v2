@@ -1,6 +1,7 @@
 {
 	"files.associations": {
-		"*.svx": "markdown"
+		"*.svx": "markdown",
+		"_headers": "plaintext"
 	},
 	// to prevent whitespace after --- breaking mdsvex frontmatter parsing
 	"files.trimTrailingWhitespace": true,
