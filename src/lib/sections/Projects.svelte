@@ -29,7 +29,7 @@
 					<img
 						src={p.thumb}
 						srcset={p.thumbSrcset}
-						sizes="(max-width: 768px) 400px, (max-width: 1280px) 800px, 1200px"
+						sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
 						width={p.thumbWidth}
 						height={p.thumbHeight}
 						class="card-content rounded-b-none aspect-video"
