@@ -1,6 +1,6 @@
 ---
 title: 'What my dining table and my cat showed me about human attention'
-description: 'A realization at my kitchen table and a lesson from my cat led me to a hidden truth: we don't see the world as it is; we see it as how we look at it. Here is why selective perception is a critical skill for any designer.'
+description: "A realization at my kitchen table and a lesson from my cat led me to a hidden truth: we don't see the world as it is; we see it as how we look at it. Here is why selective perception is a critical skill for any designer."
 pubDate: '2025-12-21'
 published: true
 image: "/blog/dining-table-pattern.jpeg"
