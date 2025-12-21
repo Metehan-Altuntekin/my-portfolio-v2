@@ -8,6 +8,13 @@
 
 <svelte:head>
 	<meta name="theme-color" content="#121211" />
+	<style>
+		body,
+		html {
+			background-color: var(--color-blog-base-100);
+			background-image: none;
+		}
+	</style>
 </svelte:head>
 
 <SquareGridBG />
@@ -21,13 +28,3 @@
 
 	<Footer />
 </div>
-
-<style scoped>
-	@import '$app.css' reference;
-
-	:global(body),
-	:global(html) {
-		@apply bg-blog-base-100;
-		background-image: none;
-	}
-</style>
