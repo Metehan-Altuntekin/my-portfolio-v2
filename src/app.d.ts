@@ -44,9 +44,10 @@ declare global {
 		slug: string;
 		description: string;
 		image?: string;
-		pubDate: string;
-		categories: string[];
+		pubDate: string | Date;
+		tags: string[];
 		published: boolean;
+		lastMod?: string | Date;
 	}
 }
 

@@ -1,13 +1,46 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { BASE_URL, SITE_NAME, SITE_DESCRIPTION, TWITTER_HANDLE } from '$lib/constants.js';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 
-	onMount(() => {
-		console.log(data);
-	});
+	const pageUrl = `${BASE_URL}/blog`;
+	const ogImage = `${BASE_URL}/android-chrome-512x512.png`;
+
+	function formatDate(date: string | Date, dateStyle: Intl.DateTimeFormatOptions['dateStyle'] = 'medium'): string {
+		const dateToFormat = typeof date === 'string'
+			? new Date(date.replaceAll('-', '/'))
+			: date;
+		return new Intl.DateTimeFormat('en', { dateStyle }).format(dateToFormat);
+	}
+
+	function formatISODate(date: string | Date): string {
+		const dateObj = typeof date === 'string' ? new Date(date.replaceAll('-', '/')) : date;
+		return dateObj.toISOString();
+	}
 </script>
+
+<!-- SEO -->
+<svelte:head>
+	<title>Blog | {SITE_NAME}</title>
+	<meta name="description" content={`Blog posts by ${SITE_NAME}. ${SITE_DESCRIPTION}`} />
+	<link rel="canonical" href={pageUrl} />
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={pageUrl} />
+	<meta property="og:title" content={`Blog | ${SITE_NAME}`} />
+	<meta property="og:description" content={`Blog posts by ${SITE_NAME}. ${SITE_DESCRIPTION}`} />
+	<meta property="og:site_name" content={SITE_NAME} />
+	<meta property="og:image" content={ogImage} />
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content={TWITTER_HANDLE} />
+	<meta name="twitter:title" content={`Blog | ${SITE_NAME}`} />
+	<meta name="twitter:description" content={`Blog posts by ${SITE_NAME}. ${SITE_DESCRIPTION}`} />
+	<meta name="twitter:image" content={ogImage} />
+</svelte:head>
 
 <section id="posts">
 	<h1 class="text-4xl font-bold mx-auto text-center mb-[2em]">Blog Posts</h1>
@@ -27,10 +60,10 @@
 
 				<div class="card-body p-5">
 					<time
-						datetime={post.pubDate}
+						datetime={formatISODate(post.pubDate)}
 						class="text-blog-base-content-muted font-medium text-xs block mb-1"
 					>
-						{post.pubDate}
+						{formatDate(post.pubDate)}
 					</time>
 					<h2 class="card-title text-lg font-semibold text-ellipsis overflow-hidden line-clamp-2">
 						{post.title}
