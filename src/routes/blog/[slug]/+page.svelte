@@ -30,8 +30,8 @@
 	// Generate URLs and dates
 	const pageUrl = `${BASE_URL}/blog/${data.slug}`;
 	const ogImage = getAbsoluteImageUrl(data.meta.image);
-	const publishedTime = formatISODate(data.meta.pubDate);
-	const modifiedTime = data.meta.lastMod ? formatISODate(data.meta.lastMod) : publishedTime;
+	const createdAt = formatISODate(data.meta.createdAt);
+	const updatedAt = data.meta.updatedAt ? formatISODate(data.meta.updatedAt) : createdAt;
 
 	// JSON-LD structured data (simplified - removed deprecated keywords and duplicate publisher)
 	const jsonLd = {
@@ -39,8 +39,8 @@
 		'@type': 'BlogPosting',
 		headline: data.meta.title,
 		description: data.meta.description,
-		datePublished: publishedTime,
-		dateModified: modifiedTime,
+		datePublished: createdAt,
+		dateModified: updatedAt,
 		author: {
 			'@type': 'Person',
 			name: AUTHOR_NAME
@@ -83,8 +83,8 @@
 	{/if}
 
 	<!-- Article meta tags (for better SEO) -->
-	<meta property="article:published_time" content={publishedTime} />
-	<meta property="article:modified_time" content={modifiedTime} />
+	<meta property="article:published_time" content={createdAt} />
+	<meta property="article:modified_time" content={updatedAt} />
 	{#if data.meta.tags && data.meta.tags.length > 0}
 		{#each data.meta.tags as tag}
 			<meta property="article:tag" content={tag} />
@@ -113,7 +113,20 @@
 			<!-- Date and Reading Time -->
 			<div class="w-full flex items-center gap-x-3 gap-y-2 flex-wrap mb-6">
 				<p class="text-sm text-blog-base-content-muted font-medium opacity-80 my-0!">
-					{formatDate(data.meta.pubDate)}
+					{formatDate(data.meta.createdAt)}
+					{#if data.meta.updatedAt}
+						{@const created =
+							typeof data.meta.createdAt === 'string'
+								? new Date(data.meta.createdAt.replaceAll('-', '/'))
+								: new Date(data.meta.createdAt)}
+						{@const updated =
+							typeof data.meta.updatedAt === 'string'
+								? new Date(data.meta.updatedAt.replaceAll('-', '/'))
+								: new Date(data.meta.updatedAt)}
+						{#if updated.getTime() !== created.getTime()}
+							<span class="opacity-60"> (updated {formatDate(data.meta.updatedAt)})</span>
+						{/if}
+					{/if}
 				</p>
 
 				{#if data.readingTime}

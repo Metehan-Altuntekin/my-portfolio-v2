@@ -2,20 +2,20 @@ import { BASE_URL } from '$lib/constants.js';
 
 export const prerender = true;
 
-async function getBlogPosts(): Promise<Array<{ slug: string; lastMod?: string | Date }>> {
+async function getBlogPosts(): Promise<Array<{ slug: string; updatedAt?: string | Date }>> {
 	const paths = import.meta.glob('/src/content/blog/posts/*.md', { eager: true });
-	const posts: Array<{ slug: string; lastMod?: string | Date }> = [];
+	const posts: Array<{ slug: string; updatedAt?: string | Date }> = [];
 
 	for (const path in paths) {
 		const file = paths[path];
 		const slug = path.split('/').at(-1)?.replace('.md', '');
 
 		if (file && typeof file === 'object' && 'metadata' in file && slug) {
-			const metadata = file.metadata as { published?: boolean; lastMod?: string | Date };
+			const metadata = file.metadata as { published?: boolean; updatedAt?: string | Date };
 			if (metadata.published !== false) {
 				posts.push({
 					slug,
-					lastMod: metadata.lastMod
+					updatedAt: metadata.updatedAt
 				});
 			}
 		}
@@ -41,7 +41,7 @@ export async function GET() {
 		// Blog posts
 		...posts.map((post) => ({
 			loc: `${BASE_URL}/blog/${post.slug}`,
-			lastmod: formatDate(post.lastMod),
+			lastmod: formatDate(post.updatedAt),
 			changefreq: 'monthly' as const,
 			priority: '0.8' as const
 		}))

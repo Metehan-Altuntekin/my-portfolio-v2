@@ -16,9 +16,9 @@ async function getPosts() {
 		}
 	}
 
-	// Sort by publication date (newest first)
+	// Sort by creation date (newest first)
 	posts.sort(
-		(first, second) => new Date(second.pubDate).getTime() - new Date(first.pubDate).getTime()
+		(first, second) => new Date(second.createdAt).getTime() - new Date(first.createdAt).getTime()
 	);
 
 	return posts;

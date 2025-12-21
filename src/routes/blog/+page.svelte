@@ -59,12 +59,12 @@
 				</figure>
 
 				<div class="card-body p-5">
-					<time
-						datetime={formatISODate(post.pubDate)}
-						class="text-blog-base-content-muted font-medium text-xs block mb-1"
-					>
-						{formatDate(post.pubDate)}
-					</time>
+				<time
+					datetime={formatISODate(post.createdAt)}
+					class="text-blog-base-content-muted font-medium text-xs block mb-1"
+				>
+					{formatDate(post.createdAt)}
+				</time>
 					<h2 class="card-title text-lg font-semibold text-ellipsis overflow-hidden line-clamp-2">
 						{post.title}
 					</h2>

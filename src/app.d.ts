@@ -44,10 +44,10 @@ declare global {
 		slug: string;
 		description: string;
 		image?: string;
-		pubDate: string | Date;
+		createdAt: string | Date;
+		updatedAt?: string | Date;
 		tags: string[];
 		published: boolean;
-		lastMod?: string | Date;
 	}
 }
 
