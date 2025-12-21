@@ -110,11 +110,18 @@
 			<!-- Title -->
 			<h1 class="text-5xl self-start">{data.meta.title}</h1>
 
-			<!-- Date -->
-			<div class="list-none w-full flex">
+			<!-- Date and Reading Time -->
+			<div class="list-none w-full flex items-center gap-3">
 				<p class="text-sm text-blog-base-content-muted font-medium">
 					{formatDate(data.meta.pubDate)}
 				</p>
+				<span class="text-blog-base-content-muted">·</span>
+				{#if data.readingTime}
+					<p class="text-sm text-blog-base-content-muted font-medium">
+						{data.readingTime}
+						{data.readingTime === 1 ? 'min' : 'mins'} read
+					</p>
+				{/if}
 			</div>
 
 			<!-- Tags -->
