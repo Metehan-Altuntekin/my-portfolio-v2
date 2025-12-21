@@ -3,9 +3,9 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 import { mdsvex, escapeSvelte } from 'mdsvex';
 import { bundledLanguages, getSingletonHighlighter } from 'shiki';
-import rehypeUnwrapImages from 'rehype-unwrap-images';
 import remarkToc from 'remark-toc';
 import rehypeSlug from 'rehype-slug';
+import rehypeUnwrapImages from 'rehype-unwrap-images';
 import rehypeAutoLinkHeadings from 'rehype-autolink-headings';
 
 /** @type {import('mdsvex').MdsvexOptions} */
@@ -30,8 +30,13 @@ const mdsvexOptions = {
 	remarkPlugins: [[remarkToc, { tight: true }]],
 	rehypePlugins: [
 		rehypeSlug,
-		rehypeUnwrapImages,
-		rehypeAutoLinkHeadings({ behavior: 'wrap', properties: { className: ['link-hover'] } })
+		rehypeUnwrapImages
+		// TODO: rehype-autolink-headings disabled due to build error:
+		// "Cannot use 'in' operator to search for 'children' in undefined"
+		// This appears to be a compatibility issue with mdsvex@0.12.6 during build.
+		// Works in dev mode but fails during build. Need to investigate version compatibility
+		// or find alternative solution for auto-linking headings.
+		// rehypeAutoLinkHeadings({ behavior: 'wrap', properties: { className: ['link-hover'] })
 	]
 };
 

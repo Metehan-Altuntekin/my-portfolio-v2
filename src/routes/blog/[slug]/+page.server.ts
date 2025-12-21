@@ -1,5 +1,3 @@
-import { error } from '@sveltejs/kit';
-
 async function getPostSlugs(): Promise<string[]> {
 	const paths = import.meta.glob('/src/content/blog/posts/*.md', { eager: true });
 	const slugs: string[] = [];
@@ -23,16 +21,3 @@ export async function entries() {
 	const slugs = await getPostSlugs();
 	return slugs.map((slug) => ({ slug }));
 }
-
-export const load = async ({ params }) => {
-	try {
-		const post = await import(`../../../content/blog/posts/${params.slug}.md`);
-
-		return {
-			content: post.default,
-			meta: post.metadata
-		};
-	} catch (e) {
-		throw error(404, `Could not find ${params.slug}`);
-	}
-};
