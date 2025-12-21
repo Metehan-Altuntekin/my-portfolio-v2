@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { BASE_URL, SITE_NAME, TWITTER_HANDLE, AUTHOR_NAME } from '$lib/constants';
+	import { BASE_URL, SITE_NAME, TWITTER_HANDLE, AUTHOR_NAME } from '$lib/constants.js';
 
 	const { data } = $props();
 
@@ -112,7 +112,7 @@
 
 			<!-- Date -->
 			<div class="list-none w-full flex">
-				<p class="text-sm">
+				<p class="text-sm text-blog-base-content-muted font-medium">
 					{formatDate(data.meta.pubDate)}
 				</p>
 			</div>
@@ -122,7 +122,7 @@
 				{#each data.meta.tags as category}
 					<a
 						href={`/blog?category=${category}`}
-						class="chip variant-filled-secondary no-underline text-blog-base-content-muted hover:underline"
+						class="chip variant-filled-secondary no-underline border border-blog-base-content-muted/20 px-4! py-2! text-blog-base-content-muted hover:underline backdrop-blur-sm"
 						>{category}</a
 					>
 				{/each}
