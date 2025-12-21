@@ -112,14 +112,21 @@
 
 			<!-- Date and Reading Time -->
 			<div class="list-none w-full flex items-center gap-3">
-				<p class="text-sm text-blog-base-content-muted font-medium">
+				<p class="text-sm text-blog-base-content-muted font-medium opacity-80">
 					{formatDate(data.meta.pubDate)}
 				</p>
-				<span class="text-blog-base-content-muted">·</span>
 				{#if data.readingTime}
-					<p class="text-sm text-blog-base-content-muted font-medium">
+					<span class="text-blog-base-content-muted">·</span>
+					<p class="text-sm text-blog-base-content-muted font-medium opacity-80">
 						{data.readingTime}
 						{data.readingTime === 1 ? 'min' : 'mins'} read
+					</p>
+				{/if}
+
+				{#if data.meta.joke}
+					<span class="text-blog-base-content-muted opacity-50">·</span>
+					<p class="text-sm text-blog-base-content-muted opacity-50 font-medium">
+						{data.meta.joke}
 					</p>
 				{/if}
 			</div>

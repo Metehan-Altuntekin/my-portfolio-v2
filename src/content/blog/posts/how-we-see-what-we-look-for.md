@@ -8,6 +8,7 @@ tags:
 - design
 - ux
 - psychology
+joke: "72 hours of staring at my table"
 ---
 
 
