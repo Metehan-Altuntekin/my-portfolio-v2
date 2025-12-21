@@ -11,9 +11,12 @@
 <header
 	class="z-50 fixed left-0 right-0 top-0 w-full px-(--page-padding) py-3 md:py-4
 				transition-all duration-500
+				flex items-center justify-between
 				{scrolled && 'bg-black/5 backdrop-blur-lg'}	"
 >
 	<a href="/" title="Home">
 		<Logo />
 	</a>
+
+	<a href="/blog" class="font-medium">Blog</a>
 </header>
