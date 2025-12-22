@@ -2,22 +2,26 @@
  * Cloudflare Function for PostHog proxy
  * This handles proxying PostHog requests for static sites on Cloudflare Pages
  * Based on: https://posthog.com/docs/advanced/proxy/sveltekit
+ *
+ * This file handles all /ph/* routes by parsing the path from the URL
  */
 
 export async function onRequest(context: {
 	request: Request;
-	params: { path?: string[] };
+	params: { slug?: string[] };
 	env: any;
 }): Promise<Response> {
 	const { request, params } = context;
-	// Join path segments if they exist, otherwise use empty string
-	const path = params.path ? params.path.join('/') : '';
+
+	// Join slug segments if they exist, otherwise use empty string
+	const path = params.slug ? params.slug.join('/') : '';
+
+	const url = new URL(request.url);
 
 	// Determine the correct PostHog hostname
 	const hostname = path.startsWith('static/') ? 'us-assets.i.posthog.com' : 'us.i.posthog.com';
 
 	// Build the target URL
-	const url = new URL(request.url);
 	url.protocol = 'https:';
 	url.hostname = hostname;
 	url.port = '443';
