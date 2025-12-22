@@ -52,8 +52,9 @@ const handlePostHog: Handle = async ({ event, resolve }) => {
 			body: event.request.body
 		};
 
-		// Add duplex option for streaming request bodies (Node.js fetch API requirement)
-		if (event.request.body) {
+		// Add duplex option for Node.js (development) - not needed for Cloudflare Workers (production)
+		// Cloudflare Workers use Web Fetch API which doesn't require duplex
+		if (dev && event.request.body) {
 			(fetchOptions as { duplex?: string }).duplex = 'half';
 		}
 
