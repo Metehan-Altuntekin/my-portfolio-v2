@@ -97,7 +97,7 @@
 
 <section class="pt-0">
 	<article id="post" class="prose prose-custom prose-invert prose-lg max-w-4xl mb-16 mx-auto">
-		<hgroup class="flex flex-col items-center">
+		<hgroup class="flex flex-col items-center sm:mb-10">
 			<!-- Image -->
 			{#if data.meta.image}
 				<img
@@ -108,7 +108,9 @@
 			{/if}
 
 			<!-- Title -->
-			<h1 class="text-3xl sm:text-4xl lg:text-5xl self-start">{data.meta.title}</h1>
+			<h1 class="text-3xl sm:text-4xl lg:text-5xl self-start sm:mt-6">
+				{data.meta.title}
+			</h1>
 
 			<!-- Date and Reading Time -->
 			<div class="w-full flex items-center gap-x-3 gap-y-2 flex-wrap mb-6">
