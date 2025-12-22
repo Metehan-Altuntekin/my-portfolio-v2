@@ -103,7 +103,7 @@
 				<img
 					src={data.meta.image}
 					alt={data.meta.title}
-					class="rounded-md w-full aspect-5/2 sm:aspect-7/2"
+					class="rounded-xs w-full aspect-5/2 sm:aspect-7/2"
 				/>
 			{/if}
 
