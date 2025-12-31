@@ -1,6 +1,9 @@
 <script lang="ts">
-	import projects from '$lib/content/projects';
+	import { getProjects } from '$lib/content/i18n-content';
 	import Icon from '@iconify/svelte';
+	import * as m from '$lib/paraglide/messages.js';
+
+	const projects = getProjects();
 </script>
 
 <!-- @component Section for projects of the developer. -->
@@ -8,8 +11,10 @@
 <section id="projects">
 	<!-- Heading -->
 	<div class="w-full flex flex-col items-center mb-10 md:mb-12 lg:mb-16">
-		<h1 class="text-3xl md:text-4xl lg:text-5xl text-center mb-[0.5em] font-bold">Projects</h1>
-		<p class="text-center">Projects I have worked on with clients or on my own</p>
+		<h1 class="text-3xl md:text-4xl lg:text-5xl text-center mb-[0.5em] font-bold">
+			{m.projects_title()}
+		</h1>
+		<p class="text-center">{m.projects_subtitle()}</p>
 	</div>
 
 	<!-- TODO probably sliding container for mobile -->
@@ -44,7 +49,7 @@
 										opacity-0 hover:opacity-100 transition-all"
 						>
 							<span class="chip bg-black/50 text-xl text-base-content">
-								Visit Site
+								{m.projects_visit_site()}
 								<Icon icon="material-symbols:arrow-outward-rounded" class="text-3xl ml-2 inline" />
 							</span>
 						</div>

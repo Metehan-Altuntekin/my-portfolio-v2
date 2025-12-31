@@ -1,13 +1,18 @@
 <script lang="ts">
 	import { BASE_URL, SITE_NAME, TWITTER_HANDLE, AUTHOR_NAME } from '$lib/constants.js';
+	import { languageTag } from '$lib/paraglide/runtime';
+	import * as m from '$lib/paraglide/messages.js';
 
 	const { data } = $props();
 
 	type DateStyle = Intl.DateTimeFormatOptions['dateStyle'];
 
-	function formatDate(date: string | Date, dateStyle: DateStyle = 'medium', locales = 'en') {
+	function formatDate(date: string | Date, dateStyle: DateStyle = 'medium', locales?: string) {
 		const dateToFormat = typeof date === 'string' ? new Date(date.replaceAll('-', '/')) : date;
-		const dateFormatter = new Intl.DateTimeFormat(locales, { dateStyle });
+		const currentLang = locales || languageTag();
+		const dateFormatter = new Intl.DateTimeFormat(currentLang === 'tr' ? 'tr-TR' : 'en-US', {
+			dateStyle
+		});
 		return dateFormatter.format(dateToFormat);
 	}
 
@@ -126,7 +131,9 @@
 								? new Date(data.meta.updatedAt.replaceAll('-', '/'))
 								: new Date(data.meta.updatedAt)}
 						{#if updated.getTime() !== created.getTime()}
-							<span class="opacity-60"> (updated {formatDate(data.meta.updatedAt)})</span>
+							<span class="opacity-60">
+								({m.blog_updated()} {formatDate(data.meta.updatedAt)})</span
+							>
 						{/if}
 					{/if}
 				</p>
@@ -135,8 +142,9 @@
 					<div class="flex items-center gap-1">
 						<span class="text-blog-base-content-muted opacity-50 my-0!">·</span>
 						<p class="text-sm text-blog-base-content-muted font-medium opacity-80 my-0!">
-							{data.readingTime}
-							{data.readingTime === 1 ? 'min' : 'mins'} read
+							{data.readingTime === 1
+								? m.blog_min_read({ count: data.readingTime })
+								: m.blog_mins_read({ count: data.readingTime })}
 						</p>
 					</div>
 				{/if}

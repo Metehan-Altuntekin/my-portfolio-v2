@@ -2,13 +2,16 @@
 	import '../app.css';
 
 	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
+	import { browser, dev } from '$app/environment';
 	import posthog from 'posthog-js';
 	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
+	import { page } from '$app/state';
 
 	import { i18n } from '$lib/i18n';
 
 	let { children } = $props();
+
+	const canonicalPath = $derived(i18n.route(page.url.pathname));
 
 	onMount(() => {
 		if (!browser || dev) return;
@@ -26,6 +29,24 @@
 		});
 	});
 </script>
+
+<svelte:head>
+	<link
+		rel="alternate"
+		hreflang="en"
+		href="https://metehan.design{i18n.resolveRoute(canonicalPath, 'en')}"
+	/>
+	<link
+		rel="alternate"
+		hreflang="tr"
+		href="https://metehan.design{i18n.resolveRoute(canonicalPath, 'tr')}"
+	/>
+	<link
+		rel="alternate"
+		hreflang="x-default"
+		href="https://metehan.design{i18n.resolveRoute(canonicalPath, 'en')}"
+	/>
+</svelte:head>
 
 <ParaglideJS {i18n}>
 	{@render children()}

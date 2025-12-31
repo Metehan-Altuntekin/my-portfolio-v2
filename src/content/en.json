@@ -1,0 +1,34 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"hello_world": "Hello, {name} from en!",
+
+	"site_title": "Metehan Altuntekin | Think, research, design, build.",
+	"site_description": "Think, research, design, build. Full-Stack Designer & Developer engineering high-performance SvelteKit & React apps.",
+
+	"nav_blog": "Blog",
+
+	"hero_title": "Think, research, design, build.",
+	"hero_description": "Crafting user interfaces blends technical discipline with art. As a <b> full-stack designer </b>, I build apps that are both intuitive and visually compelling.",
+	"hero_cta_projects_title": "Projects",
+	"hero_cta_projects_desc": "The websites and apps I worked on developing",
+	"hero_cta_about_title": "About",
+	"hero_cta_about_desc": "Details about my skills and tools I use",
+	"hero_reach_out": "Reach out",
+
+	"projects_title": "Projects",
+	"projects_subtitle": "Projects I have worked on with clients or on my own",
+	"projects_visit_site": "Visit Site",
+
+	"skills_title": "Services & Expertise",
+	"skills_subtitle": "Here's how I bring design and development together for seamless project execution",
+
+	"toolbox_title": "My Toolbox",
+
+	"contact_title": "Let's Work Together",
+	"contact_subtitle": "Always happy to learn about an interesting project.",
+	"contact_send_email": "Send me an email",
+
+	"blog_min_read": "{count} min read",
+	"blog_mins_read": "{count} mins read",
+	"blog_updated": "updated"
+}

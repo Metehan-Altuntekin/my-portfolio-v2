@@ -5,6 +5,7 @@
 	import heroPic400 from '$lib/assets/hero-pic-400px.webp';
 
 	import Icon from '@iconify/svelte';
+	import * as m from '$lib/paraglide/messages.js';
 
 	type Cta = {
 		title: string;
@@ -14,13 +15,13 @@
 
 	const ctas: Cta[] = [
 		{
-			title: 'Projects',
-			description: 'The websites and apps I worked on developing',
+			title: m.hero_cta_projects_title(),
+			description: m.hero_cta_projects_desc(),
 			url: '#projects'
 		},
 		{
-			title: 'About',
-			description: 'Details about my skills and tools I use',
+			title: m.hero_cta_about_title(),
+			description: m.hero_cta_about_desc(),
 			url: '#skills'
 		}
 	];
@@ -60,12 +61,11 @@
 					lg:row-end-10 lg:max-w-[40vw]"
 	>
 		<h1 class="mb-[0.725em] text-[clamp(40px,5vw,88px)] font-bold leading-[1.14em]">
-			Think, research, design, build.
+			{m.hero_title()}
 		</h1>
 
 		<p class="text-base/5 font-normal sm:text-xl/6 lg:text-2xl/7">
-			Crafting user interfaces blends technical discipline with art. As a
-			<b> full-stack designer </b>, I build apps that are both intuitive and visually compelling.
+			{@html m.hero_description()}
 		</p>
 	</div>
 
@@ -88,7 +88,7 @@
 					lg:col-start-8 lg:col-end-13 lg:row-start-10 lg:row-end-13 lg:justify-self-end lg:self-end
 		"
 	>
-		<a href="#contact" class="chip backdrop-blur-xl">Reach out</a>
+		<a href="#contact" class="chip backdrop-blur-xl">{m.hero_reach_out()}</a>
 
 		<a
 			href="mailto:dev@metehan.design"

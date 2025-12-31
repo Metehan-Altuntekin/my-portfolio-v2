@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Logo from '$lib/components/Logo.svelte';
+	import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
+	import * as m from '$lib/paraglide/messages.js';
 
 	let scrollY = $state(0);
 	let scrolled = $derived(scrollY > 70);
@@ -18,5 +20,8 @@
 		<Logo />
 	</a>
 
-	<a href="/blog" class="font-medium">Blog</a>
+	<div class="flex items-center gap-4 md:gap-6">
+		<a href="/blog" class="font-medium">{m.nav_blog()}</a>
+		<LanguageSwitcher />
+	</div>
 </header>

@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { socials } from '$lib/content/contact';
 	import Icon from '@iconify/svelte';
+	import * as m from '$lib/paraglide/messages.js';
 </script>
 
 <section id="contact" class="flex flex-col items-center justify-center my-16 md:my-8">
 	<!-- Heading -->
 	<div class="w-full flex flex-col items-center mb-10 md:mb-16">
 		<h1 class="text-3xl md:text-4xl lg:text-5xl text-center mb-[0.5em] font-bold">
-			Let's Work Together
+			{m.contact_title()}
 		</h1>
-		<p class="text-center">Always happy to learn about an interesting project.</p>
+		<p class="text-center">{m.contact_subtitle()}</p>
 	</div>
 
 	<!-- Email -->
@@ -23,7 +24,7 @@
 			<span class="text-2xl font-bold">dev@metehan.design</span>
 		</a>
 
-		<span class="chip backdrop-blur-xl text-xs">Send me an email</span>
+		<span class="chip backdrop-blur-xl text-xs">{m.contact_send_email()}</span>
 	</div>
 
 	<!-- Social -->

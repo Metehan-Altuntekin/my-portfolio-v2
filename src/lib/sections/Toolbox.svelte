@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { tools } from '$lib/content/projects';
-
 	import Icon from '@iconify/svelte';
+	import * as m from '$lib/paraglide/messages.js';
 </script>
 
 <section id="toolbox" class="flex flex-col items-center">
 	<!-- Heading -->
 	<div class="w-full flex flex-col items-center mb-10 md:mb-12 lg:mb-16">
-		<h1 class="text-3xl md:text-4xl lg:text-5xl text-center mb-[0.5em] font-bold">My Toolbox</h1>
+		<h1 class="text-3xl md:text-4xl lg:text-5xl text-center mb-[0.5em] font-bold">
+			{m.toolbox_title()}
+		</h1>
 	</div>
 
 	<!-- Tools -->

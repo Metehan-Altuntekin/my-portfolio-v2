@@ -1,0 +1,34 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"hello_world": "Hello, {name} from tr!",
+
+	"site_title": "Metehan Altuntekin | Düşün, araştır, tasarla, inşa et.",
+	"site_description": "Düşün, araştır, tasarla, inşa et. Yüksek performanslı SvelteKit & React uygulamaları geliştiren Full-Stack Tasarımcı & Geliştirici.",
+
+	"nav_blog": "Blog",
+
+	"hero_title": "Düşün, araştır, tasarla, inşa et.",
+	"hero_description": "Kullanıcı arayüzleri tasarlamak teknik disiplin ile sanatı harmanlar. <b> Full-stack tasarımcı </b> olarak, hem kullanışsal hem de görsel olarak etkileyici uygulamalar geliştiriyorum.",
+	"hero_cta_projects_title": "Projeler",
+	"hero_cta_projects_desc": "Geliştirdiğim web siteleri ve uygulamalar",
+	"hero_cta_about_title": "Hakkımda",
+	"hero_cta_about_desc": "Yeteneklerim ve kullandığım araçlar hakkında detaylar",
+	"hero_reach_out": "İletişime geç",
+
+	"projects_title": "Projeler",
+	"projects_subtitle": "Müşterilerle veya kendi başıma üzerinde çalıştığım projeler",
+	"projects_visit_site": "Siteyi Ziyaret Et",
+
+	"skills_title": "Hizmetler & Uzmanlık",
+	"skills_subtitle": "Tasarım ve yazılım geliştirmeyi sorunsuz proje yürütme için nasıl bir araya getirdiğim",
+
+	"toolbox_title": "Kullandığım Araçlar",
+
+	"contact_title": "Birlikte Çalışalım",
+	"contact_subtitle": "İlginç bir projeyi öğrenmekten her zaman mutluluk duyarım.",
+	"contact_send_email": "E-posta gönderin",
+
+	"blog_min_read": "{count} dk okuma",
+	"blog_mins_read": "{count} dk okuma",
+	"blog_updated": "güncellendi"
+}

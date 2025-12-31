@@ -1,16 +1,19 @@
 <script lang="ts">
-	import skills from '$lib/content/skills';
+	import { getSkills } from '$lib/content/i18n-content';
 	import Icon from '@iconify/svelte';
+	import * as m from '$lib/paraglide/messages.js';
+
+	const skills = getSkills();
 </script>
 
 <section id="skills" class="flex flex-col items-center">
 	<!-- Heading -->
 	<div class="w-full flex flex-col items-center mb-10 md:mb-12 lg:mb-16">
 		<h1 class="text-3xl md:text-4xl lg:text-5xl text-center mb-[0.5em] font-bold">
-			Services & Expertise
+			{m.skills_title()}
 		</h1>
 		<p class="text-center">
-			Here’s how I bring design and development together for seamless project execution
+			{m.skills_subtitle()}
 		</p>
 	</div>
 
