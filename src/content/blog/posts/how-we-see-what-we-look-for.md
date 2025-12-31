@@ -2,9 +2,9 @@
 id: 'how-we-see-what-we-look-for'
 lang: 'en'
 title: 'What my dining table and my cat showed me about human attention'
-description: "A realization at my kitchen table and a lesson from my cat led me to a hidden truth: we don't see the world as it is; we see it as how we look at it. Here is why selective perception is a critical skill for any designer."
+description: "A realization at my kitchen table and a lesson from my cat led me to a hidden truth: we don't see the world as it is; we see it as how we look at it. Here is why being mindful of selective perception is critical for any designer."
 createdAt: '2025-12-21'
-updatedAt: '2025-12-21'
+updatedAt: '2025-12-31'
 published: true
 image: "/blog/dining-table-pattern.jpeg"
 tags:
@@ -26,7 +26,7 @@ When I look at this image for ascending line patterns, I see columns. When I loo
 
 My cat, Hureyre, doesn't see this at all. He only sees the piece of meat or butter I put on the table. He doesn't see text on paper or patterns on bed sheets. He doesn't notice the different clothes I wear. He has only a few interests: moving objects, noise-making things, and things that could be prey, a friend, or a danger.
 
-His cat brain just works this way. This interest can be extended through association. For example, I taught him the command _"Acıktın mı?"_ (Are you hungry?), and he recognizes it. I trained him to respond affirmatively because he knows food follows. But his focus only extends so far, always depending on his basic desires.
+His cat brain just works this way. This interest can be extended through association. For example, I taught him the question _"Acıktın mı?"_ (Are you hungry?), and he recognizes it. I trained him to respond affirmatively because he knows food follows. But his focus only extends so far, always depending on his basic desires.
 
 Humans work the same way. We need developed curiosity to care about certain things. My mom doesn't look into a car's design or performance—she just wants to get from point A to B. My brother, however, knows many brands and how they perform differently because he is interested in the joy of driving.
 
