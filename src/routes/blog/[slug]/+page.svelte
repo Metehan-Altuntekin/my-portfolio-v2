@@ -37,6 +37,7 @@
 	const ogImage = getAbsoluteImageUrl(data.meta.image);
 	const createdAt = formatISODate(data.meta.createdAt);
 	const updatedAt = data.meta.updatedAt ? formatISODate(data.meta.updatedAt) : createdAt;
+	const currentLang = languageTag();
 
 	// JSON-LD structured data (simplified - removed deprecated keywords and duplicate publisher)
 	const jsonLd = {
@@ -65,6 +66,19 @@
 	<!-- Essential SEO -->
 	<meta name="description" content={data.meta.description} />
 	<link rel="canonical" href={pageUrl} />
+
+	<!-- Language alternates -->
+	{#if data.alternateUrls.en}
+		<link rel="alternate" hreflang="en" href={`${BASE_URL}${data.alternateUrls.en}`} />
+	{/if}
+	{#if data.alternateUrls.tr}
+		<link rel="alternate" hreflang="tr" href={`${BASE_URL}${data.alternateUrls.tr}`} />
+	{/if}
+	<link
+		rel="alternate"
+		hreflang="x-default"
+		href={`${BASE_URL}${data.alternateUrls.en || pageUrl}`}
+	/>
 
 	<!-- Open Graph (Facebook, LinkedIn, etc.) -->
 	<meta property="og:type" content="article" />

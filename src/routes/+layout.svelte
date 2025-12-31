@@ -8,10 +8,12 @@
 	import { page } from '$app/state';
 
 	import { i18n } from '$lib/i18n';
+	import { isBlogPostPath } from '$lib/i18n-utils';
 
 	let { children } = $props();
 
 	const canonicalPath = $derived(i18n.route(page.url.pathname));
+	const isBlogPost = $derived(isBlogPostPath(page.url.pathname));
 
 	onMount(() => {
 		if (!browser || dev) return;
@@ -31,21 +33,24 @@
 </script>
 
 <svelte:head>
-	<link
-		rel="alternate"
-		hreflang="en"
-		href="https://metehan.design{i18n.resolveRoute(canonicalPath, 'en')}"
-	/>
-	<link
-		rel="alternate"
-		hreflang="tr"
-		href="https://metehan.design{i18n.resolveRoute(canonicalPath, 'tr')}"
-	/>
-	<link
-		rel="alternate"
-		hreflang="x-default"
-		href="https://metehan.design{i18n.resolveRoute(canonicalPath, 'en')}"
-	/>
+	{#if !isBlogPost}
+		<!-- Only add hreflang tags for non-blog-post pages (blog posts have their own) -->
+		<link
+			rel="alternate"
+			hreflang="en"
+			href="https://metehan.design{i18n.resolveRoute(canonicalPath, 'en')}"
+		/>
+		<link
+			rel="alternate"
+			hreflang="tr"
+			href="https://metehan.design{i18n.resolveRoute(canonicalPath, 'tr')}"
+		/>
+		<link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://metehan.design{i18n.resolveRoute(canonicalPath, 'en')}"
+		/>
+	{/if}
 </svelte:head>
 
 <ParaglideJS {i18n}>

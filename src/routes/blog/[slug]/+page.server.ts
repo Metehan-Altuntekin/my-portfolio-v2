@@ -1,23 +1,15 @@
-async function getPostSlugs(): Promise<string[]> {
-	const paths = import.meta.glob('/src/content/blog/posts/*.md', { eager: true });
-	const slugs: string[] = [];
-
-	for (const path in paths) {
-		const file = paths[path];
-		const slug = path.split('/').at(-1)?.replace('.md', '');
-
-		if (file && typeof file === 'object' && 'metadata' in file && slug) {
-			const metadata = file.metadata as { published?: boolean };
-			if (metadata.published !== false) {
-				slugs.push(slug);
-			}
-		}
-	}
-
-	return slugs;
-}
+import { getPostsByLanguage } from '$lib/blog-utils';
 
 export async function entries() {
-	const slugs = await getPostSlugs();
-	return slugs.map((slug) => ({ slug }));
+	// Get posts for both languages
+	const postsEn = await getPostsByLanguage('en');
+	const postsTr = await getPostsByLanguage('tr');
+
+	// Return all slugs for prerendering
+	const slugs: { slug: string }[] = [
+		...postsEn.map((post) => ({ slug: post.slug })),
+		...postsTr.map((post) => ({ slug: post.slug }))
+	];
+
+	return slugs;
 }

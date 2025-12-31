@@ -1,11 +1,12 @@
 <script lang="ts">
-	import type { AvailableLanguageTag } from '$lib/paraglide/runtime';
-	import { i18n } from '$lib/i18n';
-	import { page } from '$app/stores';
-	import { goto } from '$app/navigation';
-	import { languageTag } from '$lib/paraglide/runtime';
 	import { onMount } from 'svelte';
 	import Icon from '@iconify/svelte';
+	import type { AvailableLanguageTag } from '$lib/paraglide/runtime';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
+
+	import { i18n } from '$lib/i18n';
+	import { languageTag } from '$lib/paraglide/runtime';
 
 	let dropdownOpen = $state(false);
 	let dropdownElement: HTMLDivElement;
@@ -18,14 +19,12 @@
 	];
 
 	function switchToLanguage(newLanguage: AvailableLanguageTag, event: MouseEvent) {
-		console.log('switching to', newLanguage);
 		event.stopPropagation();
 		event.preventDefault();
-		const canonicalPath = i18n.route($page.url.pathname);
-		const localisedPath = i18n.resolveRoute(canonicalPath, newLanguage);
 		dropdownOpen = false;
 
-		console.log('switching to', localisedPath);
+		const canonicalPath = i18n.route(page.url.pathname);
+		const localisedPath = i18n.resolveRoute(canonicalPath, newLanguage);
 		goto(localisedPath);
 	}
 

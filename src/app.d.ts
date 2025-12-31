@@ -40,6 +40,8 @@ declare global {
 	};
 
 	interface Post {
+		id: string;
+		lang: 'en' | 'tr';
 		title: string;
 		slug: string;
 		description: string;
@@ -48,6 +50,7 @@ declare global {
 		updatedAt?: string | Date;
 		tags: string[];
 		published: boolean;
+		joke?: string;
 	}
 }
 
