@@ -29,3 +29,7 @@ export function getSkills(): Skill[] {
 
 	return skillsEn;
 }
+
+// Re-export tools and socials for convenience
+export { tools } from './projects';
+export { socials } from './contact';

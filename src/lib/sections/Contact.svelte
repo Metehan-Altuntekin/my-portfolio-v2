@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { socials } from '$lib/content/contact';
+	import { socials } from '$content';
 	import Icon from '@iconify/svelte';
 	import * as m from '$lib/paraglide/messages.js';
 </script>

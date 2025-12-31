@@ -56,7 +56,7 @@ const config = {
 			handleUnseenRoutes: 'ignore'
 		},
 		alias: {
-			content: 'src/content',
+			'$content': 'src/content',
 			'$app.css': './src/app.css'
 		}
 	},

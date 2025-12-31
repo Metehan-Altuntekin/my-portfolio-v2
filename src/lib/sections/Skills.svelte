@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getSkills } from '$lib/content/i18n-content';
+	import { getSkills } from '$content/index';
 	import Icon from '@iconify/svelte';
 	import * as m from '$lib/paraglide/messages.js';
 

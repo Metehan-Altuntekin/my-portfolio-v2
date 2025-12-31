@@ -16,3 +16,4 @@ export const socials: Social[] = [
 		url: 'https://stackoverflow.com/users/17710523/metehan-altuntekin'
 	}
 ];
+

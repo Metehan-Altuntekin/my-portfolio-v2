@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { tools } from '$lib/content/projects';
+	import { tools } from '$content';
 	import Icon from '@iconify/svelte';
 	import * as m from '$lib/paraglide/messages.js';
 </script>

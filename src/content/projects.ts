@@ -1,21 +1,21 @@
-import allsetThumb from '$lib/content/thumbs/allset.webp';
-import allsetThumb400 from '$lib/content/thumbs/allset-400px.webp';
-import allsetThumb800 from '$lib/content/thumbs/allset-800px.webp';
-import breezbookThumb from '$lib/content/thumbs/breezbook.webp';
-import breezbookThumb400 from '$lib/content/thumbs/breezbook-400px.webp';
-import breezbookThumb800 from '$lib/content/thumbs/breezbook-800px.webp';
-import kurdanciogluThumb from '$lib/content/thumbs/kurdancioglu.webp';
-import kurdanciogluThumb400 from '$lib/content/thumbs/kurdancioglu-400px.webp';
-import kurdanciogluThumb800 from '$lib/content/thumbs/kurdancioglu-800px.webp';
-import ozkanMusavirlikThumb from '$lib/content/thumbs/ozkan-musavirlik.webp';
-import ozkanMusavirlikThumb400 from '$lib/content/thumbs/ozkan-musavirlik-400px.webp';
-import ozkanMusavirlikThumb800 from '$lib/content/thumbs/ozkan-musavirlik-800px.webp';
-import tojsonThumb from '$lib/content/thumbs/tojson.webp';
-import tojsonThumb400 from '$lib/content/thumbs/tojson-400px.webp';
-import tojsonThumb800 from '$lib/content/thumbs/tojson-800px.webp';
-import breezbookBookingThumb from '$lib/content/thumbs/breezbook-booking.webp';
-import breezbookBookingThumb400 from '$lib/content/thumbs/breezbook-booking-400px.webp';
-import breezbookBookingThumb800 from '$lib/content/thumbs/breezbook-booking-800px.webp';
+import allsetThumb from '$content/thumbs/allset.webp';
+import allsetThumb400 from '$content/thumbs/allset-400px.webp';
+import allsetThumb800 from '$content/thumbs/allset-800px.webp';
+import breezbookThumb from '$content/thumbs/breezbook.webp';
+import breezbookThumb400 from '$content/thumbs/breezbook-400px.webp';
+import breezbookThumb800 from '$content/thumbs/breezbook-800px.webp';
+import kurdanciogluThumb from '$content/thumbs/kurdancioglu.webp';
+import kurdanciogluThumb400 from '$content/thumbs/kurdancioglu-400px.webp';
+import kurdanciogluThumb800 from '$content/thumbs/kurdancioglu-800px.webp';
+import ozkanMusavirlikThumb from '$content/thumbs/ozkan-musavirlik.webp';
+import ozkanMusavirlikThumb400 from '$content/thumbs/ozkan-musavirlik-400px.webp';
+import ozkanMusavirlikThumb800 from '$content/thumbs/ozkan-musavirlik-800px.webp';
+import tojsonThumb from '$content/thumbs/tojson.webp';
+import tojsonThumb400 from '$content/thumbs/tojson-400px.webp';
+import tojsonThumb800 from '$content/thumbs/tojson-800px.webp';
+import breezbookBookingThumb from '$content/thumbs/breezbook-booking.webp';
+import breezbookBookingThumb400 from '$content/thumbs/breezbook-booking-400px.webp';
+import breezbookBookingThumb800 from '$content/thumbs/breezbook-booking-800px.webp';
 
 export const tools = {
 	ts: {
@@ -140,3 +140,4 @@ const projects: Project[] = [
 ];
 
 export default projects;
+

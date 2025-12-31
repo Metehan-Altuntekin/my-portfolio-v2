@@ -38,3 +38,4 @@ const skills: Skill[] = [
 ];
 
 export default skills;
+
