@@ -4,7 +4,7 @@ lang: 'tr'
 title: 'Yemek Masamdan ve Kedimden İnsan Dikkati Hakkında Öğrendiklerim'
 description: "Mutfak masamdaki bir detay ve kedimin davranışları beni gizli bir gerçeğe götürdü: Dünyayı olduğu gibi değil, ona nasıl bakıyorsak öyle görüyoruz. İşte, seçici algının farkında olmanın bir tasarımcı için neden kritik olduğu."
 createdAt: '2025-12-31'
-updatedAt: '2025-12-31'
+updatedAt: '2026-01-04'
 published: true
 image: "/blog/dining-table-pattern.jpeg"
 tags:
@@ -27,6 +27,8 @@ Bu görsele yükselen çizgi desenlerini görmek için baktığımda sütunlar g
 Kedim Hureyre bunu hiç görmüyor. Sadece masaya koyduğum et veya tereyağı parçasını görüyor. Bir kağıt üzerindeki yazıları veya çarşaftaki desenleri görmüyor. Giydiğim farklı kıyafetleri fark etmiyor. Sadece birkaç ilgi alanı var: hareket eden nesneler, gürültü yapan şeyler ve av, arkadaş veya tehlike olabilecek şeyler.
 
 Kedi beyni bu şekilde çalışıyor. Bu ilgi, ilişkilendirme yoluyla genişletilebilir. Örneğin, ona *"Acıktın mı?"* sorusunu öğrettim ve bunu anlıyor. Bu komuta olumlu yanıt vermesi için onu eğittim çünkü yemek geleceğini biliyor. Ancak odak noktası, her zaman temel arzularına bağlı olarak sadece belli bir noktaya kadar uzanıyor.
+
+![My cat sniffing meat on the dining table](/blog/cat-table-meat.jpeg)
 
 İnsanlar da aynı şekilde çalışır. Belirli şeyleri önemsemek için gelişmiş bir meraka ihtiyacımız vardır. Annem bir arabanın tasarımına veya performansına bakmaz—o sadece A noktasından B noktasına gitmek ister. Ancak kardeşim, araba sürme keyfine ilgi duyduğu için birçok markayı ve bunların nasıl farklı performans gösterdiğini bilir.
 
