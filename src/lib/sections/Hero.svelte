@@ -45,7 +45,7 @@
 		<img
 			class="h-full w-full object-[0%_15%] lg:object-center"
 			src={heroPic}
-			srcset={`${heroPic400} 289w, ${heroPic800} 577w, ${heroPic1200} 865w, ${heroPic} 1699w`}
+			srcset={`${heroPic400} 289w, ${heroPic800} 740w, ${heroPic1200} 1080w, ${heroPic} 1699w`}
 			sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 35vw"
 			width="1699"
 			height="2357"
