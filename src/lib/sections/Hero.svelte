@@ -47,7 +47,7 @@
 			class="h-full w-full object-[0%_15%] lg:object-center"
 			src={heroPic}
 			srcset={`${heroPic400} 400w, ${heroPic600} 600w, ${heroPic800} 800w, ${heroPic1000} 1000w, ${heroPic} 1699w`}
-			sizes="(max-width: 639px) 100vw, 42vw"
+			sizes="(max-width: 639px) 65vw, 42vw"
 			width="1699"
 			height="2357"
 			alt="Mete on a pedestrian bridge over a highway in a sunny day. Car traffic, green trees and mountains on the background."
