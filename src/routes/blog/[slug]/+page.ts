@@ -46,6 +46,8 @@ export const load = async ({ params, url }) => {
 		const { bySlug } = await getAllPosts();
 		const postInOtherLang = bySlug.get(params.slug);
 
+		console.log('No post found', postInOtherLang);
+
 		if (postInOtherLang && postInOtherLang.lang !== lang) {
 			// Get the correct version for the current language
 			const { urls } = await getPostAlternates(postInOtherLang.id, postInOtherLang.lang);
