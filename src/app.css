@@ -222,6 +222,13 @@ pre.shiki code {
 	font-size: 14px;
 }
 
+@utility logo {
+	font-weight: 700;
+	font-variation-settings:
+		'FLAR' 100,
+		'VOLM' 100;
+}
+
 /* ---------------------------------------- */
 
 @layer base {
