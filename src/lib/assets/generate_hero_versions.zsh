@@ -12,15 +12,15 @@ fi
 
 echo "Processing $SOURCE_FILE (original: 1699x2357)"
 
-# Generate versions at different heights (maintaining aspect ratio)
-# Heights chosen for responsive breakpoints
-for height in 1200 800 400; do
-  output_file="${BASE_NAME}-${height}px.webp"
-  echo "  Generating $output_file (height=${height}px)"
+# Generate versions at different widths (maintaining aspect ratio)
+# Widths chosen for responsive breakpoints
+for width in 1000 800 600 400; do
+  output_file="${BASE_NAME}-${width}px.webp"
+  echo "  Generating $output_file (width=${width}px)"
 
-  # Resize: use -resize 0 <height> so that the width is auto-calculated, maintaining aspect ratio
-  # Using quality 90 to match the original's compression quality (original is ~204KB at 1699x2357)
-  cwebp -q 90 -resize 0 "$height" "$SOURCE_FILE" -o "$output_file"
+  # Resize: use -resize <width> 0 so that the height is auto-calculated, maintaining aspect ratio
+  # Using quality 85 for good balance between file size and visual quality
+  cwebp -q 85 -resize "$width" 0 "$SOURCE_FILE" -o "$output_file"
   if [[ $? -eq 0 ]]; then
     echo "    ✓ Created $output_file"
   else

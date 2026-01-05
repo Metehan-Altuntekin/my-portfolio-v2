@@ -1,7 +1,8 @@
 <script lang="ts">
 	import heroPic from '$lib/assets/hero-pic.webp';
-	import heroPic1200 from '$lib/assets/hero-pic-1200px.webp';
+	import heroPic1000 from '$lib/assets/hero-pic-1000px.webp';
 	import heroPic800 from '$lib/assets/hero-pic-800px.webp';
+	import heroPic600 from '$lib/assets/hero-pic-600px.webp';
 	import heroPic400 from '$lib/assets/hero-pic-400px.webp';
 
 	import Icon from '@iconify/svelte';
@@ -45,8 +46,8 @@
 		<img
 			class="h-full w-full object-[0%_15%] lg:object-center"
 			src={heroPic}
-			srcset={`${heroPic400} 289w, ${heroPic800} 740w, ${heroPic1200} 1080w, ${heroPic} 1699w`}
-			sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 35vw"
+			srcset={`${heroPic400} 400w, ${heroPic600} 600w, ${heroPic800} 800w, ${heroPic1000} 1000w, ${heroPic} 1699w`}
+			sizes="(max-width: 639px) 100vw, 42vw"
 			width="1699"
 			height="2357"
 			alt="Mete on a pedestrian bridge over a highway in a sunny day. Car traffic, green trees and mountains on the background."
