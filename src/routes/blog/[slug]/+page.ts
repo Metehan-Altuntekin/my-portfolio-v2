@@ -40,14 +40,12 @@ export const load = async ({ params, url }) => {
 
 	// Get post by slug and language
 	let post = await getPostBySlug(params.slug, lang);
-	console.log(lang, post);
+	console.log(params, lang, post);
 
 	// If not found, check if this slug exists in another language and redirect
 	if (!post) {
 		const { bySlug } = await getAllPosts();
 		const postInOtherLang = bySlug.get(params.slug);
-
-		console.log('No post found', postInOtherLang);
 
 		if (postInOtherLang && postInOtherLang.lang !== lang) {
 			// Get the correct version for the current language
