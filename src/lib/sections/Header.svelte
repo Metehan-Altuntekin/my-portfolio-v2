@@ -14,7 +14,7 @@
 	class="z-50 fixed left-0 right-0 top-0 w-full px-(--page-padding) py-3 md:py-4
 				transition-all duration-500
 				flex items-center justify-between
-				before:inset-0 before:absolute before:-z-10
+				before:inset-0 before:absolute before:-z-10 before:bg-black/0 before:transition-all before:duration-500
 				{scrolled && 'before:bg-black/5 before:backdrop-blur-lg'}	"
 >
 	<a href="/" title="Home">
