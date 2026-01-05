@@ -53,10 +53,15 @@ const config = {
 		adapter: adapter(),
 		prerender: {
 			handleMissingId: 'warn',
-			handleUnseenRoutes: 'ignore'
+			handleUnseenRoutes: 'ignore',
+			entries: [
+				'*', // Crawl from root
+				'/tr', // Turkish home page
+				'/tr/blog' // Turkish blog listing
+			]
 		},
 		alias: {
-			'$content': 'src/content',
+			$content: 'src/content',
 			'$app.css': './src/app.css'
 		}
 	},
