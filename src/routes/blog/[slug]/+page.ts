@@ -52,11 +52,11 @@ export const load = async ({ params, url }) => {
 			const redirectUrl = urls[lang];
 
 			if (redirectUrl) {
-				throw redirect(307, redirectUrl);
+				redirect(307, redirectUrl);
 			}
 		}
 
-		throw error(404, `Could not find post: ${params.slug}`);
+		error(404, `Could not find post: ${params.slug}`);
 	}
 
 	// Try to load the markdown file

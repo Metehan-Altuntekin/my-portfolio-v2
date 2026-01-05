@@ -1,12 +1,15 @@
 import type { Handle } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
 import { i18n } from '$lib/i18n';
 import { dev } from '$app/environment';
+import { blogRedirects } from '$lib/blog-redirects';
 
 const handleParaglide: Handle = i18n.handle();
 
 const handlePostHog: Handle = async ({ event, resolve }) => {
 	const { pathname } = event.url;
 
+	// PostHog proxying
 	if (pathname.startsWith('/ph')) {
 		const hostname = pathname.startsWith('/ph/static/')
 			? 'us-assets.i.posthog.com'
@@ -91,6 +94,21 @@ const handlePostHog: Handle = async ({ event, resolve }) => {
 			statusText: response.statusText,
 			headers: responseHeaders
 		});
+	}
+
+	// Blog redirects
+	if (pathname.includes('/blog/')) {
+		const slug = pathname.split('/blog/')[1];
+
+		if (!slug) return resolve(event);
+
+		if (blogRedirects[slug]) {
+			console.log('redirecting', slug);
+			const newSlug = blogRedirects[slug];
+
+			const newPath = pathname.replace(`/blog/${slug}`, `/blog/${newSlug}`);
+			redirect(301, newPath);
+		}
 	}
 
 	return resolve(event);
