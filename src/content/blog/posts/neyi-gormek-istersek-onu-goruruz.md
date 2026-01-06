@@ -7,6 +7,9 @@ createdAt: '2025-12-31'
 updatedAt: '2026-01-04'
 published: true
 image: "/blog/dining-table-pattern.jpeg"
+image16x9: "/blog/dining-table-pattern-16x9.jpeg"
+image4x3: "/blog/dining-table-pattern-4x3.jpeg"
+image1x1: "/blog/dining-table-pattern-1x1.jpeg"
 tags:
 - design
 - ux

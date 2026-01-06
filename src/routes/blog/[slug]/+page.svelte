@@ -26,6 +26,51 @@
 		return `${BASE_URL}/${cleanPath}`;
 	}
 
+	// Build multi-ratio image array for JSON-LD from explicitly defined images
+	function buildImageArray() {
+		const images = [];
+
+		// Add images in order of priority for Google (16:9, 4:3, 1:1)
+		if (data.meta.image16x9) {
+			images.push({
+				'@type': 'ImageObject',
+				url: getAbsoluteImageUrl(data.meta.image16x9),
+				width: 1200,
+				height: 675
+			});
+		}
+
+		if (data.meta.image4x3) {
+			images.push({
+				'@type': 'ImageObject',
+				url: getAbsoluteImageUrl(data.meta.image4x3),
+				width: 1200,
+				height: 900
+			});
+		}
+
+		if (data.meta.image1x1) {
+			images.push({
+				'@type': 'ImageObject',
+				url: getAbsoluteImageUrl(data.meta.image1x1),
+				width: 1200,
+				height: 1200
+			});
+		}
+
+		// If no specific ratios defined but base image exists, use that
+		if (images.length === 0 && data.meta.image) {
+			return {
+				'@type': 'ImageObject',
+				url: getAbsoluteImageUrl(data.meta.image),
+				caption: data.meta.title
+			};
+		}
+
+		// Return array if we have multiple images, single object if just one
+		return images.length > 0 ? (images.length === 1 ? images[0] : images) : undefined;
+	}
+
 	// Format date for ISO 8601
 	function formatISODate(date: string | Date): string {
 		const dateObj = typeof date === 'string' ? new Date(date.replaceAll('-', '/')) : date;
@@ -40,6 +85,7 @@
 	const currentLang = languageTag();
 
 	// JSON-LD structured data
+	const imageData = buildImageArray();
 	const jsonLd = {
 		'@context': 'https://schema.org',
 		'@type': 'BlogPosting',
@@ -52,13 +98,7 @@
 			name: AUTHOR_NAME,
 			url: BASE_URL
 		},
-		...(ogImage && {
-			image: {
-				'@type': 'ImageObject',
-				url: ogImage,
-				caption: data.meta.title
-			}
-		}),
+		...(imageData && { image: imageData }),
 		publisher: {
 			'@type': 'Organization',
 			name: SITE_NAME,
@@ -80,6 +120,7 @@
 
 	<!-- Essential SEO -->
 	<meta name="description" content={data.meta.description} />
+	<meta name="robots" content="max-image-preview:large" />
 	<link rel="canonical" href={pageUrl} />
 
 	<!-- Language alternates -->
@@ -104,6 +145,8 @@
 	{#if ogImage}
 		<meta property="og:image" content={ogImage} />
 		<meta property="og:image:alt" content={data.meta.title} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="900" />
 	{/if}
 
 	<!-- Twitter Card -->
