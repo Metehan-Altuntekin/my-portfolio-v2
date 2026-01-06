@@ -3,6 +3,7 @@
 # Allow all crawlers to access all content
 User-agent: *
 Allow: /
+Disallow: /_app/
 
 # Sitemap location
 Sitemap: https://metehan.design/sitemap.xml
