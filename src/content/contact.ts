@@ -14,6 +14,10 @@ export const socials: Social[] = [
 		name: 'StackOverflow',
 		iconId: 'academicons:stackoverflow',
 		url: 'https://stackoverflow.com/users/17710523/metehan-altuntekin'
+	},
+	{
+		name: 'Twitter',
+		iconId: 'mdi:twitter',
+		url: 'https://x.com/metelomaniac'
 	}
 ];
-
