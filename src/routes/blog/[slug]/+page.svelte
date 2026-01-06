@@ -39,7 +39,7 @@
 	const updatedAt = data.meta.updatedAt ? formatISODate(data.meta.updatedAt) : createdAt;
 	const currentLang = languageTag();
 
-	// JSON-LD structured data (simplified - removed deprecated keywords and duplicate publisher)
+	// JSON-LD structured data
 	const jsonLd = {
 		'@context': 'https://schema.org',
 		'@type': 'BlogPosting',
@@ -49,9 +49,24 @@
 		dateModified: updatedAt,
 		author: {
 			'@type': 'Person',
-			name: AUTHOR_NAME
+			name: AUTHOR_NAME,
+			url: BASE_URL
 		},
-		...(ogImage && { image: ogImage }),
+		...(ogImage && {
+			image: {
+				'@type': 'ImageObject',
+				url: ogImage,
+				caption: data.meta.title
+			}
+		}),
+		publisher: {
+			'@type': 'Organization',
+			name: SITE_NAME,
+			logo: {
+				'@type': 'ImageObject',
+				url: `${BASE_URL}/favicon-32x32.png`
+			}
+		},
 		mainEntityOfPage: {
 			'@type': 'WebPage',
 			'@id': pageUrl
