@@ -27,7 +27,8 @@ echo "Processing $SOURCE_FILE (original: 1699x2357)"
 
 # Generate versions at different widths (maintaining aspect ratio)
 # Widths chosen for responsive breakpoints
-for width in 1000 800 600 400; do
+# 1400px is the largest for the main image, others for responsive loading
+for width in 1400 1000 800 600 400; do
   output_file="${BASE_NAME}-${width}px.jpeg"
   echo "  Generating $output_file (width=${width}px)"
 

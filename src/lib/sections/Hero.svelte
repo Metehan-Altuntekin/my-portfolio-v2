@@ -1,5 +1,5 @@
 <script lang="ts">
-	import heroPic from '$lib/assets/hero-pic.jpeg';
+	import heroPic from '$lib/assets/hero-pic-1400px.jpeg';
 	import heroPic1000 from '$lib/assets/hero-pic-1000px.jpeg';
 	import heroPic800 from '$lib/assets/hero-pic-800px.jpeg';
 	import heroPic600 from '$lib/assets/hero-pic-600px.jpeg';
@@ -46,10 +46,10 @@
 		<img
 			class="h-full w-full object-[0%_15%] lg:object-center"
 			src={heroPic}
-			srcset={`${heroPic400} 400w, ${heroPic600} 600w, ${heroPic800} 800w, ${heroPic1000} 1000w, ${heroPic} 1699w`}
+			srcset={`${heroPic400} 400w, ${heroPic600} 600w, ${heroPic800} 800w, ${heroPic1000} 1000w, ${heroPic} 1400w`}
 			sizes="(max-width: 639px) 65vw, 42vw"
-			width="1699"
-			height="2357"
+			width="1400"
+			height="1942"
 			alt="Mete on a pedestrian bridge over a highway in a sunny day. Car traffic, green trees and mountains on the background."
 			fetchpriority="high"
 		/>
