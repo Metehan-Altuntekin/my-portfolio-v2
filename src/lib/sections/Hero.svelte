@@ -1,9 +1,9 @@
 <script lang="ts">
-	import heroPic from '$lib/assets/hero-pic.webp';
-	import heroPic1000 from '$lib/assets/hero-pic-1000px.webp';
-	import heroPic800 from '$lib/assets/hero-pic-800px.webp';
-	import heroPic600 from '$lib/assets/hero-pic-600px.webp';
-	import heroPic400 from '$lib/assets/hero-pic-400px.webp';
+	import heroPic from '$lib/assets/hero-pic.jpeg';
+	import heroPic1000 from '$lib/assets/hero-pic-1000px.jpeg';
+	import heroPic800 from '$lib/assets/hero-pic-800px.jpeg';
+	import heroPic600 from '$lib/assets/hero-pic-600px.jpeg';
+	import heroPic400 from '$lib/assets/hero-pic-400px.jpeg';
 
 	import Icon from '@iconify/svelte';
 	import * as m from '$lib/paraglide/messages.js';
