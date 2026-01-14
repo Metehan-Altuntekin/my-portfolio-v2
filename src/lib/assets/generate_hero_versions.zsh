@@ -1,12 +1,19 @@
 #!/bin/zsh
-# This script generates responsive versions of hero-pic.jpeg
-# maintaining the original aspect ratio using ImageMagick
+# This script generates responsive versions of hero images
+# with different source files for mobile and desktop layouts using ImageMagick
 
-SOURCE_FILE="hero-pic.jpeg"
+SOURCE_FILE_DESKTOP="hero-pic.jpeg"
+SOURCE_FILE_MOBILE="hero-pic-mobile.jpeg"
 BASE_NAME="hero-pic"
 
-if [[ ! -f "$SOURCE_FILE" ]]; then
-  echo "Error: $SOURCE_FILE not found"
+if [[ ! -f "$SOURCE_FILE_DESKTOP" ]]; then
+  echo "Error: $SOURCE_FILE_DESKTOP not found"
+  exit 1
+fi
+
+if [[ ! -f "$SOURCE_FILE_MOBILE" ]]; then
+  echo "Error: $SOURCE_FILE_MOBILE not found"
+  echo "Please provide a mobile-specific source image as: $SOURCE_FILE_MOBILE"
   exit 1
 fi
 
@@ -23,23 +30,32 @@ if ! command -v magick &> /dev/null; then
   MAGICK_CMD="convert"
 fi
 
-echo "Processing $SOURCE_FILE (original: 1699x2357)"
+echo "Processing source images:"
+echo "  Desktop: $SOURCE_FILE_DESKTOP"
+echo "  Mobile: $SOURCE_FILE_MOBILE"
+echo ""
 
-# Generate versions at different widths (maintaining aspect ratio)
 # Widths chosen for responsive breakpoints
 # 1400px is the largest for the main image, others for responsive loading
-for width in 1400 1000 800 600 400; do
-  output_file="${BASE_NAME}-${width}px.jpeg"
-  echo "  Generating $output_file (width=${width}px)"
+WIDTHS=(1400 1000 800 600 400)
+
+# Function to generate resized image (no cropping - images should be pre-cropped)
+generate_version() {
+  local source_file=$1
+  local width=$2
+  local suffix=$3
+
+  output_file="${BASE_NAME}-${width}px${suffix}.jpeg"
+  echo "  Generating $output_file (width=${width}px, maintaining aspect ratio)"
 
   # ImageMagick options:
-  # -resize ${width}x: resize to width, maintaining aspect ratio
   # -filter Lanczos: high-quality resampling filter for resizing
+  # -resize ${width}x: resize to width, maintaining original aspect ratio
   # -quality 92: high quality with good compression (92 is sweet spot for minimal loss)
   # -sampling-factor 4:2:0: standard chroma subsampling
   # -interlace Plane: progressive JPEG
   # KEEP color profile: don't use -strip, preserve embedded ICC profile for accurate colors
-  $MAGICK_CMD "$SOURCE_FILE" \
+  $MAGICK_CMD "$source_file" \
     -filter Lanczos \
     -resize "${width}x" \
     -quality 92 \
@@ -52,8 +68,24 @@ for width in 1400 1000 800 600 400; do
   else
     echo "    ✗ Error creating $output_file"
   fi
+}
+
+# Generate mobile versions (resized from pre-cropped mobile source)
+echo "Generating MOBILE versions (from pre-cropped source):"
+for width in "${WIDTHS[@]}"; do
+  generate_version "$SOURCE_FILE_MOBILE" $width "-mobile"
 done
 
+echo ""
+
+# Generate desktop versions (resized from pre-cropped desktop source)
+echo "Generating DESKTOP versions (from pre-cropped source):"
+for width in "${WIDTHS[@]}"; do
+  generate_version "$SOURCE_FILE_DESKTOP" $width "-desktop"
+done
+
+echo ""
 echo "Done! Generated versions:"
-ls -lh ${BASE_NAME}-*.jpeg 2>/dev/null | awk '{print "  " $9 " (" $5 ")"}'
+ls -lh ${BASE_NAME}-*-mobile.jpeg 2>/dev/null | awk '{print "  MOBILE: " $9 " (" $5 ")"}'
+ls -lh ${BASE_NAME}-*-desktop.jpeg 2>/dev/null | awk '{print "  DESKTOP: " $9 " (" $5 ")"}'
 

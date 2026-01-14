@@ -1,9 +1,17 @@
 <script lang="ts">
-	import heroPic from '$lib/assets/hero-pic-1400px.jpeg';
-	import heroPic1000 from '$lib/assets/hero-pic-1000px.jpeg';
-	import heroPic800 from '$lib/assets/hero-pic-800px.jpeg';
-	import heroPic600 from '$lib/assets/hero-pic-600px.jpeg';
-	import heroPic400 from '$lib/assets/hero-pic-400px.jpeg';
+	// Mobile versions (aspect ratio 1.175)
+	import heroPicMobile1400 from '$lib/assets/hero-pic-1400px-mobile.jpeg';
+	import heroPicMobile1000 from '$lib/assets/hero-pic-1000px-mobile.jpeg';
+	import heroPicMobile800 from '$lib/assets/hero-pic-800px-mobile.jpeg';
+	import heroPicMobile600 from '$lib/assets/hero-pic-600px-mobile.jpeg';
+	import heroPicMobile400 from '$lib/assets/hero-pic-400px-mobile.jpeg';
+
+	// Desktop versions (aspect ratio 3/4)
+	import heroPicDesktop1400 from '$lib/assets/hero-pic-1400px-desktop.jpeg';
+	import heroPicDesktop1000 from '$lib/assets/hero-pic-1000px-desktop.jpeg';
+	import heroPicDesktop800 from '$lib/assets/hero-pic-800px-desktop.jpeg';
+	import heroPicDesktop600 from '$lib/assets/hero-pic-600px-desktop.jpeg';
+	import heroPicDesktop400 from '$lib/assets/hero-pic-400px-desktop.jpeg';
 
 	import Icon from '@iconify/svelte';
 	import * as m from '$lib/paraglide/messages.js';
@@ -43,16 +51,29 @@
  					lg:row-end-11 xl:row-end-10 |
 					"
 	>
-		<img
-			class="h-full w-full object-[0%_15%] lg:object-center"
-			src={heroPic}
-			srcset={`${heroPic400} 400w, ${heroPic600} 600w, ${heroPic800} 800w, ${heroPic1000} 1000w, ${heroPic} 1400w`}
-			sizes="(max-width: 639px) 65vw, 42vw"
-			width="1400"
-			height="1942"
-			alt="Mete on a pedestrian bridge over a highway in a sunny day. Car traffic, green trees and mountains on the background."
-			fetchpriority="high"
-		/>
+		<picture>
+			<!-- Desktop versions (min-width: 640px) - aspect ratio 3/4 -->
+			<source
+				media="(min-width: 640px)"
+				srcset={`${heroPicDesktop400} 400w, ${heroPicDesktop600} 600w, ${heroPicDesktop800} 800w, ${heroPicDesktop1000} 1000w, ${heroPicDesktop1400} 1400w`}
+				sizes="42vw"
+			/>
+			<!-- Mobile versions (max-width: 639px) - aspect ratio 1.175 -->
+			<source
+				media="(max-width: 639px)"
+				srcset={`${heroPicMobile400} 400w, ${heroPicMobile600} 600w, ${heroPicMobile800} 800w, ${heroPicMobile1000} 1000w, ${heroPicMobile1400} 1400w`}
+				sizes="65vw"
+			/>
+			<!-- Fallback img -->
+			<img
+				class="h-full w-full object-center"
+				src={heroPicDesktop1400}
+				width="1400"
+				height="1867"
+				alt="Mete on a pedestrian bridge over a highway in a sunny day. Car traffic, green trees and mountains on the background."
+				fetchpriority="high"
+			/>
+		</picture>
 	</div>
 
 	<!-- Heading, Paragraph -->
