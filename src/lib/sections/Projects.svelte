@@ -34,12 +34,13 @@
 					<img
 						src={p.thumb}
 						srcset={p.thumbSrcset}
-						sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+						sizes="(max-width: 639px) 45vw, (max-width: 1023px) 45vw, 30vw"
 						width={p.thumbWidth}
 						height={p.thumbHeight}
 						class="card-content rounded-b-none aspect-video"
 						alt="Preview of {p.name} project"
 						loading="lazy"
+						decoding="async"
 					/>
 
 					{#if p.visitUrl}
