@@ -52,6 +52,7 @@
 		"@inlang/paraglide-sveltekit": "^0.11.5",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/typography": "^0.5.19",
+		"@tailwindcss/vite": "^4.1.18",
 		"rehype-unwrap-images": "^1.0.0"
 	}
 }
