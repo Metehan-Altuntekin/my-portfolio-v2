@@ -1,7 +1,7 @@
 <script lang="ts">
 	// Mobile versions (aspect ratio 1.175)
 	import heroPicMobile400 from '$lib/assets/optimized/hero-pic-400px-mobile.avif';
-	import heroPicMobile600 from '$lib/assets/optimized/hero-pic-600px-desktop.avif';
+	import heroPicMobile600 from '$lib/assets/optimized/hero-pic-600px-mobile.avif';
 	import heroPicMobile800 from '$lib/assets/optimized/hero-pic-800px-mobile.avif';
 
 	// Desktop versions (aspect ratio 3/4)
