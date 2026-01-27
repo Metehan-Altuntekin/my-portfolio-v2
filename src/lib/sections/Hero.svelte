@@ -1,17 +1,17 @@
 <script lang="ts">
 	// Mobile versions (aspect ratio 1.175)
-	import heroPicMobile1400 from '$lib/assets/hero-pic-1400px-mobile.jpeg';
-	import heroPicMobile1000 from '$lib/assets/hero-pic-1000px-mobile.jpeg';
-	import heroPicMobile800 from '$lib/assets/hero-pic-800px-mobile.jpeg';
-	import heroPicMobile600 from '$lib/assets/hero-pic-600px-mobile.jpeg';
-	import heroPicMobile400 from '$lib/assets/hero-pic-400px-mobile.jpeg';
+	import heroPicMobile1400 from '$lib/assets/hero-pic-1400px-mobile.avif';
+	import heroPicMobile1000 from '$lib/assets/hero-pic-1000px-mobile.avif';
+	import heroPicMobile800 from '$lib/assets/hero-pic-800px-mobile.avif';
+	import heroPicMobile600 from '$lib/assets/hero-pic-600px-mobile.avif';
+	import heroPicMobile400 from '$lib/assets/hero-pic-400px-mobile.avif';
 
 	// Desktop versions (aspect ratio 3/4)
-	import heroPicDesktop1400 from '$lib/assets/hero-pic-1400px-desktop.jpeg';
-	import heroPicDesktop1000 from '$lib/assets/hero-pic-1000px-desktop.jpeg';
-	import heroPicDesktop800 from '$lib/assets/hero-pic-800px-desktop.jpeg';
-	import heroPicDesktop600 from '$lib/assets/hero-pic-600px-desktop.jpeg';
-	import heroPicDesktop400 from '$lib/assets/hero-pic-400px-desktop.jpeg';
+	import heroPicDesktop1400 from '$lib/assets/hero-pic-1400px-desktop.avif';
+	import heroPicDesktop1000 from '$lib/assets/hero-pic-1000px-desktop.avif';
+	import heroPicDesktop800 from '$lib/assets/hero-pic-800px-desktop.avif';
+	import heroPicDesktop600 from '$lib/assets/hero-pic-600px-desktop.avif';
+	import heroPicDesktop400 from '$lib/assets/hero-pic-400px-desktop.avif';
 
 	import Icon from '@iconify/svelte';
 	import * as m from '$lib/paraglide/messages.js';
@@ -35,6 +35,26 @@
 		}
 	];
 </script>
+
+<svelte:head>
+	<link
+		rel="preload"
+		as="image"
+		media="(max-width: 639px)"
+		imagesrcset="{heroPicMobile400} 400w, {heroPicMobile600} 600w, {heroPicMobile800} 800w"
+		imagesizes="65vw"
+		fetchpriority="high"
+	/>
+
+	<link
+		rel="preload"
+		as="image"
+		media="(min-width: 640px)"
+		imagesrcset="{heroPicDesktop400} 400w, {heroPicDesktop600} 600w, {heroPicDesktop800} 800w, {heroPicDesktop1000} 1000w"
+		imagesizes="42vw"
+		fetchpriority="high"
+	/>
+</svelte:head>
 
 <section
 	id="hero-section"
@@ -67,9 +87,9 @@
 			<!-- Fallback img -->
 			<img
 				class="h-full w-full object-center"
-				src={heroPicDesktop1400}
-				width="1400"
-				height="1867"
+				src={heroPicDesktop1000}
+				width="1000"
+				height="1333"
 				alt="Mete on a pedestrian bridge over a highway in a sunny day. Car traffic, green trees and mountains on the background."
 				fetchpriority="high"
 			/>
