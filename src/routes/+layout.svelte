@@ -18,11 +18,11 @@
 	onMount(async () => {
 		if (!browser || dev) return;
 
-		// Dynamically load the library only when needed
-		const { default: posthog } = await import('posthog-js');
-
 		// Use requestIdleCallback to stay off the critical path
-		const initPostHog = () => {
+		const initPostHog = async () => {
+			// Dynamically load the library only when needed
+			const { default: posthog } = await import('posthog-js');
+
 			posthog.init('phc_1NmSk28YUeBJb4LI88avENb41KYFlAZM48bSR30kPsp', {
 				api_host: '/ph',
 				ui_host: 'https://us.posthog.com',
