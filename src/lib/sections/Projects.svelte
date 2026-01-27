@@ -39,6 +39,7 @@
 						height={p.thumbHeight}
 						class="card-content rounded-b-none aspect-video"
 						alt="Preview of {p.name} project"
+						loading="lazy"
 					/>
 
 					{#if p.visitUrl}
