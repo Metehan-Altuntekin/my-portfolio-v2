@@ -51,7 +51,7 @@ const config = {
 		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
 		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter(),
-		inlineStyleThreshold: 10240, // Inline CSS files smaller than 10KiB
+		inlineStyleThreshold: 15360, // Inline CSS files smaller than 10KiB
 		prerender: {
 			handleMissingId: 'warn',
 			handleUnseenRoutes: 'ignore',
