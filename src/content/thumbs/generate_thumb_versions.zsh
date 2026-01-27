@@ -3,8 +3,7 @@
 # maintaining the original aspect ratio
 
 # Generate versions at different widths (wider range for better optimization)
-# Versions: 400px, 800px, 1200px
-for width in 400 800 1200; do
+for width in 400 800; do
   for file in *.webp; do
     # Skip already generated versions
     if [[ "$file" == *"-${width}px.webp" ]]; then
@@ -23,7 +22,7 @@ for width in 400 800 1200; do
 
     # Resize: use -resize <width> 0 so that the height is auto-calculated, maintaining aspect ratio
     # Using quality 90 to match the hero image quality
-    cwebp -q 90 -resize "$width" 0 "$file" -o "$output_file"
+    cwebp -q 75 -resize "$width" 0 "$file" -o "$output_file"
     if [[ $? -eq 0 ]]; then
       echo "    ✓ Created $output_file"
     else
