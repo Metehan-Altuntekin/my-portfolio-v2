@@ -35,9 +35,16 @@ echo "  Desktop: $SOURCE_FILE_DESKTOP"
 echo "  Mobile: $SOURCE_FILE_MOBILE"
 echo ""
 
+target_dir="optimized" # Define your nested path here
+
+# Create the directory if it doesn't exist
+rm -rf  "$target_dir"
+mkdir -p "$target_dir"
+
 # Widths chosen for responsive breakpoints
 # 1400px is the largest for the main image, others for responsive loading
-WIDTHS=(1400 1000 800 600 400)
+DESKTOP_WIDTHS=(1400 1000 800 600)
+MOBILE_WIDTHS=(800 600 400)
 
 # Function to generate resized image (no cropping - images should be pre-cropped)
 generate_version() {
@@ -45,10 +52,11 @@ generate_version() {
   local width=$2
   local suffix=$3
 
+  # Update output paths to include the directory
+  local jpeg_output="${target_dir}/${BASE_NAME}-${width}px${suffix}.jpeg"
+  local avif_output="${target_dir}/${BASE_NAME}-${width}px${suffix}.avif"
+
   # --- 1. Optimized Progressive JPEG ---
-  # Reduced quality to 85 (standard for web performance)
-  # -strip: Removes metadata (EXIF, etc) which can save 5-10KB per image
-  local jpeg_output="${BASE_NAME}-${width}px${suffix}.jpeg"
   $MAGICK_CMD "$source_file" \
     -filter Lanczos \
     -resize "${width}x" \
@@ -57,9 +65,7 @@ generate_version() {
     -interlace Plane \
     "$jpeg_output"
 
-  # --- 2. AVIF (The "LCP Killer") ---
-  # This provides the same quality at roughly 30-40% the size of your JPEG
-  local avif_output="${BASE_NAME}-${width}px${suffix}.avif"
+  # --- 2. AVIF ---
   $MAGICK_CMD "$source_file" \
     -resize "${width}x" \
     -quality 80 \
@@ -71,7 +77,7 @@ generate_version() {
 
 # Generate mobile versions (resized from pre-cropped mobile source)
 echo "Generating MOBILE versions (from pre-cropped source):"
-for width in "${WIDTHS[@]}"; do
+for width in "${MOBILE_WIDTHS[@]}"; do
   generate_version "$SOURCE_FILE_MOBILE" $width "-mobile"
 done
 
@@ -79,7 +85,7 @@ echo ""
 
 # Generate desktop versions (resized from pre-cropped desktop source)
 echo "Generating DESKTOP versions (from pre-cropped source):"
-for width in "${WIDTHS[@]}"; do
+for width in "${DESKTOP_WIDTHS[@]}"; do
   generate_version "$SOURCE_FILE_DESKTOP" $width "-desktop"
 done
 

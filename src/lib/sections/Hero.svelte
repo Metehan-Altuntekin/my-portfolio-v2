@@ -1,17 +1,14 @@
 <script lang="ts">
 	// Mobile versions (aspect ratio 1.175)
-	import heroPicMobile1400 from '$lib/assets/hero-pic-1400px-mobile.avif';
-	import heroPicMobile1000 from '$lib/assets/hero-pic-1000px-mobile.avif';
-	import heroPicMobile800 from '$lib/assets/hero-pic-800px-mobile.avif';
-	import heroPicMobile600 from '$lib/assets/hero-pic-600px-mobile.avif';
-	import heroPicMobile400 from '$lib/assets/hero-pic-400px-mobile.avif';
+	import heroPicMobile400 from '$lib/assets/optimized/hero-pic-400px-mobile.avif';
+	import heroPicMobile600 from '$lib/assets/optimized/hero-pic-600px-desktop.avif';
+	import heroPicMobile800 from '$lib/assets/optimized/hero-pic-800px-mobile.avif';
 
 	// Desktop versions (aspect ratio 3/4)
-	import heroPicDesktop1400 from '$lib/assets/hero-pic-1400px-desktop.avif';
-	import heroPicDesktop1000 from '$lib/assets/hero-pic-1000px-desktop.avif';
-	import heroPicDesktop800 from '$lib/assets/hero-pic-800px-desktop.avif';
-	import heroPicDesktop600 from '$lib/assets/hero-pic-600px-desktop.avif';
-	import heroPicDesktop400 from '$lib/assets/hero-pic-400px-desktop.avif';
+	import heroPicDesktop1400 from '$lib/assets/optimized/hero-pic-1400px-desktop.avif';
+	import heroPicDesktop1000 from '$lib/assets/optimized/hero-pic-1000px-desktop.avif';
+	import heroPicDesktop800 from '$lib/assets/optimized/hero-pic-800px-desktop.avif';
+	import heroPicDesktop600 from '$lib/assets/optimized/hero-pic-600px-desktop.avif';
 
 	import Icon from '@iconify/svelte';
 	import * as m from '$lib/paraglide/messages.js';
@@ -42,7 +39,7 @@
 		as="image"
 		media="(max-width: 639px)"
 		imagesrcset="{heroPicMobile400} 400w, {heroPicMobile600} 600w, {heroPicMobile800} 800w"
-		imagesizes="65vw"
+		imagesizes="60vw"
 		fetchpriority="high"
 	/>
 
@@ -50,8 +47,8 @@
 		rel="preload"
 		as="image"
 		media="(min-width: 640px)"
-		imagesrcset="{heroPicDesktop400} 400w, {heroPicDesktop600} 600w, {heroPicDesktop800} 800w, {heroPicDesktop1000} 1000w"
-		imagesizes="42vw"
+		imagesrcset="{heroPicDesktop600} 600w, {heroPicDesktop800} 800w, {heroPicDesktop1000} 1000w, {heroPicDesktop1400} 1400w"
+		imagesizes="32vw"
 		fetchpriority="high"
 	/>
 </svelte:head>
@@ -75,14 +72,14 @@
 			<!-- Desktop versions (min-width: 640px) - aspect ratio 3/4 -->
 			<source
 				media="(min-width: 640px)"
-				srcset={`${heroPicDesktop400} 400w, ${heroPicDesktop600} 600w, ${heroPicDesktop800} 800w, ${heroPicDesktop1000} 1000w, ${heroPicDesktop1400} 1400w`}
-				sizes="42vw"
+				srcset={`${heroPicDesktop600} 600w, ${heroPicDesktop800} 800w, ${heroPicDesktop1000} 1000w, ${heroPicDesktop1400} 1400w`}
+				sizes="32vw"
 			/>
 			<!-- Mobile versions (max-width: 639px) - aspect ratio 1.175 -->
 			<source
 				media="(max-width: 639px)"
-				srcset={`${heroPicMobile400} 400w, ${heroPicMobile600} 600w, ${heroPicMobile800} 800w, ${heroPicMobile1000} 1000w, ${heroPicMobile1400} 1400w`}
-				sizes="65vw"
+				srcset={`${heroPicMobile400} 400w, ${heroPicMobile600} 600w, ${heroPicMobile800} 800w`}
+				sizes="60vw"
 			/>
 			<!-- Fallback img -->
 			<img
