@@ -20,15 +20,15 @@
 	<!-- TODO probably sliding container for mobile -->
 	<!-- Projects Container -->
 	<flex
-		class="grid auto-rows-fr items-stretch justify-center w-full
+		class="grid auto-rows-fr items-stretch justify-center w-full place-content-center place-items-center
 					grid-cols-[repeat(auto-fill,minmax(320px,1fr))]
-					md:grid-cols-[repeat(auto-fill,minmax(360px,1fr))]
-					xl:grid-cols-[repeat(auto-fill,minmax(400px,1fr))]
+					lg:grid-cols-[repeat(auto-fill,minmax(350px,1fr))]
+					2xl:grid-cols-[repeat(auto-fill,minmax(380px,1fr))]
 					gap-4 md:gap-6 xl:gap-8"
 	>
 		<!-- Projects -->
 		{#each projects as p, i (i)}
-			<div class="card p-0 overflow-hidden">
+			<div class="card p-0 overflow-hidden max-w-120 lg:max-w-none">
 				<!-- TODO revise the hover cover -->
 				<a href={p.visitUrl} class="relative" title="Visit {p.name}">
 					<img
