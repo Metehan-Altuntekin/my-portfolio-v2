@@ -84,11 +84,13 @@
 			<!-- Fallback img -->
 			<img
 				class="h-full w-full object-center"
-				src={heroPicDesktop1000}
-				width="1000"
-				height="1333"
+				src={heroPicMobile400}
+				width="400"
+				height="340"
 				alt="Mete on a pedestrian bridge over a highway in a sunny day. Car traffic, green trees and mountains on the background."
 				fetchpriority="high"
+				loading="eager"
+				decoding="async"
 			/>
 		</picture>
 	</div>
