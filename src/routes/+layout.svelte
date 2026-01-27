@@ -1,9 +1,9 @@
 <script lang="ts">
 	import '../app.css';
 
-	import { onMount } from 'svelte';
-	import { browser, dev } from '$app/environment';
-	import posthog from 'posthog-js';
+	// import { onMount } from 'svelte';
+	// import { browser, dev } from '$app/environment';
+	// import posthog from 'posthog-js';
 	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
 	import { page } from '$app/state';
 
@@ -15,21 +15,21 @@
 	const canonicalPath = $derived(i18n.route(page.url.pathname));
 	const isBlogPost = $derived(isBlogPostPath(page.url.pathname));
 
-	onMount(() => {
-		if (!browser || dev) return;
+	// onMount(() => {
+	// 	if (!browser || dev) return;
 
-		posthog.init('phc_1NmSk28YUeBJb4LI88avENb41KYFlAZM48bSR30kPsp', {
-			api_host: '/ph',
-			ui_host: 'https://us.posthog.com',
-			persistence: 'localStorage',
-			capture_pageview: true,
-			capture_pageleave: true,
-			disable_session_recording: false,
-			session_recording: {
-				recordCrossOriginIframes: false
-			}
-		});
-	});
+	// 	posthog.init('phc_1NmSk28YUeBJb4LI88avENb41KYFlAZM48bSR30kPsp', {
+	// 		api_host: '/ph',
+	// 		ui_host: 'https://us.posthog.com',
+	// 		persistence: 'localStorage',
+	// 		capture_pageview: true,
+	// 		capture_pageleave: true,
+	// 		disable_session_recording: false,
+	// 		session_recording: {
+	// 			recordCrossOriginIframes: false
+	// 		}
+	// 	});
+	// });
 </script>
 
 <svelte:head>
