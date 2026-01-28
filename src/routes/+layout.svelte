@@ -18,6 +18,14 @@
 	onMount(async () => {
 		if (!browser || dev) return;
 
+		// 1. Check for the "Automation" flag (Catches 99% of bots/tests)
+		const isAutomation = navigator.webdriver === true;
+		if (isAutomation) return;
+
+		// 2. Check the User Agent for specific tool signatures
+		const isBotUA = /Lighthouse|PageSpeed|GTmetrix|HeadlessChrome/i.test(navigator.userAgent);
+		if (isBotUA) return;
+
 		// Use requestIdleCallback to stay off the critical path
 		const initPostHog = async () => {
 			// Dynamically load the library only when needed
