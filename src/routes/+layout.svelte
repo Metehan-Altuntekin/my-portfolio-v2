@@ -26,29 +26,43 @@
 		const isBotUA = /Lighthouse|PageSpeed|GTmetrix|HeadlessChrome/i.test(navigator.userAgent);
 		if (isBotUA) return;
 
-		// Use requestIdleCallback to stay off the critical path
-		const initPostHog = async () => {
-			// Dynamically load the library only when needed
-			const { default: posthog } = await import('posthog-js');
+		// 2. Set up the LCP Observer
+		try {
+			const lcpObserver = new PerformanceObserver((entryList) => {
+				const initPostHog = async () => {
+					// Dynamically load the library only when needed
+					const { default: posthog } = await import('posthog-js');
 
-			posthog.init('phc_1NmSk28YUeBJb4LI88avENb41KYFlAZM48bSR30kPsp', {
-				api_host: '/ph',
-				ui_host: 'https://us.posthog.com',
-				persistence: 'localStorage',
-				capture_pageview: true,
-				capture_pageleave: true,
-				disable_session_recording: false,
-				session_recording: {
-					recordCrossOriginIframes: false
+					posthog.init('phc_1NmSk28YUeBJb4LI88avENb41KYFlAZM48bSR30kPsp', {
+						api_host: '/ph',
+						ui_host: 'https://us.posthog.com',
+						persistence: 'localStorage',
+						capture_pageview: true,
+						capture_pageleave: true,
+						disable_session_recording: false,
+						session_recording: {
+							recordCrossOriginIframes: false
+						}
+					});
+				};
+
+				const entries = entryList.getEntries();
+				if (entries.length > 0) {
+					// LCP detected! Disconnect and init PostHog.
+					lcpObserver.disconnect();
+
+					if ('requestIdleCallback' in window) {
+						window.requestIdleCallback(initPostHog, { timeout: 2000 });
+					} else {
+						initPostHog();
+					}
 				}
 			});
-		};
 
-		if ('requestIdleCallback' in window) {
-			window.requestIdleCallback(initPostHog);
-		} else {
-			// Fallback for older browsers
-			setTimeout(initPostHog, 3000);
+			// 'buffered: true' is key—it finds the LCP even if it already happened
+			lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
+		} catch (e) {
+			console.error(e);
 		}
 	});
 </script>
