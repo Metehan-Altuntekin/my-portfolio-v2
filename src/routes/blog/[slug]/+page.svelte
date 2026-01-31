@@ -173,7 +173,7 @@
 </svelte:head>
 
 <section class="pt-0">
-	<article id="post" class="prose prose-custom prose-invert prose-lg max-w-4xl mb-16 mx-auto">
+	<article id="post" class="prose prose-custom prose-invert prose-lg max-w-3xl mb-16 mx-auto">
 		<hgroup class="flex flex-col items-center sm:mb-10">
 			<!-- Image -->
 			{#if data.meta.image}
