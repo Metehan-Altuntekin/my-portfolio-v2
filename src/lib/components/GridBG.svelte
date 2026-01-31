@@ -8,7 +8,7 @@
 <svelte:window bind:scrollY />
 
 <svelte:head>
-	<link rel="preload" as="image" href="/grid-dashed.webp" fetchpriority="high" />
+	<link rel="preload" as="image" href="/grid-dashed-bit.webp" fetchpriority="high" />
 </svelte:head>
 
 <div
@@ -19,9 +19,10 @@
 <style>
 	.bg-grid {
 		--bg-size: 64px;
-		background: url('/grid-dashed.webp');
+		background: url('/grid-dashed-bit.webp');
 		background-repeat: repeat;
 		background-size: var(--bg-size) var(--bg-size);
+		opacity: 0.6;
 
 		/* For parallax better performance */
 		will-change: transform;
