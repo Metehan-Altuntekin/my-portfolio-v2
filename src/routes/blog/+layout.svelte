@@ -9,10 +9,13 @@
 <svelte:head>
 	<meta name="theme-color" content="#121211" />
 	<style>
-		body,
-		html {
-			background-color: var(--color-blog-base-100);
-			background-image: none;
+		html,
+		body {
+			background: var(--color-blog-base-200)
+				linear-gradient(-10deg, var(--color-blog-base-200) 10%, var(--color-blog-base-100));
+
+			background-attachment: fixed;
+			background-size: cover;
 		}
 	</style>
 </svelte:head>

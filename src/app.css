@@ -17,8 +17,9 @@
 	--color-secondary: #ff6fb3;
 	--color-accent: #f9f871;
 
-	--color-blog-base-100: #0c2742;
-	--color-blog-base-content: #ffffff;
+	--color-blog-base-100: #113e55;
+	--color-blog-base-200: #092939;
+	--color-blog-base-content: #eef7f9;
 	--color-blog-base-content-muted: #99c1eb;
 
 	--radius-3xs: 12px;
@@ -73,6 +74,8 @@
 	/* Apply the colors to actual elements */
 	& :where(p, li):not(:where([class~='not-prose'] *)) {
 		color: var(--tw-prose-body);
+		font-weight: 500;
+		letter-spacing: 0.015em;
 	}
 
 	& :where(h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'] *)) {
