@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { onDestroy, onMount } from 'svelte';
+	import { browser } from '$app/environment';
+
 	import { BASE_URL, SITE_NAME, TWITTER_HANDLE, AUTHOR_NAME } from '$lib/constants.js';
 	import { languageTag } from '$lib/paraglide/runtime';
 	import * as m from '$lib/paraglide/messages.js';
@@ -11,7 +14,7 @@
 
 	const { data } = $props();
 
-	let activeTitle = $state<string | null>('how-to-save-the-world');
+	let activeTitle = $state<string | null>(null);
 
 	// Generate URLs and dates
 	const pageUrl = `${BASE_URL}/blog/${data.slug}`;
@@ -48,6 +51,39 @@
 			'@id': pageUrl
 		}
 	};
+
+	$inspect('activeTitle: ', activeTitle);
+
+	const observer = new IntersectionObserver(
+		(entries, observer) => {
+			entries.forEach((e) => {
+				if (e.isIntersecting) {
+					activeTitle = e.target.id;
+				}
+			});
+		},
+		{
+			threshold: 0,
+			rootMargin: '0px 0px -70% 0px'
+			// only observe the top 30% of the page to prevent other titles becoming active early
+		}
+	);
+
+	onMount(() => {
+		if (!browser) return;
+
+		data.meta.toc.forEach(({ id }) => {
+			const el = document.getElementById(id);
+			if (!el) return;
+			observer.observe(el);
+		});
+	});
+
+	// make sure to disconnect to prevent memory leaks
+	onDestroy(() => {
+		if (!browser) return;
+		observer.disconnect();
+	});
 </script>
 
 <!-- SEO -->
@@ -117,7 +153,7 @@
 				<img
 					src={data.meta.image}
 					alt={data.meta.title}
-					class="rounded-xs w-full aspect-5/2 sm:aspect-7/2"
+					class="image-card rounded-md w-full aspect-5/2 sm:aspect-7/2"
 				/>
 			{/if}
 
@@ -183,12 +219,14 @@
 		{@render data.content()}
 	</article>
 
-	<section
-		id="table-of-contents"
-		class="hidden lg:block sticky top-10 right-0 text-blog-base-content-muted"
-	>
-		{@render toc()}
-	</section>
+	{#if data.meta.toc.length}
+		<section
+			id="table-of-contents"
+			class="hidden lg:block sticky top-10 right-0 text-blog-base-content-muted pr-0 pl-10"
+		>
+			{@render toc()}
+		</section>
+	{/if}
 </section>
 
 <section id="comments"></section>
@@ -197,18 +235,20 @@
 	<ul class="">
 		{#each data.meta.toc as { id, title, level }}
 			<li
-				class={level === 1
-					? 'text-lg font-semibold'
-					: level === 2
-						? 'ml-2 text-base font-medium'
-						: level === 3
-							? 'ml-4 text-sm font-medium'
-							: level === 4
-								? 'ml-6 text-xs font-medium'
-								: 'ml-8 text-xs'}
+				class="mb-3
+				{level === 1 || level === 2
+					? 'text-lg'
+					: level === 3
+						? 'ml-6 text-base'
+						: level === 4
+							? 'ml-12 text-sm'
+							: 'ml-18 text-xs'}"
 			>
-				<a href="#{id}" class="text-nowrap whitespace-nowrap hover:underline text-blog-base-content"
-					>{title}</a
+				<a
+					href="#{id}"
+					class="text-nowrap whitespace-nowrap hover:underline {activeTitle === id
+						? 'text-blog-base-content font-semibold'
+						: 'text-blog-base-content-muted font-medium'}">{title}</a
 				>
 			</li>
 		{/each}
