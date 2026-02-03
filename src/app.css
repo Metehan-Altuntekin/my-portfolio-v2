@@ -100,6 +100,13 @@
 		color: var(--tw-prose-code);
 	}
 
+	& :where(figure):not(:where([class~='not-prose'] *)) {
+		& > figcaption {
+			@apply text-sm opacity-70;
+			text-align: center;
+		}
+	}
+
 	& :where(img):not(:where([class~='not-prose'] *)) {
 		margin-right: auto;
 		margin-left: auto;

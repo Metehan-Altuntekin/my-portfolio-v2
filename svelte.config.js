@@ -7,6 +7,108 @@ import remarkToc from 'remark-toc';
 import rehypeSlug from 'rehype-slug';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
 import rehypeAutoLinkHeadings from 'rehype-autolink-headings';
+import { visit } from 'unist-util-visit';
+import { toString } from 'mdast-util-to-string';
+import Slugger from 'github-slugger';
+
+/**
+ * Custom plugin to extract TOC data to frontmatter
+ */
+function remarkGetToc() {
+	return (tree, file) => {
+		const slugger = new Slugger();
+		const toc = [];
+
+		visit(tree, 'heading', (node) => {
+			const text = toString(node);
+			// Generate id to match what rehype-slug will do later
+			const id = slugger.slug(text);
+
+			toc.push({
+				level: node.depth,
+				title: text,
+				id
+			});
+		});
+
+		// Merge into existing frontmatter
+		file.data.fm = {
+			...file.data.fm,
+			toc
+		};
+	};
+}
+
+/**
+ * Parses Obsidian-style image syntax: ![Caption|400](image.jpg)
+ * - Sets 'width' attribute to 400
+ * - Sets 'alt' attribute to "Caption"
+ */
+function rehypeImageResize() {
+	return (tree) => {
+		visit(tree, 'element', (node) => {
+			// Check for <img /> tags with an alt attribute
+			if (node.tagName === 'img' && node.properties.alt) {
+				const rawAlt = node.properties.alt;
+
+				// Regex to match: "Anything|Number" or "Anything|NumberxNumber"
+				// Example: "My Caption|300" or "My Caption|300x200"
+				const match = rawAlt.match(/^(.*)\|(\d+)(?:x(\d+))?$/);
+
+				if (match) {
+					const [_, caption, width, height] = match;
+
+					// 1. Update the attributes
+					node.properties.alt = caption;
+					node.properties.width = width;
+					if (height) node.properties.height = height;
+
+					// 2. Optional: Set title to match caption (shows on hover)
+					node.properties.title = caption;
+				}
+			}
+		});
+	};
+}
+
+function rehypeImgFigure() {
+	return (tree) => {
+		visit(tree, 'element', (node, index, parent) => {
+			if (node.tagName === 'img' && node.properties.alt) {
+				const rawAlt = node.properties.alt;
+				const match = rawAlt.match(/^(.*)\|(\d+)(?:x(\d+))?$/);
+
+				if (match) {
+					const [_, caption, width, height] = match;
+
+					// Update image properties
+					node.properties.alt = caption;
+					node.properties.width = width;
+					if (height) node.properties.height = height;
+
+					// Create a <figure> wrapper
+					const figure = {
+						type: 'element',
+						tagName: 'figure',
+						properties: { className: ['image-container'] },
+						children: [
+							node, // The image itself
+							{
+								type: 'element',
+								tagName: 'figcaption',
+								properties: {},
+								children: [{ type: 'text', value: caption }]
+							}
+						]
+					};
+
+					// Replace the original <img> with the new <figure>
+					parent.children[index] = figure;
+				}
+			}
+		});
+	};
+}
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
@@ -27,9 +129,10 @@ const mdsvexOptions = {
 			return `{@html \`${html}\`}`;
 		}
 	},
-	remarkPlugins: [[remarkToc, { tight: true }]],
+	remarkPlugins: [remarkGetToc],
 	rehypePlugins: [
 		rehypeSlug,
+		rehypeImgFigure,
 		rehypeUnwrapImages
 		// TODO: rehype-autolink-headings disabled due to build error:
 		// "Cannot use 'in' operator to search for 'children' in undefined"

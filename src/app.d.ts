@@ -54,6 +54,7 @@ declare global {
 		tags: string[];
 		published: boolean;
 		joke?: string;
+		toc: { id: string; level: number; title: string }[];
 	}
 }
 

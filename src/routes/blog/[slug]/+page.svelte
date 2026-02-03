@@ -172,8 +172,8 @@
 	{@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
 </svelte:head>
 
-<section class="pt-0">
-	<article id="post" class="prose prose-custom prose-invert prose-lg max-w-3xl mb-16 mx-auto">
+<section class="pt-0 flex items-start">
+	<article id="post" class="prose prose-custom prose-invert prose-lg max-w-4xl mb-16 mr-auto">
 		<hgroup class="flex flex-col items-center sm:mb-10">
 			<!-- Image -->
 			{#if data.meta.image}
@@ -185,7 +185,7 @@
 			{/if}
 
 			<!-- Title -->
-			<h1 class="text-3xl sm:text-4xl lg:text-5xl self-start sm:mt-6">
+			<h1 class="text-4xl lg:text-5xl self-start sm:mt-6">
 				{data.meta.title}
 			</h1>
 
@@ -245,6 +245,35 @@
 
 		{@render data.content()}
 	</article>
+
+	<section
+		id="table-of-contents"
+		class="hidden lg:block sticky top-10 right-0 text-blog-base-content-muted"
+	>
+		{@render toc()}
+	</section>
 </section>
 
 <section id="comments"></section>
+
+{#snippet toc()}
+	<ul class="">
+		{#each data.meta.toc as { id, title, level }}
+			<li
+				class={level === 1
+					? 'text-lg font-semibold'
+					: level === 2
+						? 'ml-2 text-base font-medium'
+						: level === 3
+							? 'ml-4 text-sm font-medium'
+							: level === 4
+								? 'ml-6 text-xs font-medium'
+								: 'ml-8 text-xs'}
+			>
+				<a href="#{id}" class="text-nowrap whitespace-nowrap hover:underline text-blog-base-content"
+					>{title}</a
+				>
+			</li>
+		{/each}
+	</ul>
+{/snippet}
