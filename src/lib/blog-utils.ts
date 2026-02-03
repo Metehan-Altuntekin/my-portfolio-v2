@@ -15,6 +15,7 @@ type PostMetadata = {
 	tags: string[];
 	published: boolean;
 	joke?: string;
+	toc: { id: string; level: number; title: string }[];
 };
 
 // Cache for getAllPosts to avoid reloading
