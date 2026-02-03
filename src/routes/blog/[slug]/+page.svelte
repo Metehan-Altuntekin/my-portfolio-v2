@@ -2,80 +2,16 @@
 	import { BASE_URL, SITE_NAME, TWITTER_HANDLE, AUTHOR_NAME } from '$lib/constants.js';
 	import { languageTag } from '$lib/paraglide/runtime';
 	import * as m from '$lib/paraglide/messages.js';
+	import {
+		buildImageArray,
+		formatDate,
+		formatISODate,
+		getAbsoluteImageUrl
+	} from '$lib/utils/blog.js';
 
 	const { data } = $props();
 
-	type DateStyle = Intl.DateTimeFormatOptions['dateStyle'];
-
-	function formatDate(date: string | Date, dateStyle: DateStyle = 'medium', locales?: string) {
-		const dateToFormat = typeof date === 'string' ? new Date(date.replaceAll('-', '/')) : date;
-		const currentLang = locales || languageTag();
-		const dateFormatter = new Intl.DateTimeFormat(currentLang === 'tr' ? 'tr-TR' : 'en-US', {
-			dateStyle
-		});
-		return dateFormatter.format(dateToFormat);
-	}
-
-	// Convert relative image URL to absolute URL
-	function getAbsoluteImageUrl(image: string | undefined): string | undefined {
-		if (!image) return undefined;
-		if (image.startsWith('http://') || image.startsWith('https://')) {
-			return image;
-		}
-		const cleanPath = image.startsWith('/') ? image.slice(1) : image;
-		return `${BASE_URL}/${cleanPath}`;
-	}
-
-	// Build multi-ratio image array for JSON-LD from explicitly defined images
-	function buildImageArray() {
-		const images = [];
-
-		// Add images in order of priority for Google (16:9, 4:3, 1:1)
-		if (data.meta.image16x9) {
-			images.push({
-				'@type': 'ImageObject',
-				url: getAbsoluteImageUrl(data.meta.image16x9),
-				width: 1200,
-				height: 675
-			});
-		}
-
-		if (data.meta.image4x3) {
-			images.push({
-				'@type': 'ImageObject',
-				url: getAbsoluteImageUrl(data.meta.image4x3),
-				width: 1200,
-				height: 900
-			});
-		}
-
-		if (data.meta.image1x1) {
-			images.push({
-				'@type': 'ImageObject',
-				url: getAbsoluteImageUrl(data.meta.image1x1),
-				width: 1200,
-				height: 1200
-			});
-		}
-
-		// If no specific ratios defined but base image exists, use that
-		if (images.length === 0 && data.meta.image) {
-			return {
-				'@type': 'ImageObject',
-				url: getAbsoluteImageUrl(data.meta.image),
-				caption: data.meta.title
-			};
-		}
-
-		// Return array if we have multiple images, single object if just one
-		return images.length > 0 ? (images.length === 1 ? images[0] : images) : undefined;
-	}
-
-	// Format date for ISO 8601
-	function formatISODate(date: string | Date): string {
-		const dateObj = typeof date === 'string' ? new Date(date.replaceAll('-', '/')) : date;
-		return dateObj.toISOString();
-	}
+	let activeTitle = $state<string | null>('how-to-save-the-world');
 
 	// Generate URLs and dates
 	const pageUrl = `${BASE_URL}/blog/${data.slug}`;
@@ -85,7 +21,7 @@
 	const currentLang = languageTag();
 
 	// JSON-LD structured data
-	const imageData = buildImageArray();
+	const imageData = buildImageArray(data.meta);
 	const jsonLd = {
 		'@context': 'https://schema.org',
 		'@type': 'BlogPosting',
@@ -130,6 +66,7 @@
 	{#if data.alternateUrls.tr}
 		<link rel="alternate" hreflang="tr" href={`${BASE_URL}${data.alternateUrls.tr}`} />
 	{/if}
+
 	<link
 		rel="alternate"
 		hreflang="x-default"

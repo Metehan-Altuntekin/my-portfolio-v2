@@ -1,5 +1,5 @@
 import { BASE_URL } from '$lib/constants.js';
-import { getAllPosts } from '$lib/blog-utils.js';
+import { getAllPosts } from '$lib/utils/getPosts.js';
 import { buildLocalizedPath } from '$lib/i18n-utils.js';
 
 export const prerender = true;

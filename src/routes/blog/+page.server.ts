@@ -1,4 +1,4 @@
-import { getPostsByLanguage } from '$lib/blog-utils';
+import { getPostsByLanguage } from '$lib/utils/getPosts';
 import { setLanguageTag } from '$lib/paraglide/runtime';
 import { getLanguageFromPath } from '$lib/i18n-utils';
 

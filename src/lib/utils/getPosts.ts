@@ -1,4 +1,4 @@
-import { buildLocalizedPath } from './i18n-utils';
+import { buildLocalizedPath } from '../i18n-utils';
 
 // Post type is defined globally in app.d.ts
 type PostMetadata = {

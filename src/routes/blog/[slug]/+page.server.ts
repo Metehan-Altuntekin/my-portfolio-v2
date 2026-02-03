@@ -1,4 +1,4 @@
-import { getAllPosts, getPostsByLanguage } from '$lib/blog-utils';
+import { getAllPosts, getPostsByLanguage } from '$lib/utils/getPosts';
 
 export async function entries() {
 	// Get posts for both languages
