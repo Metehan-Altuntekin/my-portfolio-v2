@@ -12,7 +12,7 @@
 		html,
 		body {
 			background: var(--color-blog-base-200)
-				linear-gradient(-10deg, var(--color-blog-base-200) 10%, var(--color-blog-base-100));
+				linear-gradient(-10deg, var(--color-blog-base-100), var(--color-blog-base-200));
 
 			background-attachment: fixed;
 			background-size: cover;
