@@ -142,6 +142,10 @@ pre.shiki code {
 	::file-selector-button {
 		border-color: var(--color-gray-200, currentcolor);
 	}
+
+	:target {
+		scroll-margin-top: 100px;
+	}
 }
 
 @utility card-shadow {
