@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onDestroy, onMount } from 'svelte';
+	import { onDestroy, onMount, tick } from 'svelte';
 	import { browser } from '$app/environment';
 
 	import { BASE_URL, SITE_NAME, TWITTER_HANDLE, AUTHOR_NAME } from '$lib/constants.js';
@@ -54,35 +54,39 @@
 
 	$inspect('activeTitle: ', activeTitle);
 
-	const observer = new IntersectionObserver(
-		(entries, observer) => {
-			entries.forEach((e) => {
-				if (e.isIntersecting) {
-					activeTitle = e.target.id;
-				}
-			});
-		},
-		{
-			threshold: 0,
-			rootMargin: '0px 0px -70% 0px'
-			// only observe the top 30% of the page to prevent other titles becoming active early
-		}
-	);
+	let observer: IntersectionObserver | null = $state(null);
 
-	onMount(() => {
+	onMount(async () => {
 		if (!browser) return;
+
+		await tick();
+
+		observer = new IntersectionObserver(
+			(entries, observer) => {
+				entries.forEach((e) => {
+					if (e.isIntersecting) {
+						activeTitle = e.target.id;
+					}
+				});
+			},
+			{
+				threshold: 0,
+				rootMargin: '5% 0px -70% 0px'
+				// only observe the top 30% of the page to prevent other titles becoming active early
+			}
+		);
 
 		data.meta.toc.forEach(({ id }) => {
 			const el = document.getElementById(id);
 			if (!el) return;
-			observer.observe(el);
+			observer?.observe(el);
 		});
 	});
 
 	// make sure to disconnect to prevent memory leaks
 	onDestroy(() => {
 		if (!browser) return;
-		observer.disconnect();
+		observer?.disconnect();
 	});
 </script>
 
