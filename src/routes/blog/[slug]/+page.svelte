@@ -158,7 +158,7 @@
 			{/if}
 
 			<!-- Title -->
-			<h1 class="text-4xl lg:text-5xl self-start sm:mt-6">
+			<h1 class="text-4xl lg:text-5xl self-start mt-0! sm:mt-6!">
 				{data.meta.title}
 			</h1>
 

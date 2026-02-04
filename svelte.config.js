@@ -99,24 +99,31 @@ const mdsvexOptions = {
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
 			// Replace tabs with 2 spaces before highlighting
+			// (This part is fine, keep it)
 			const normalizedCode = code.replace(/\t/g, '  ');
 
 			const highlighter = await getSingletonHighlighter({
 				themes: ['one-dark-pro', 'catppuccin-frappe', 'nord'],
 				langs: Object.keys(bundledLanguages)
 			});
-			// return html;
-			const html = escapeSvelte(
-				highlighter.codeToHtml(code, { lang, theme: 'catppuccin-frappe', tabSize: 2 })
-			);
-			return `{@html \`${html}\`}`;
+
+			const html = highlighter.codeToHtml(normalizedCode, {
+				lang,
+				theme: 'catppuccin-frappe',
+				tabSize: 2
+			});
+
+			// FIX: Use JSON.stringify to safely wrap the HTML string.
+			// We do NOT need escapeSvelte here because JSON.stringify
+			// makes it a safe string literal.
+			return `{@html ${JSON.stringify(html)}}`;
 		}
 	},
 	remarkPlugins: [remarkGetToc],
 	rehypePlugins: [
 		rehypeSlug,
-		rehypeImgFigure,
 		rehypeUnwrapImages,
+		rehypeImgFigure,
 		rehypeLazyImg
 		// TODO: rehype-autolink-headings disabled due to build error:
 		// "Cannot use 'in' operator to search for 'children' in undefined"

@@ -86,7 +86,15 @@
 
 	& :where(h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'] *)) {
 		color: var(--tw-prose-headings);
-		@apply font-bold;
+		font-weight: 750;
+	}
+
+	& :where(h1, h2,):not(:where([class~='not-prose'] *)) {
+		margin-top: 3em;
+	}
+
+	& :where(h3, h4, h5, h6):not(:where([class~='not-prose'] *)) {
+		margin-top: 2em;
 	}
 
 	& :where(a):not(:where([class~='not-prose'] *)) {
