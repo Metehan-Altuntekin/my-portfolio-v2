@@ -39,38 +39,6 @@ function remarkGetToc() {
 	};
 }
 
-/**
- * Parses Obsidian-style image syntax: ![Caption|400](image.jpg)
- * - Sets 'width' attribute to 400
- * - Sets 'alt' attribute to "Caption"
- */
-function rehypeImageResize() {
-	return (tree) => {
-		visit(tree, 'element', (node) => {
-			// Check for <img /> tags with an alt attribute
-			if (node.tagName === 'img' && node.properties.alt) {
-				const rawAlt = node.properties.alt;
-
-				// Regex to match: "Anything|Number" or "Anything|NumberxNumber"
-				// Example: "My Caption|300" or "My Caption|300x200"
-				const match = rawAlt.match(/^(.*)\|(\d+)(?:x(\d+))?$/);
-
-				if (match) {
-					const [_, caption, width, height] = match;
-
-					// 1. Update the attributes
-					node.properties.alt = caption;
-					node.properties.width = width;
-					if (height) node.properties.height = height;
-
-					// 2. Optional: Set title to match caption (shows on hover)
-					node.properties.title = caption;
-				}
-			}
-		});
-	};
-}
-
 function rehypeImgFigure() {
 	return (tree) => {
 		visit(tree, 'element', (node, index, parent) => {
@@ -110,6 +78,21 @@ function rehypeImgFigure() {
 	};
 }
 
+/**
+ * Adds loading="lazy" to all img tags
+ */
+function rehypeLazyImg() {
+	return (tree) => {
+		visit(tree, 'element', (node) => {
+			if (node.tagName === 'img') {
+				node.properties.loading = 'lazy';
+				// Optional: Add decoding="async" for better performance on large images
+				node.properties.decoding = 'async';
+			}
+		});
+	};
+}
+
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md', '.svx'],
@@ -133,7 +116,8 @@ const mdsvexOptions = {
 	rehypePlugins: [
 		rehypeSlug,
 		rehypeImgFigure,
-		rehypeUnwrapImages
+		rehypeUnwrapImages,
+		rehypeLazyImg
 		// TODO: rehype-autolink-headings disabled due to build error:
 		// "Cannot use 'in' operator to search for 'children' in undefined"
 		// This appears to be a compatibility issue with mdsvex@0.12.6 during build.
