@@ -57,10 +57,6 @@
 	>
 		<Icon icon="mdi:earth" class="text-xl" />
 		<span class="font-medium text-sm uppercase">{currentLang}</span>
-		<Icon
-			icon="mdi:chevron-down"
-			class="text-sm transition-transform {dropdownOpen ? 'rotate-180' : ''}"
-		/>
 	</button>
 
 	{#if dropdownOpen}
