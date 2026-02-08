@@ -1,14 +1,14 @@
 <script lang="ts">
 	// Mobile versions (aspect ratio 1.175)
 	import heroPicMobile500 from '$lib/assets/optimized/hero-pic-500px-mobile.jpeg';
-	import heroPicMobile750 from '$lib/assets/optimized/hero-pic-750px-mobile.jpeg';
-	import heroPicMobile900 from '$lib/assets/optimized/hero-pic-900px-mobile.jpeg';
+	import heroPicMobile800 from '$lib/assets/optimized/hero-pic-800px-mobile.jpeg';
+	import heroPicMobile1100 from '$lib/assets/optimized/hero-pic-1100px-mobile.avif';
 
 	// Desktop versions (aspect ratio 3/4)
-	import heroPicDesktop1400 from '$lib/assets/optimized/hero-pic-1400px-desktop.jpeg';
-	import heroPicDesktop1000 from '$lib/assets/optimized/hero-pic-1000px-desktop.jpeg';
-	import heroPicDesktop800 from '$lib/assets/optimized/hero-pic-800px-desktop.jpeg';
-	import heroPicDesktop600 from '$lib/assets/optimized/hero-pic-600px-desktop.jpeg';
+	import heroPicDesktop1400 from '$lib/assets/optimized/hero-pic-1400px-desktop.avif';
+	import heroPicDesktop1000 from '$lib/assets/optimized/hero-pic-1000px-desktop.avif';
+	import heroPicDesktop800 from '$lib/assets/optimized/hero-pic-800px-desktop.avif';
+	import heroPicDesktop600 from '$lib/assets/optimized/hero-pic-600px-desktop.avif';
 
 	import Icon from '@iconify/svelte';
 	import * as m from '$lib/paraglide/messages.js';
@@ -69,7 +69,7 @@
 				<!-- Mobile versions (max-width: 639px) - aspect ratio 1.175 -->
 				<source
 					media="(max-width: 639px)"
-					srcset={`${heroPicMobile500} 500w, ${heroPicMobile750} 750w, ${heroPicMobile900} 900w`}
+					srcset={`${heroPicMobile500} 500w, ${heroPicMobile800} 800w, ${heroPicMobile1100} 1100w`}
 					sizes="60vw"
 				/>
 				<!-- Fallback img -->

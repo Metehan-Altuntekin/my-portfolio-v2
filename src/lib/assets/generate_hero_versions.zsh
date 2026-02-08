@@ -44,7 +44,7 @@ mkdir -p "$target_dir"
 # Widths chosen for responsive breakpoints
 # 1400px is the largest for the main image, others for responsive loading
 DESKTOP_WIDTHS=(1400 1000 800 600)
-MOBILE_WIDTHS=(900 750 500)
+MOBILE_WIDTHS=(1100 800 500)
 
 # Function to generate resized image (no cropping - images should be pre-cropped)
 generate_version() {
@@ -74,16 +74,6 @@ generate_version() {
     "$avif_output"
 
 
-  # --- 3. High-Fidelity WebP (Accurate Color) ---
-  $MAGICK_CMD "$source_file" \
-    -resize "${width}x" \
-    -colorspace sRGB \
-    -sampling-factor 4:4:4 \
-    -define webp:sharp-yuv=true \
-    -define webp:method=6 \
-    -quality 90 \
-    -strip \
-    "$webp_output"
   echo "  ✓ Created $jpeg_output and $avif_output"
 }
 
