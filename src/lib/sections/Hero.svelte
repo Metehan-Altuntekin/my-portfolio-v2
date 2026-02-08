@@ -6,9 +6,9 @@
 
 	// Desktop versions (aspect ratio 3/4)
 	import heroPicDesktop1400 from '$lib/assets/optimized/hero-pic-1400px-desktop.avif';
-	import heroPicDesktop1000 from '$lib/assets/optimized/hero-pic-1000px-desktop.avif';
+	import heroPicDesktop1100 from '$lib/assets/optimized/hero-pic-1100px-desktop.avif';
 	import heroPicDesktop800 from '$lib/assets/optimized/hero-pic-800px-desktop.avif';
-	import heroPicDesktop600 from '$lib/assets/optimized/hero-pic-600px-desktop.avif';
+	import heroPicDesktop500 from '$lib/assets/optimized/hero-pic-500px-desktop.jpeg';
 
 	import Icon from '@iconify/svelte';
 	import * as m from '$lib/paraglide/messages.js';
@@ -63,7 +63,7 @@
 				<!-- Desktop versions (min-width: 640px) - aspect ratio 3/4 -->
 				<source
 					media="(min-width: 640px)"
-					srcset={`${heroPicDesktop600} 600w, ${heroPicDesktop800} 800w, ${heroPicDesktop1000} 1000w, ${heroPicDesktop1400} 1400w`}
+					srcset={`${heroPicDesktop500} 500w, ${heroPicDesktop800} 800w, ${heroPicDesktop1100} 1100w, ${heroPicDesktop1400} 1400w`}
 					sizes="32vw"
 				/>
 				<!-- Mobile versions (max-width: 639px) - aspect ratio 1.175 -->

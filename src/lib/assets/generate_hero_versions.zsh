@@ -43,7 +43,7 @@ mkdir -p "$target_dir"
 
 # Widths chosen for responsive breakpoints
 # 1400px is the largest for the main image, others for responsive loading
-DESKTOP_WIDTHS=(1400 1000 800 600)
+DESKTOP_WIDTHS=(1400 1100 800 500)
 MOBILE_WIDTHS=(1100 800 500)
 
 # Function to generate resized image (no cropping - images should be pre-cropped)
