@@ -1,8 +1,8 @@
 <script lang="ts">
 	// Mobile versions (aspect ratio 1.175)
-	import heroPicMobile400 from '$lib/assets/optimized/hero-pic-400px-mobile.jpeg';
-	import heroPicMobile600 from '$lib/assets/optimized/hero-pic-600px-mobile.jpeg';
-	import heroPicMobile800 from '$lib/assets/optimized/hero-pic-800px-mobile.jpeg';
+	import heroPicMobile500 from '$lib/assets/optimized/hero-pic-500px-mobile.jpeg';
+	import heroPicMobile750 from '$lib/assets/optimized/hero-pic-750px-mobile.jpeg';
+	import heroPicMobile900 from '$lib/assets/optimized/hero-pic-900px-mobile.jpeg';
 
 	// Desktop versions (aspect ratio 3/4)
 	import heroPicDesktop1400 from '$lib/assets/optimized/hero-pic-1400px-desktop.jpeg';
@@ -38,17 +38,7 @@
 		rel="preload"
 		as="image"
 		media="(max-width: 639px)"
-		imagesrcset="{heroPicMobile400} 400w, {heroPicMobile600} 600w, {heroPicMobile800} 800w"
-		imagesizes="60vw"
-		fetchpriority="high"
-	/>
-
-	<link
-		rel="preload"
-		as="image"
-		media="(min-width: 640px)"
-		imagesrcset="{heroPicDesktop600} 600w, {heroPicDesktop800} 800w, {heroPicDesktop1000} 1000w, {heroPicDesktop1400} 1400w"
-		imagesizes="32vw"
+		href={heroPicMobile500}
 		fetchpriority="high"
 	/>
 </svelte:head>
@@ -79,13 +69,13 @@
 				<!-- Mobile versions (max-width: 639px) - aspect ratio 1.175 -->
 				<source
 					media="(max-width: 639px)"
-					srcset={`${heroPicMobile400} 400w, ${heroPicMobile600} 600w, ${heroPicMobile800} 800w`}
+					srcset={`${heroPicMobile500} 500w, ${heroPicMobile750} 750w, ${heroPicMobile900} 900w`}
 					sizes="60vw"
 				/>
 				<!-- Fallback img -->
 				<img
 					class="block min-h-full min-w-full object-center"
-					src={heroPicMobile400}
+					src={heroPicMobile500}
 					width="400"
 					height="340"
 					alt="Mete on a pedestrian bridge over a highway in a sunny day. Car traffic, green trees and mountains on the background."
