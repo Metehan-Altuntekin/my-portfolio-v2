@@ -55,12 +55,13 @@ generate_version() {
   # Update output paths to include the directory
   local jpeg_output="${target_dir}/${BASE_NAME}-${width}px${suffix}.jpeg"
   local avif_output="${target_dir}/${BASE_NAME}-${width}px${suffix}.avif"
+  local webp_output="${target_dir}/${BASE_NAME}-${width}px${suffix}.webp"
 
   # --- 1. Optimized Progressive JPEG ---
   $MAGICK_CMD "$source_file" \
     -filter Lanczos \
     -resize "${width}x" \
-    -quality 92 \
+    -quality 85 \
     -sampling-factor 4:2:0 \
     -interlace Plane \
     "$jpeg_output"
@@ -72,6 +73,17 @@ generate_version() {
     -define heic:speed=6 \
     "$avif_output"
 
+
+  # --- 3. High-Fidelity WebP (Accurate Color) ---
+  $MAGICK_CMD "$source_file" \
+    -resize "${width}x" \
+    -colorspace sRGB \
+    -sampling-factor 4:4:4 \
+    -define webp:sharp-yuv=true \
+    -define webp:method=6 \
+    -quality 90 \
+    -strip \
+    "$webp_output"
   echo "  ✓ Created $jpeg_output and $avif_output"
 }
 
