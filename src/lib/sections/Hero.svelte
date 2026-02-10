@@ -64,13 +64,13 @@
 				<source
 					media="(min-width: 640px)"
 					srcset={`${heroPicDesktop500} 500w, ${heroPicDesktop800} 800w, ${heroPicDesktop1100} 1100w, ${heroPicDesktop1400} 1400w`}
-					sizes="32vw"
+					sizes="27vw"
 				/>
 				<!-- Mobile versions (max-width: 639px) - aspect ratio 1.175 -->
 				<source
 					media="(max-width: 639px)"
 					srcset={`${heroPicMobile500} 500w, ${heroPicMobile800} 800w, ${heroPicMobile1100} 1100w`}
-					sizes="70vw"
+					sizes="65vw"
 				/>
 				<!-- Fallback img -->
 				<img
