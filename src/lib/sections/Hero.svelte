@@ -39,7 +39,7 @@
 		as="image"
 		media="(max-width: 639px)"
 		imagesrcset="{heroPicMobile500} 500w, {heroPicMobile800} 800w, {heroPicMobile1100} 1100w"
-		imagesizes="70vw"
+		imagesizes="65vw"
 		fetchpriority="high"
 	/>
 
@@ -48,7 +48,7 @@
 		as="image"
 		media="(min-width: 640px)"
 		imagesrcset="{heroPicDesktop500} 500w, {heroPicDesktop800} 800w, {heroPicDesktop1100} 1100w, {heroPicDesktop1400} 1400w"
-		imagesizes="32vw"
+		imagesizes="25vw"
 		fetchpriority="high"
 	/>
 </svelte:head>
@@ -74,13 +74,13 @@
 				<source
 					media="(min-width: 640px)"
 					srcset={`${heroPicDesktop500} 500w, ${heroPicDesktop800} 800w, ${heroPicDesktop1100} 1100w, ${heroPicDesktop1400} 1400w`}
-					sizes="32vw"
+					sizes="25vw"
 				/>
 				<!-- Mobile versions (max-width: 639px) - aspect ratio 1.175 -->
 				<source
 					media="(max-width: 639px)"
 					srcset={`${heroPicMobile500} 500w, ${heroPicMobile800} 800w, ${heroPicMobile1100} 1100w`}
-					sizes="70vw"
+					sizes="65vw"
 				/>
 				<!-- Fallback img -->
 				<img
