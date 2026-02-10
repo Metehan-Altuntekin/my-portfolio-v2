@@ -49,7 +49,6 @@
 		media="(min-width: 640px)"
 		imagesrcset="{heroPicDesktop500} 500w, {heroPicDesktop800} 800w, {heroPicDesktop1100} 1100w, {heroPicDesktop1400} 1400w"
 		imagesizes="25vw"
-		href={heroPicMobile500}
 		fetchpriority="high"
 	/>
 </svelte:head>
