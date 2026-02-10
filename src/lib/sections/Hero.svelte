@@ -91,7 +91,7 @@
 					alt="Mete on a pedestrian bridge over a highway in a sunny day. Car traffic, green trees and mountains on the background."
 					fetchpriority="high"
 					loading="eager"
-					decoding="async"
+					decoding="sync"
 				/>
 			</picture>
 		</div>
