@@ -38,7 +38,17 @@
 		rel="preload"
 		as="image"
 		media="(max-width: 639px)"
-		href={heroPicMobile500}
+		imagesrcset="{heroPicMobile500} 500w, {heroPicMobile800} 800w, {heroPicMobile1100} 1100w"
+		imagesizes="70vw"
+		fetchpriority="high"
+	/>
+
+	<link
+		rel="preload"
+		as="image"
+		media="(min-width: 640px)"
+		imagesrcset="{heroPicDesktop500} 500w, {heroPicDesktop800} 800w, {heroPicDesktop1100} 1100w, {heroPicDesktop1400} 1400w"
+		imagesizes="32vw"
 		fetchpriority="high"
 	/>
 </svelte:head>
@@ -70,7 +80,7 @@
 				<source
 					media="(max-width: 639px)"
 					srcset={`${heroPicMobile500} 500w, ${heroPicMobile800} 800w, ${heroPicMobile1100} 1100w`}
-					sizes="60vw"
+					sizes="70vw"
 				/>
 				<!-- Fallback img -->
 				<img
