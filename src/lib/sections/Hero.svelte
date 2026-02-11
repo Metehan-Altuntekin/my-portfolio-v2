@@ -10,7 +10,7 @@
 	import heroPicDesktop800 from '$lib/assets/optimized/hero-pic-800px-desktop.avif';
 	import heroPicDesktop500 from '$lib/assets/optimized/hero-pic-500px-desktop.jpeg';
 
-	import Icon from '@iconify/svelte';
+	import MailIcon from '~icons/foundation/mail';
 	import * as m from '$lib/paraglide/messages.js';
 
 	type Cta = {
@@ -128,7 +128,7 @@
 				href="mailto:dev@metehan.design"
 				class="card card-clickable flex-row items-center justify-center gap-3 px-5 py-3 xl:gap-6 xl:px-9 xl:py-5"
 			>
-				<Icon icon="foundation:mail" class="text-2xl lg:text-3xl xl:text-4xl" />
+				<MailIcon class="text-2xl lg:text-3xl xl:text-4xl" />
 				<span class="text-xl/7 lg:text-xl xl:text-2xl font-bold">dev@metehan.design</span>
 			</a>
 		</div>

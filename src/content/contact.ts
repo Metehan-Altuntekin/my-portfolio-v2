@@ -1,23 +1,28 @@
+import GitHubIcon from '~icons/mdi/github';
+import LinkedInIcon from '~icons/mdi/linkedin';
+import StackOverflowIcon from '~icons/academicons/stackoverflow';
+import TwitterIcon from '~icons/mdi/twitter';
+
 export const socials: Social[] = [
 	{
 		name: 'GitHub',
-		iconId: 'mdi:github',
+		icon: GitHubIcon,
 		url: 'https://github.com/Metehan-Altuntekin'
 	},
 
 	{
 		name: 'LinkedIn',
-		iconId: 'mdi:linkedin',
+		icon: LinkedInIcon,
 		url: 'https://www.linkedin.com/in/metehan-altuntekin/'
 	},
 	{
 		name: 'StackOverflow',
-		iconId: 'academicons:stackoverflow',
+		icon: StackOverflowIcon,
 		url: 'https://stackoverflow.com/users/17710523/metehan-altuntekin'
 	},
 	{
 		name: 'Twitter',
-		iconId: 'mdi:twitter',
+		icon: TwitterIcon,
 		url: 'https://x.com/metelomaniac'
 	}
 ];

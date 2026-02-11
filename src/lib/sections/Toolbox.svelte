@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { tools } from '$content';
-	import Icon from '@iconify/svelte';
+
 	import * as m from '$lib/paraglide/messages.js';
 </script>
 
@@ -14,7 +14,7 @@
 
 	<!-- Tools -->
 	<div class="flex gap-3 flex-wrap justify-center max-w-[1000px]">
-		{#each Object.values(tools) as t}
+		{#each Object.values(tools) as { name, icon: Icon }}
 			<!-- TODO name tooltip -->
 			<div
 				class="rounded-2xs bg-base-card-base backdrop-blur-2xl
@@ -22,9 +22,10 @@
 							lg:py-4 lg:px-2 lg:gap-3 lg:rounded-xs
 							xl:py-5 xl:px-3 xl:gap-4"
 			>
-				<Icon icon={t.iconId} class="h-10 w-10 xl:h-12 xl:w-12" />
+				<!-- <Icon icon={t.iconId} class="h-10 w-10 xl:h-12 xl:w-12" /> -->
+				<Icon class="h-10 w-10 xl:h-12 xl:w-12" />
 				<span class="text-sm font-medium w-24 text-center">
-					{t.name}
+					{name}
 				</span>
 			</div>
 		{/each}
