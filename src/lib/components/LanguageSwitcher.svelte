@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import EarthIcon from '~icons/mdi/earth';
-	import CheckIcon from '~icons/mdi/check';
+	import Icon from '@iconify/svelte';
 	import type { AvailableLanguageTag } from '$lib/paraglide/runtime';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
@@ -56,7 +55,7 @@
 		aria-expanded={dropdownOpen}
 		aria-haspopup="true"
 	>
-		<EarthIcon class="text-xl" />
+		<Icon icon="mdi:earth" class="text-xl" />
 		<span class="font-medium text-sm uppercase">{currentLang}</span>
 	</button>
 
@@ -76,7 +75,7 @@
 				>
 					<span>{lang.nativeName}</span>
 					{#if currentLang === lang.tag}
-						<CheckIcon class="text-base-content text-lg" />
+						<Icon icon="mdi:check" class="text-base-content text-lg" />
 					{/if}
 				</button>
 			{/each}

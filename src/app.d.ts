@@ -11,7 +11,7 @@ declare global {
 
 	type Tool = {
 		name: string;
-		icon: import('svelte').Component<SVGAttributes<SVGSVGElement>, {}, string>;
+		iconId: string;
 	};
 
 	type Project = {
@@ -36,7 +36,7 @@ declare global {
 	type Social = {
 		name: string;
 		url: string;
-		icon: import('svelte').Component<SVGAttributes<SVGSVGElement>, {}, string>;
+		iconId: string;
 	};
 
 	interface Post {

@@ -17,67 +17,58 @@ import breezbookBookingThumb from '$content/thumbs/breezbook-booking.webp';
 import breezbookBookingThumb400 from '$content/thumbs/breezbook-booking-400px.webp';
 import breezbookBookingThumb800 from '$content/thumbs/breezbook-booking-800px.webp';
 
-import TypeScriptIcon from '~icons/skill-icons/typescript';
-import FigmaIcon from '~icons/logos/figma';
-import SvelteIcon from '~icons/logos/svelte-icon';
-import TailwindIcon from '~icons/devicon/tailwindcss';
-import DaisyUIIcon from '~icons/logos/daisyui-icon';
-import SassIcon from '~icons/logos/sass';
-import ReactIcon from '~icons/logos/react';
-import SupabaseIcon from '~icons/devicon/supabase';
-import NextJsIcon from '~icons/devicon/nextjs';
-import MuiIcon from '~icons/simple-icons/mui';
-import NodeJsIcon from '~icons/logos/nodejs-icon';
-import AffinityDesignerIcon from '~icons/simple-icons/affinitydesigner';
-
 export const tools = {
 	ts: {
 		name: 'TypeScript',
-		icon: TypeScriptIcon
+		iconId: 'skill-icons:typescript'
 	},
 	figma: {
 		name: 'Figma',
-		icon: FigmaIcon
+		iconId: 'logos:figma'
 	},
 	svelte: {
 		name: 'Svelte/Kit',
-		icon: SvelteIcon
+		iconId: 'logos:svelte-icon'
 	},
 	tailwind: {
 		name: 'Tailwind CSS',
-		icon: TailwindIcon
+		iconId: 'devicon:tailwindcss'
 	},
 	daisyui: {
 		name: 'Daisy UI',
-		icon: DaisyUIIcon
+		iconId: 'logos:daisyui-icon'
 	},
 	sass: {
 		name: 'SASS',
-		icon: SassIcon
+		iconId: 'logos:sass'
 	},
 	react: {
 		name: 'React',
-		icon: ReactIcon
+		iconId: 'logos:react'
 	},
 	supabase: {
 		name: 'Supabase',
-		icon: SupabaseIcon
+		iconId: 'devicon:supabase'
 	},
 	nextJs: {
 		name: 'NextJS',
-		icon: NextJsIcon
+		iconId: 'devicon:nextjs'
 	},
+	// shadcn: {
+	// 	name: 'ShadCN',
+	// 	iconId: 'simple-icons:shadcnui'
+	// },
 	mui: {
 		name: 'Material UI',
-		icon: MuiIcon
+		iconId: 'simple-icons:mui'
 	},
 	nodejs: {
 		name: 'Node JS',
-		icon: NodeJsIcon
+		iconId: 'logos:nodejs-icon'
 	},
 	affinityDesigner: {
 		name: 'AD 2',
-		icon: AffinityDesignerIcon
+		iconId: 'simple-icons:affinitydesigner'
 	}
 } as const;
 
@@ -149,3 +140,4 @@ const projects: Project[] = [
 ];
 
 export default projects;
+

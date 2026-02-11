@@ -2,7 +2,6 @@ import { paraglide } from '@inlang/paraglide-sveltekit/vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
-import Icons from 'unplugin-icons/vite';
 
 // to be split into their own chunks automatically
 const heavyLibs: string[] = []; // e.g. "three"
@@ -11,9 +10,6 @@ export default defineConfig({
 	plugins: [
 		tailwindcss(),
 		sveltekit(),
-		Icons({
-			compiler: 'svelte'
-		}),
 		paraglide({
 			project: './project.inlang',
 			outdir: './src/lib/paraglide'

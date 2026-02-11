@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { socials } from '$content';
-	import MailIcon from '~icons/foundation/mail';
+	import Icon from '@iconify/svelte';
 	import * as m from '$lib/paraglide/messages.js';
-
-	import TwitterIcon from '~icons/devicon/twitter';
 </script>
 
 <section id="contact" class="flex flex-col items-center justify-center my-16 md:my-8">
@@ -22,7 +20,7 @@
 			class="card card-clickable flex-row items-center justify-center
             gap-3 px-8 py-5 rounded-sm"
 		>
-			<MailIcon class="text-2xl md:text-3xl " />
+			<Icon icon="foundation:mail" class="text-2xl md:text-3xl " />
 			<span class="text-2xl font-bold">dev@metehan.design</span>
 		</a>
 
@@ -31,9 +29,9 @@
 
 	<!-- Social -->
 	<div class="flex gap-5 md:gap-7 mt-12 md:mt-16">
-		{#each socials as { url, name, icon: Icon }}
-			<a href={url} target="_blank" class="cursor-pointer" title={name} aria-label={name}>
-				<Icon class="text-base-content-muted h-10 w-10 md:h-12 md:w-12" />
+		{#each socials as s}
+			<a href={s.url} target="_blank" class="cursor-pointer" title={s.name} aria-label={s.name}>
+				<Icon icon={s.iconId} class="text-base-content-muted h-10 w-10 md:h-12 md:w-12" />
 			</a>
 		{/each}
 	</div>

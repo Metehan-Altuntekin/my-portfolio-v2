@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getProjects } from '$content/index';
-	import ArrowOutwardIcon from '~icons/material-symbols/arrow-outward-rounded';
+	import Icon from '@iconify/svelte';
 	import * as m from '$lib/paraglide/messages.js';
 
 	const projects = getProjects();
@@ -52,7 +52,7 @@
 						>
 							<span class="chip bg-black/50 text-xl text-base-content">
 								{m.projects_visit_site()}
-								<ArrowOutwardIcon class="text-3xl ml-2 inline" />
+								<Icon icon="material-symbols:arrow-outward-rounded" class="text-3xl ml-2 inline" />
 							</span>
 						</div>
 					{/if}
@@ -75,7 +75,7 @@
 						<div class="chip rounded-3xs flex gap-2">
 							{#each p.tools as t}
 								<!-- TODO name tooltip -->
-								<svelte:component this={t.icon} class="h-5 w-5 text-trans" />
+								<Icon icon={t.iconId} class="h-5 w-5 text-trans" />
 							{/each}
 						</div>
 					</div>

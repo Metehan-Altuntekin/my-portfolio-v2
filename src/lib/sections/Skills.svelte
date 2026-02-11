@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getSkills } from '$content/index';
-	import ArrowCoolDownIcon from '~icons/material-symbols/arrow-cool-down';
+	import Icon from '@iconify/svelte';
 	import * as m from '$lib/paraglide/messages.js';
 
 	const skills = getSkills();
@@ -44,7 +44,10 @@
 
 			{#if i !== skills.length - 1}
 				<!-- <span class="text-5xl self-center">&#8674;</span> -->
-				<ArrowCoolDownIcon class="text-3xl lg:text-8xl self-center lg:-rotate-90 opacity-70" />
+				<Icon
+					icon="material-symbols:arrow-cool-down"
+					class="text-3xl lg:text-8xl self-center lg:-rotate-90 opacity-70"
+				/>
 			{/if}
 		{/each}
 	</div>
