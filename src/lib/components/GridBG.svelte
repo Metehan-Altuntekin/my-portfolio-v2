@@ -8,7 +8,7 @@
 <svelte:window bind:scrollY />
 
 <svelte:head>
-	<link rel="preload" as="image" href="/grid-dashed-bit.webp" fetchpriority="high" />
+	<link rel="preload" as="image" href="/grid-dashed-bit.webp" />
 </svelte:head>
 
 <div
