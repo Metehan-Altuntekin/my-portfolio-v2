@@ -3,6 +3,7 @@ import { redirect } from '@sveltejs/kit';
 import { i18n } from '$lib/i18n';
 import { dev } from '$app/environment';
 import { blogRedirects } from '$lib/blog-redirects';
+import { sequence } from '@sveltejs/kit/hooks';
 
 const handleParaglide: Handle = i18n.handle();
 
@@ -114,7 +115,7 @@ const handlePostHog: Handle = async ({ event, resolve }) => {
 	return resolve(event);
 };
 
-export const handle: Handle = async (input) => {
+const handleI18nPH: Handle = async (input) => {
 	// First apply PostHog proxy, then i18n
 	return handlePostHog({
 		event: input.event,
@@ -123,3 +124,24 @@ export const handle: Handle = async (input) => {
 		}
 	});
 };
+
+const handleRemovePreloads: Handle = async ({ event, resolve }) => {
+	return await resolve(event, {
+		preload: ({ type, path }) => {
+			if (type === 'js') {
+				// 1. Preload start.js and app.js
+				// These are usually < 5KB and essential for booting the app.
+				if (path.includes('entry/start') || path.includes('entry/app')) {
+					return true;
+				}
+
+				// 2. Other .js files don't preload
+				return false;
+			}
+			// Keep CSS and other assets
+			return true;
+		}
+	});
+};
+
+export const handle = sequence(handleI18nPH, handleRemovePreloads);
